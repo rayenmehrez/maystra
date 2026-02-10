@@ -7,6 +7,7 @@ import WhatYouGetSection from "@/components/WhatYouGetSection";
 import BonusesSection from "@/components/BonusesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import PricingSection from "@/components/PricingSection";
+import CoachSection from "@/components/CoachSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,6 +19,7 @@ const Index = () => {
       <JourneySection />
       <BeforeAfterSection />
       <WhatYouGetSection />
+      <CoachSection />
       <BonusesSection />
       <TestimonialsSection />
       <PricingSection />
