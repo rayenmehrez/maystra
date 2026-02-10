@@ -9,6 +9,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import PricingSection from "@/components/PricingSection";
 import CoachSection from "@/components/CoachSection";
 import Footer from "@/components/Footer";
+import InnerChildSection from "@/components/InnerChildSection";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <CoursesSection />
       <JourneySection />
       <BeforeAfterSection />
+      <InnerChildSection />
       <WhatYouGetSection />
       <CoachSection />
       <BonusesSection />
