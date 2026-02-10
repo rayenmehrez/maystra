@@ -26,7 +26,7 @@ const Index = () => {
       <BonusesSection />
       <TestimonialsSection />
       <PricingSection />
-      <PricingSection />
+      <PricingSection id="pricing-bottom" />
       <FAQSection />
       <Footer />
     </main>
