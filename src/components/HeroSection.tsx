@@ -1,5 +1,20 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FloatingDotsLight } from "./FloatingDots";
+
+const STORAGE_KEY = "maestra-countdown-end";
+
+function getEndTime() {
+  if (typeof window === "undefined") return Date.now() + 72 * 3600 * 1000;
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored) {
+    const end = parseInt(stored, 10);
+    if (end > Date.now()) return end;
+  }
+  const end = Date.now() + 72 * 3600 * 1000;
+  localStorage.setItem(STORAGE_KEY, end.toString());
+  return end;
+}
 const HeroSection = () => {
   const containerVariants = {
     hidden: {},
