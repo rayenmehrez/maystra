@@ -59,10 +59,13 @@ const TestimonialsSection = () => {
                 transition={{ duration: 0.3 }}
                 className="relative bg-card rounded-2xl p-6 md:p-8 shadow-purple border border-border/50 h-full flex flex-col"
               >
-                {/* Quote icon */}
-                <div className="mb-4 flex justify-end">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Quote className="w-5 h-5 text-primary" />
+                {/* Top row: badge + quote */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="bg-primary/10 text-primary text-[11px] font-bold rounded-full px-3 py-1">
+                    مشتركة في منهج المايسترا
+                  </span>
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Quote className="w-4 h-4 text-primary" />
                   </div>
                 </div>
 
@@ -79,16 +82,6 @@ const TestimonialsSection = () => {
                     </p>
                   </div>
                 )}
-
-                {/* Client badge */}
-                <div className="mt-5 pt-4 border-t border-border/50 flex items-center gap-3 justify-end">
-                  <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center">
-                    <span className="text-primary font-bold text-sm">{t.id}</span>
-                  </div>
-                  <span className="text-muted-foreground text-sm font-medium">
-                    مشتركة في منهج المايسترا
-                  </span>
-                </div>
               </motion.div>
             </AnimatedSection>
           ))}
