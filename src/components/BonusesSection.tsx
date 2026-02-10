@@ -34,17 +34,17 @@ const BonusesSection = () => {
               <motion.div
                 whileHover={{ y: -6, boxShadow: "0 16px 40px hsl(263 70% 58% / 0.18)" }}
                 transition={{ duration: 0.3 }}
-                className="bg-card rounded-2xl overflow-hidden shadow-purple-lg flex flex-col border border-border/30 p-6 text-center h-full"
+                className="bg-card rounded-2xl overflow-hidden shadow-purple-lg flex flex-col border border-border/30 p-6 pt-8 text-center h-full relative"
               >
+                {/* Badge top-right */}
+                <span className="absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full">
+                  هدية {bonus.num}
+                </span>
+
                 {/* Icon circle */}
                 <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
                   <bonus.icon className="w-6 h-6 text-primary" />
                 </div>
-
-                {/* Badge */}
-                <span className="inline-block bg-primary text-primary-foreground text-[11px] font-bold px-4 py-1 rounded-full mx-auto mb-4">
-                  هدية {bonus.num}
-                </span>
 
                 {/* Title */}
                 <h3 className="text-base font-extrabold text-foreground mb-2 leading-snug">
