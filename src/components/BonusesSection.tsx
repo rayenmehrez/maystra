@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
-import { Gift, BookOpen, Users, MessageCircle, Zap, NotebookPen, Heart, Award } from "lucide-react";
+import { Gem, BookAudio, UsersRound, Mic, Send, Flame, NotebookPen, GraduationCap } from "lucide-react";
 
 const bonuses = [
   { num: 1, icon: BookOpen, title: "كتاب PDF + Audio", desc: "نسختين من كتابي الجديد (كيف تقتل نجاحك)" },
