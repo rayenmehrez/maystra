@@ -34,18 +34,31 @@ const PricingSection = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
-          <div className="mb-8">
-            <p className="text-2xl line-through opacity-60 mb-2">$3,778</p>
-            <p className="text-6xl md:text-8xl font-extrabold mb-4">$1,199</p>
-            <p className="text-lg opacity-80 max-w-xl mx-auto leading-relaxed">
-              هذا عرض محدد الوقت — السعر الأصلي 2,199 دولار — متاح فقط خلال الـ 72 ساعة القادمة
+          <div className="mb-4">
+            <p className="text-base opacity-60 mb-1">القيمة الكاملة</p>
+            <p className="text-2xl line-through opacity-50 mb-1">$3,778</p>
+            <p className="text-sm opacity-60 mb-3">السعر الأصلي: $2,199</p>
+            <p className="text-6xl md:text-8xl font-extrabold mb-3">$1,199</p>
+            <p className="text-lg md:text-xl font-bold opacity-95 mb-6">
+              🎉 وفّري $2,579 اليوم فقط!
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.15}>
+          <div className="max-w-xl mx-auto mb-10 space-y-2">
+            <p className="text-base md:text-lg opacity-90 font-semibold">
+              12 دورة تحويلية + 8 هدايا حصرية
+            </p>
+            <p className="text-sm md:text-base opacity-75 leading-relaxed">
+              رحلة كاملة لتحوّل حقيقي ودائم — مع متابعة شخصية مع عبير
             </p>
           </div>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           {/* Countdown */}
-          <div className="flex items-center justify-center gap-4 mb-12" dir="ltr">
+          <div className="flex items-center justify-center gap-4 mb-10" dir="ltr">
             {[
               { value: pad(timeLeft.hours), label: "ساعة" },
               { value: pad(timeLeft.minutes), label: "دقيقة" },
@@ -68,8 +81,11 @@ const PricingSection = () => {
             rel="noopener noreferrer"
             className="inline-block bg-primary-foreground/20 backdrop-blur-sm text-primary-foreground font-bold text-xl px-12 py-5 rounded-full hover:scale-105 transition-transform duration-300 border border-primary-foreground/30 glow-purple"
           >
-            انضمي الآن
+            انضمي الآن — ابدأي رحلتك التحولية ✦
           </a>
+          <p className="mt-5 text-sm opacity-60">
+            🔒  دفع آمن ومضمون  •  تسجيلات مدى الحياة
+          </p>
         </AnimatedSection>
       </div>
     </section>
