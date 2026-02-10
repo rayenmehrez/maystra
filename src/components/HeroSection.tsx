@@ -138,8 +138,12 @@ const HeroSection = () => {
           </motion.a>
         </motion.div>
 
-        <motion.div variants={childVariants} className="mt-4">
+        <motion.div variants={childVariants} className="mt-4 flex flex-col items-center gap-2">
           <p className="text-sm opacity-60">⏳ عرض خاص — متاح لمدة 72 ساعة فقط</p>
+          <div className="mt-2 inline-flex items-center gap-3 border-2 border-dashed border-green-400 rounded-full px-6 py-2.5 bg-green-400/10 backdrop-blur-sm">
+            <span className="text-sm line-through opacity-50 text-primary-foreground">$3,778</span>
+            <span className="text-2xl md:text-3xl font-extrabold text-green-400">$1,199</span>
+          </div>
         </motion.div>
       </motion.div>
     </section>;
