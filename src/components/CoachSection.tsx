@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import FloatingDots from "./FloatingDots";
 import coachImage from "@/assets/coach-abeer.png";
 
 const stats = [
@@ -21,8 +22,7 @@ const CoachSection = () => {
       </div>
 
       {/* Floating dots */}
-      <div className="absolute top-[20%] left-[8%] w-16 h-16 rounded-full bg-primary/10 blur-xl float-dot-1 pointer-events-none" />
-      <div className="absolute bottom-[15%] right-[6%] w-20 h-20 rounded-full bg-primary/8 blur-2xl float-dot-2 pointer-events-none" />
+      <FloatingDots />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
