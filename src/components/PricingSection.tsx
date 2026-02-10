@@ -166,7 +166,7 @@ const PricingSection = () => {
                 وفّري أكثر من 68%
               </span>
               <a
-                href="#full-payment"
+                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-lg md:text-xl py-5 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
