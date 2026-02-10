@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import FloatingDots from "./FloatingDots";
 import coachImage from "@/assets/coach-abeer.png";
 
 const stats = [
