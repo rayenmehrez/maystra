@@ -32,18 +32,25 @@ const BonusesSection = () => {
           {bonuses.map((bonus, i) => (
             <AnimatedSection key={i} delay={0.05 * i}>
               <motion.div
-                whileHover={{ y: -6, boxShadow: "0 12px 36px hsl(263 70% 58% / 0.15)" }}
+                whileHover={{ y: -8, boxShadow: "0 16px 40px hsl(263 70% 58% / 0.18)" }}
                 transition={{ duration: 0.3 }}
-                className="bg-card rounded-2xl p-6 shadow-purple border-t-4 border-primary flex flex-col h-[280px]"
+                className="group bg-card rounded-2xl overflow-hidden shadow-purple flex flex-col h-[260px] border border-border/40"
               >
-                <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4">
-                  <bonus.icon className="w-6 h-6 text-primary" />
+                {/* Top accent bar with icon */}
+                <div className="gradient-pricing px-5 py-4 flex items-center justify-between">
+                  <span className="text-primary-foreground/70 text-[11px] font-bold tracking-wider uppercase">
+                    BONUS {bonus.num}
+                  </span>
+                  <div className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center backdrop-blur-sm">
+                    <bonus.icon className="w-4.5 h-4.5 text-primary-foreground" />
+                  </div>
                 </div>
-                <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-1 w-fit mb-3">
-                  BONUS {bonus.num}
+
+                {/* Content */}
+                <div className="flex flex-col flex-1 px-5 py-5">
+                  <h3 className="text-[15px] font-bold text-foreground mb-2 leading-snug">{bonus.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mt-auto">{bonus.desc}</p>
                 </div>
-                <h3 className="text-base font-bold text-foreground mb-2 leading-snug">{bonus.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mt-auto">{bonus.desc}</p>
               </motion.div>
             </AnimatedSection>
           ))}
