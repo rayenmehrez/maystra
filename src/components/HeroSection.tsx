@@ -41,7 +41,19 @@ const HeroSection = () => {
           variants={childVariants}
           className="max-w-3xl mx-auto mb-12 relative"
         >
-          <div className="aspect-video rounded-2xl bg-foreground/10 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center glow-purple overflow-hidden">
+          {/* Rotating border light */}
+          <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
+            <div
+              className="absolute inset-0 animate-[spin_4s_linear_infinite]"
+              style={{
+                background: "conic-gradient(from 0deg, transparent 0%, transparent 60%, hsl(263 70% 75%) 75%, hsl(0 0% 100% / 0.9) 80%, hsl(263 70% 75%) 85%, transparent 100%)",
+              }}
+            />
+          </div>
+          {/* Inner bg to mask the gradient behind content */}
+          <div className="absolute inset-[2px] rounded-[14px] gradient-hero" />
+
+          <div className="relative aspect-video rounded-2xl bg-foreground/10 backdrop-blur-sm flex items-center justify-center overflow-hidden">
             <button className="w-20 h-20 rounded-full bg-primary-foreground/20 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-transform duration-300 border border-primary-foreground/30">
               <svg className="w-8 h-8 text-primary-foreground mr-[-2px]" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
