@@ -3,7 +3,7 @@ import FloatingDots from "./FloatingDots";
 import { Check } from "lucide-react";
 const items = ["12 دورة عميقة وفعالة", "تمارين بسيطة لكنها فعّالة", "مجتمع دعم صحّي وملهم", "تسجيلات مدى الحياة", "منهج متسلسل بوعي وترتيب دقيق", "انتقال تدريجي من جرح… إلى وعي… إلى قيادة جديدة", "متابعة شخصية مع المدربة عبير", "مواد إضافية تعزز رحلتك التحولية"];
 const WhatYouGetSection = () => {
-  return <section className="relative bg-card overflow-hidden py-[40px]">
+  return <section className="relative bg-card overflow-hidden py-[40px] mt-10">
       <FloatingDots />
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection>
