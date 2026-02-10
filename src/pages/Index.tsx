@@ -11,6 +11,7 @@ import CoachSection from "@/components/CoachSection";
 import Footer from "@/components/Footer";
 import InnerChildSection from "@/components/InnerChildSection";
 import FAQSection from "@/components/FAQSection";
+import FinalCTASection from "@/components/FinalCTASection";
 
 const Index = () => {
   return (
@@ -26,8 +27,8 @@ const Index = () => {
       <BonusesSection />
       <TestimonialsSection />
       <PricingSection />
-      <PricingSection />
       <FAQSection />
+      <FinalCTASection />
       <Footer />
     </main>
   );
