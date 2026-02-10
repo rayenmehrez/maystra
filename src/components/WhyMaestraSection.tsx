@@ -1,22 +1,22 @@
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import { Sparkles, Layers, Target } from "lucide-react";
-
-const cards = [
-  { icon: Sparkles, title: "12 دورة تحويلية" },
-  { icon: Layers, title: "رحلة متكاملة" },
-  { icon: Target, title: "تبدأ من الجذور وتنتهي بقيادة حياتك" },
-];
-
+const cards = [{
+  icon: Sparkles,
+  title: "12 دورة تحويلية"
+}, {
+  icon: Layers,
+  title: "رحلة متكاملة"
+}, {
+  icon: Target,
+  title: "تبدأ من الجذور وتنتهي بقيادة حياتك"
+}];
 const WhyMaestraSection = () => {
-  return (
-    <section className="relative py-24 bg-lavender overflow-hidden">
+  return <section className="relative bg-lavender overflow-hidden py-[55px]">
       <FloatingDots />
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 text-foreground">
-            لماذا منهج المايسترا؟
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 text-foreground">لماذا منهج المايسترا؟</h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
@@ -30,20 +30,16 @@ const WhyMaestraSection = () => {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {cards.map((card, i) => (
-            <AnimatedSection key={i} delay={0.2 + i * 0.1}>
+          {cards.map((card, i) => <AnimatedSection key={i} delay={0.2 + i * 0.1}>
               <div className="bg-card rounded-2xl p-8 text-center shadow-purple hover:shadow-purple-lg hover:-translate-y-1 transition-all duration-300">
                 <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-5">
                   <card.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground">{card.title}</h3>
               </div>
-            </AnimatedSection>
-          ))}
+            </AnimatedSection>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default WhyMaestraSection;
