@@ -162,7 +162,7 @@ const PricingSection = () => {
                 <p className="text-3xl md:text-4xl font-extrabold text-primary">$1,199</p>
                 <p className="text-lg text-muted-foreground line-through">$3,778</p>
               </div>
-              <span className="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full mb-4">
+              <span className="inline-block bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full mb-4">
                 وفّري أكثر من 68%
               </span>
               <a
