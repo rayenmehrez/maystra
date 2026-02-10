@@ -19,6 +19,7 @@ const Index = () => {
       <JourneySection />
       <BeforeAfterSection />
       <WhatYouGetSection />
+      <CoachSection />
       <BonusesSection />
       <TestimonialsSection />
       <PricingSection />
