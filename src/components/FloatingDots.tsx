@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const useParallax = (speed: number) => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, speed]);
+  const y = useTransform(scrollY, [0, 3000], [0, speed]);
   return y;
 };
 
+/** Dark dots for light-background sections */
 const FloatingDots = () => {
   const y1 = useParallax(-40);
   const y2 = useParallax(-25);
   return (
     <>
-      <motion.div style={{ y: y1 }} className="absolute top-[15%] right-[10%] w-3 h-3 rounded-full bg-primary/30 float-dot-1 pointer-events-none" />
-      <motion.div style={{ y: y2 }} className="absolute bottom-[20%] left-[8%] w-2 h-2 rounded-full bg-primary/20 float-dot-2 pointer-events-none" />
+      <motion.div style={{ y: y1 }} className="absolute top-[12%] right-[8%] w-14 h-14 rounded-full bg-primary/15 blur-xl float-dot-1 pointer-events-none" />
+      <motion.div style={{ y: y2 }} className="absolute bottom-[18%] left-[10%] w-16 h-16 rounded-full bg-primary/12 blur-2xl float-dot-2 pointer-events-none" />
     </>
   );
 };
 
+/** Light dots for dark/purple-background sections (hero, pricing) */
 export const FloatingDotsLight = () => {
   const y1 = useParallax(-60);
   const y2 = useParallax(-30);
