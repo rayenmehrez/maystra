@@ -9,12 +9,14 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import PricingSection from "@/components/PricingSection";
 import CoachSection from "@/components/CoachSection";
 import Footer from "@/components/Footer";
+import TransformationWheelSection from "@/components/TransformationWheel";
 
 const Index = () => {
   return (
     <main>
       <HeroSection />
       <WhyMaestraSection />
+      <TransformationWheelSection />
       <CoursesSection />
       <JourneySection />
       <BeforeAfterSection />
