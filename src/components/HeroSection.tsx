@@ -54,19 +54,14 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Pricing urgency */}
-        <motion.div variants={childVariants} className="mb-8">
-          <p className="text-base opacity-60 mb-1">القيمة الكاملة</p>
-          <p className="text-2xl line-through opacity-50 mb-1">$3,778</p>
-          <p className="text-5xl md:text-6xl font-extrabold mb-2">$1,199</p>
-          <p className="text-base font-bold opacity-90 mb-1">🎉 وفّري $2,579</p>
-          <p className="text-sm opacity-60">⏳ عرض خاص — متاح لمدة 72 ساعة فقط</p>
-        </motion.div>
-
         <motion.div variants={childVariants}>
           <a href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-purple-lg font-semibold">
             انضمي الآن وابدأي رحلتك التحولية
           </a>
+        </motion.div>
+
+        <motion.div variants={childVariants} className="mt-4">
+          <p className="text-sm opacity-60">⏳ عرض خاص — متاح لمدة 72 ساعة فقط</p>
         </motion.div>
       </motion.div>
     </section>;
