@@ -63,7 +63,9 @@ const PricingSection = () => {
 
         <AnimatedSection delay={0.3}>
           <a
-            href="#"
+            href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-primary-foreground/20 backdrop-blur-sm text-primary-foreground font-bold text-xl px-12 py-5 rounded-full hover:scale-105 transition-transform duration-300 border border-primary-foreground/30 glow-purple"
           >
             انضمي الآن
