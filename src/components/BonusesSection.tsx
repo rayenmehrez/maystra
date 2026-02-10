@@ -1,8 +1,7 @@
-import { useRef } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
-import { Gift, BookOpen, Users, MessageCircle, Zap, NotebookPen, Heart, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { Gift, BookOpen, Users, MessageCircle, Zap, NotebookPen, Heart, Award } from "lucide-react";
 
 const bonuses = [
   { num: 1, icon: BookOpen, title: "كتاب PDF + Audio", desc: "نسختين من كتابي الجديد (كيف تقتل نجاحك)" },
@@ -16,17 +15,6 @@ const bonuses = [
 ];
 
 const BonusesSection = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (dir: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const amount = 280;
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -amount : amount,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section className="relative py-24 bg-lavender overflow-hidden">
       <FloatingDots />
@@ -40,36 +28,13 @@ const BonusesSection = () => {
           </div>
         </AnimatedSection>
 
-        {/* Carousel navigation */}
-        <div className="flex justify-center gap-3 mt-8 mb-6">
-          <button
-            onClick={() => scroll("right")}
-            className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-            aria-label="السابق"
-          >
-            <ChevronRight className="w-5 h-5 text-primary" />
-          </button>
-          <button
-            onClick={() => scroll("left")}
-            className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-            aria-label="التالي"
-          >
-            <ChevronLeft className="w-5 h-5 text-primary" />
-          </button>
-        </div>
-
-        {/* Carousel */}
-        <div
-          ref={scrollRef}
-          className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14 max-w-6xl mx-auto">
           {bonuses.map((bonus, i) => (
             <AnimatedSection key={i} delay={0.05 * i}>
               <motion.div
                 whileHover={{ y: -6, boxShadow: "0 12px 36px hsl(263 70% 58% / 0.15)" }}
                 transition={{ duration: 0.3 }}
-                className="snap-start flex-shrink-0 w-[240px] bg-card rounded-2xl p-6 shadow-purple border-t-4 border-primary flex flex-col h-[280px]"
+                className="bg-card rounded-2xl p-6 shadow-purple border-t-4 border-primary flex flex-col h-[280px]"
               >
                 <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4">
                   <bonus.icon className="w-6 h-6 text-primary" />
