@@ -64,7 +64,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        arabic: ['"Noto Kufi Arabic"', 'Segoe UI', 'Tahoma', 'sans-serif'],
+        arabic: ['"IBM Plex Sans Arabic"', 'Segoe UI', 'Tahoma', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
