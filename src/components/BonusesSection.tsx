@@ -4,14 +4,14 @@ import FloatingDots from "./FloatingDots";
 import { Gem, BookAudio, UsersRound, Mic, Send, Flame, NotebookPen, GraduationCap } from "lucide-react";
 
 const bonuses = [
-  { num: 1, icon: BookOpen, title: "كتاب PDF + Audio", desc: "نسختين من كتابي الجديد (كيف تقتل نجاحك)" },
-  { num: 2, icon: Users, title: "3 جلسات متابعة جماعية مع عبير", desc: "90 دقيقة/شهر" },
-  { num: 3, icon: Zap, title: "ورشة 90 دقيقة", desc: "عندما تتوقف عن المعاناة… وتبدأ القيادة" },
-  { num: 4, icon: MessageCircle, title: "قناة تليغرام لمدة 3 أشهر", desc: "تواصل ودعم مستمر" },
-  { num: 5, icon: Heart, title: "Maestra Micro Practices", desc: "12 ممارسة يومية" },
+  { num: 1, icon: BookAudio, title: "كتاب PDF + Audio", desc: "نسختين من كتابي الجديد (كيف تقتل نجاحك)" },
+  { num: 2, icon: UsersRound, title: "3 جلسات متابعة جماعية مع عبير", desc: "90 دقيقة/شهر" },
+  { num: 3, icon: Mic, title: "ورشة 90 دقيقة", desc: "عندما تتوقف عن المعاناة… وتبدأ القيادة" },
+  { num: 4, icon: Send, title: "قناة تليغرام لمدة 3 أشهر", desc: "تواصل ودعم مستمر" },
+  { num: 5, icon: Flame, title: "Maestra Micro Practices", desc: "12 ممارسة يومية" },
   { num: 6, icon: NotebookPen, title: "دفتر المايسترا", desc: "Digital Journal" },
-  { num: 7, icon: BookOpen, title: "كتيب 100 يوم Stress Free", desc: "دليلك للتخلص من التوتر" },
-  { num: 8, icon: Award, title: "شهادة Maestra Leadership", desc: "شهادة إتمام البرنامج" },
+  { num: 7, icon: Gem, title: "كتيب 100 يوم Stress Free", desc: "دليلك للتخلص من التوتر" },
+  { num: 8, icon: GraduationCap, title: "شهادة Maestra Leadership", desc: "شهادة إتمام البرنامج" },
 ];
 
 const BonusesSection = () => {
