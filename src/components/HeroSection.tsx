@@ -44,9 +44,9 @@ const HeroSection = () => {
           {/* Rotating border light */}
           <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
             <div
-              className="absolute inset-0 animate-[spin_4s_linear_infinite]"
+              className="absolute inset-0 animate-[spin_6s_linear_infinite]"
               style={{
-                background: "conic-gradient(from 0deg, transparent 0%, transparent 60%, hsl(263 70% 75%) 75%, hsl(0 0% 100% / 0.9) 80%, hsl(263 70% 75%) 85%, transparent 100%)",
+                background: "conic-gradient(from 0deg, transparent 0%, transparent 85%, hsl(0 0% 100% / 0.9) 92%, transparent 100%)",
               }}
             />
           </div>
