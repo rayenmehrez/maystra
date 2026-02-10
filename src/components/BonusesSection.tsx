@@ -28,27 +28,33 @@ const BonusesSection = () => {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-14 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14 max-w-5xl mx-auto">
           {bonuses.map((bonus, i) => (
             <AnimatedSection key={i} delay={0.05 * i}>
               <motion.div
-                whileHover={{ y: -8, boxShadow: "0 16px 40px hsl(263 70% 58% / 0.18)" }}
+                whileHover={{ y: -6, boxShadow: "0 16px 40px hsl(263 70% 58% / 0.18)" }}
                 transition={{ duration: 0.3 }}
-                className="bg-card rounded-xl overflow-hidden shadow-purple flex flex-col border border-border/40"
+                className="bg-card rounded-2xl overflow-hidden shadow-purple-lg flex flex-col border border-border/30 p-6 text-center h-full"
               >
-                {/* Compact header */}
-                <div className="gradient-pricing px-4 py-3 flex items-center gap-2.5">
-                  <bonus.icon className="w-4 h-4 text-primary-foreground" />
-                  <span className="text-primary-foreground text-[11px] font-bold tracking-wider uppercase">
-                    هدية {bonus.num}
-                  </span>
+                {/* Icon circle */}
+                <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                  <bonus.icon className="w-6 h-6 text-primary" />
                 </div>
 
-                {/* Content */}
-                <div className="px-4 py-4">
-                  <h3 className="text-sm font-bold text-foreground mb-1.5 leading-snug">{bonus.title}</h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed">{bonus.desc}</p>
-                </div>
+                {/* Badge */}
+                <span className="inline-block bg-primary text-primary-foreground text-[11px] font-bold px-4 py-1 rounded-full mx-auto mb-4">
+                  هدية {bonus.num}
+                </span>
+
+                {/* Title */}
+                <h3 className="text-base font-extrabold text-foreground mb-2 leading-snug">
+                  {bonus.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {bonus.desc}
+                </p>
               </motion.div>
             </AnimatedSection>
           ))}
