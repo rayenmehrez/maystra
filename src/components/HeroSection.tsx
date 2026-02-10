@@ -55,9 +55,29 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div variants={childVariants}>
-          <a href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-purple-lg font-semibold">
+          <motion.a
+            href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
+            animate={{
+              scale: [1, 1.06, 1],
+              boxShadow: [
+                "0 8px 30px hsl(263 70% 58% / 0.18)",
+                "0 12px 40px hsl(263 70% 58% / 0.4)",
+                "0 8px 30px hsl(263 70% 58% / 0.18)",
+              ],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.97 }}
+          >
             انضمي الآن وابدأي رحلتك التحولية
-          </a>
+          </motion.a>
         </motion.div>
 
         <motion.div variants={childVariants} className="mt-4">
