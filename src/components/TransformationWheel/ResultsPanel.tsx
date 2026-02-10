@@ -79,7 +79,9 @@ const ResultsPanel = ({ ratings, onReset }: ResultsPanelProps) => {
       {/* CTA */}
       <motion.div variants={fadeUp} className="text-center space-y-3">
         <a
-          href="#pricing"
+          href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block w-full bg-primary text-primary-foreground text-base font-bold py-3.5 px-8 rounded-full hover:scale-[1.03] transition-transform duration-300 glow-purple"
         >
           ابدأي رحلة التحوّل الآن

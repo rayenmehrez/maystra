@@ -55,7 +55,7 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div variants={childVariants}>
-          <a href="#pricing" className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-purple-lg font-semibold">
+          <a href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-purple-lg font-semibold">
             انضمي الآن وابدأي رحلتك التحولية
           </a>
         </motion.div>

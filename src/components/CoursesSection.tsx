@@ -84,6 +84,19 @@ const CoursesSection = () => {
             <CourseCard key={course.num} course={course} index={i} />
           ))}
         </div>
+
+        <AnimatedSection delay={0.3}>
+          <div className="text-center mt-12">
+            <a
+              href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground font-bold text-lg px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-purple-lg"
+            >
+              تفاصيل الدورات الـ 12
+            </a>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
