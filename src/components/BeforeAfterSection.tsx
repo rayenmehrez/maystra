@@ -10,7 +10,7 @@ const BeforeAfterSection = () => {
     once: true,
     margin: "-80px"
   });
-  return <section ref={ref} className="relative py-24 bg-background overflow-hidden md:py-[31px]">
+  return <section ref={ref} className="relative py-24 bg-background overflow-hidden md:py-[31px] mt-10">
       <FloatingDots />
 
       <div className="container mx-auto px-6 relative z-10">
