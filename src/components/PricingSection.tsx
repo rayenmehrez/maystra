@@ -121,7 +121,7 @@ const PricingSection = () => {
               </p>
               <p className="text-muted-foreground/60 text-xs mb-6">بدون أي زيادة في السعر</p>
               <a
-                href="#installment-payment"
+                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7-50/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-base md:text-lg py-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
