@@ -54,11 +54,19 @@ const AudioFeedback = () => {
 
   const pct = duration ? (progress / duration) * 100 : 0;
 
-  // Generate fake waveform bars
+  // Generate waveform bars with base heights
   const bars = Array.from({ length: 40 }, (_, i) => {
     const h = 20 + Math.sin(i * 0.7) * 15 + Math.cos(i * 1.3) * 10;
     return Math.max(8, Math.min(40, h));
   });
+
+  // Animated heights for playing state
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    if (!isPlaying) return;
+    const id = setInterval(() => setTick((t) => t + 1), 120);
+    return () => clearInterval(id);
+  }, [isPlaying]);
 
   return (
     <motion.div
@@ -107,9 +115,11 @@ const AudioFeedback = () => {
                 return (
                   <div
                     key={i}
-                    className="flex-1 rounded-full transition-colors duration-200"
+                    className="flex-1 rounded-full transition-all duration-150"
                     style={{
-                      height: `${h}px`,
+                      height: isPlaying && isActive
+                        ? `${Math.max(8, h + Math.sin(tick * 0.5 + i * 0.8) * 12 + Math.cos(tick * 0.3 + i * 1.2) * 8)}px`
+                        : `${h}px`,
                       backgroundColor: isActive
                         ? "hsl(var(--primary))"
                         : "hsl(var(--muted-foreground) / 0.2)",
