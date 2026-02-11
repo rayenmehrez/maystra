@@ -54,9 +54,7 @@ const FAQSection = () => {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.4}>
-          
-        </AnimatedSection>
+        
       </div>
     </section>;
 };
