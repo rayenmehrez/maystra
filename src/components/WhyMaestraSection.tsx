@@ -1,16 +1,22 @@
+import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import { Sparkles, Layers, Target } from "lucide-react";
+
 const cards = [{
   icon: Sparkles,
-  title: "12 دورة تحويلية"
+  title: "12 دورة تحويلية",
+  desc: "دورات مصممة بعمق لتحويل حقيقي"
 }, {
   icon: Layers,
-  title: "رحلة متكاملة"
+  title: "رحلة متكاملة",
+  desc: "منهج مترابط يبني على بعضه خطوة بخطوة"
 }, {
   icon: Target,
-  title: "تبدأ من الجذور وتنتهي بقيادة حياتك"
+  title: "من الجذور إلى القيادة",
+  desc: "تبدأ من الجذور وتنتهي بقيادة حياتك"
 }];
+
 const WhyMaestraSection = () => {
   return <section className="relative bg-lavender overflow-hidden py-[55px]">
       <FloatingDots />
@@ -31,12 +37,22 @@ const WhyMaestraSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {cards.map((card, i) => <AnimatedSection key={i} delay={0.2 + i * 0.1}>
-              <div className="bg-card rounded-2xl p-8 text-center shadow-purple hover:shadow-purple-lg hover:-translate-y-1 transition-all duration-300">
-                <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-5">
-                  <card.icon className="w-7 h-7 text-primary" />
+              <motion.div
+                whileHover={{ y: -8, boxShadow: "0 20px 50px hsl(263 70% 58% / 0.22)" }}
+                transition={{ duration: 0.3 }}
+                className="relative bg-card rounded-2xl p-8 text-center shadow-purple-lg border border-border/40 overflow-hidden h-full group"
+              >
+                {/* Gradient accent top bar */}
+                <div className="absolute top-0 inset-x-0 h-1 gradient-pricing rounded-t-2xl" />
+
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <card.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground">{card.title}</h3>
-              </div>
+
+                <h3 className="text-xl font-extrabold text-foreground mb-2">{card.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
+              </motion.div>
             </AnimatedSection>)}
         </div>
       </div>
