@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import { Quote } from "lucide-react";
+import AudioFeedback from "./AudioFeedback";
 
 const testimonials = [
   {
@@ -86,6 +87,9 @@ const TestimonialsSection = () => {
             </AnimatedSection>
           ))}
         </div>
+
+        {/* Audio Feedback */}
+        <AudioFeedback />
       </div>
     </section>
   );
