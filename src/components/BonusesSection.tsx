@@ -32,27 +32,30 @@ const BonusesSection = () => {
           {bonuses.map((bonus, i) => (
             <AnimatedSection key={i} delay={0.05 * i}>
               <motion.div
-                whileHover={{ y: -6, boxShadow: "0 16px 40px hsl(263 70% 58% / 0.18)" }}
+                whileHover={{ y: -6, boxShadow: "0 16px 40px hsl(263 70% 58% / 0.25)" }}
                 transition={{ duration: 0.3 }}
-                className="bg-card rounded-2xl overflow-hidden shadow-purple-lg flex flex-col border border-border/30 p-6 pt-8 text-center h-full relative"
+                className="relative bg-card rounded-2xl overflow-hidden shadow-purple-lg flex flex-col border border-border/30 p-6 pt-8 text-center h-full group"
               >
+                {/* Purple light glow */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(ellipse_at_50%_0%,hsl(263_70%_58%/0.12)_0%,transparent_70%)]" />
+
                 {/* Badge top-right */}
-                <span className="absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full">
+                <span className="relative z-10 absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full">
                   هدية {bonus.num}
                 </span>
 
                 {/* Icon circle */}
-                <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                <div className="relative z-10 w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
                   <bonus.icon className="w-6 h-6 text-primary" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base font-extrabold text-foreground mb-2 leading-snug">
+                <h3 className="relative z-10 text-base font-extrabold text-foreground mb-2 leading-snug">
                   {bonus.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="relative z-10 text-muted-foreground text-sm leading-relaxed">
                   {bonus.desc}
                 </p>
               </motion.div>
