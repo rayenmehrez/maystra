@@ -76,7 +76,7 @@ const AudioFeedback = () => {
       transition={{ duration: 0.6 }}
       className="max-w-2xl mx-auto mt-14"
     >
-      <div className="relative bg-card rounded-2xl p-6 md:p-8 shadow-purple-lg border border-primary/20 overflow-hidden">
+      <div className={`relative bg-card rounded-2xl p-6 md:p-8 border overflow-hidden transition-all duration-500 ${isPlaying ? "shadow-[0_0_30px_hsl(263_70%_58%/0.35),0_0_60px_hsl(263_70%_58%/0.15)] border-primary/40" : "shadow-purple-lg border-primary/20"}`}>
         {/* Gradient accent */}
         <div className="absolute top-0 left-0 right-0 h-1 gradient-pricing" />
 
