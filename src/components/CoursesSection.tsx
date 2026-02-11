@@ -86,16 +86,7 @@ const CoursesSection = () => {
         </div>
 
         <AnimatedSection delay={0.3}>
-          
-
-
-
-
-
-
-
-
-
+          <div />
         </AnimatedSection>
       </div>
     </section>);
