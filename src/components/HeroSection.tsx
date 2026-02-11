@@ -60,7 +60,7 @@ const HeroSection = () => {
   };
   return <section className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden">
       {/* Bottom fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-[hsl(263_70%_45%/0.4)] to-background z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-[hsl(263_70%_45%/0.15)] to-background z-20 backdrop-blur-sm" />
       <FloatingDotsLight />
       <motion.div className="container mx-auto px-6 py-20 text-center text-primary-foreground relative z-10" variants={containerVariants} initial="hidden" animate="visible">
         <motion.h1 variants={childVariants} className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
