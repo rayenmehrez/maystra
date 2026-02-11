@@ -111,6 +111,15 @@
   }
 }
 
+@keyframes wave-drift {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+}
+
 @layer utilities {
   .float-dot-1 {
     animation: float-slow 8s ease-in-out infinite;
