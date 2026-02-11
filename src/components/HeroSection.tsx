@@ -60,9 +60,9 @@ const HeroSection = () => {
   };
   return <section className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden">
       {/* Bottom fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 z-20">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[80px] block" fill="hsl(var(--background))">
-          <path d="M0,40 C240,100 480,0 720,50 C960,100 1200,10 1440,40 L1440,120 L0,120 Z" />
+      <div className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-[200%] h-[60px] md:h-[80px] block animate-[wave-drift_8s_ease-in-out_infinite]" fill="hsl(var(--background))">
+          <path d="M0,40 C240,100 480,0 720,50 C960,100 1200,10 1440,40 C1680,100 1920,0 2160,50 C2400,100 2640,10 2880,40 L2880,120 L0,120 Z" />
         </svg>
       </div>
       <FloatingDotsLight />
