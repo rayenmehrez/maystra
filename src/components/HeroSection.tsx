@@ -70,10 +70,10 @@ const HeroSection = () => {
 
         {/* VSL Video Placeholder */}
         <motion.div variants={childVariants} className="max-w-3xl mx-auto mb-12 relative">
-          {/* Rotating border light */}
+          {/* Rotating short light line */}
           <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
-           <div className="absolute inset-0 animate-[spin_6s_linear_infinite]" style={{
-            background: "conic-gradient(from 0deg, hsl(263 70% 50% / 0.3) 0%, hsl(280 80% 65%) 15%, hsl(320 70% 70%) 30%, hsl(263 90% 80% / 0.9) 45%, hsl(220 80% 70%) 60%, hsl(263 70% 50% / 0.3) 75%, transparent 100%)"
+           <div className="absolute inset-0 animate-[spin_4s_linear_infinite]" style={{
+            background: "conic-gradient(from 0deg, transparent 0%, transparent 85%, hsl(280 80% 70%) 91%, hsl(263 90% 85%) 94%, hsl(280 80% 70%) 97%, transparent 100%)"
           }} />
           </div>
           {/* Inner bg to mask the gradient behind content */}
