@@ -40,7 +40,7 @@ const BonusesSection = () => {
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(ellipse_at_50%_0%,hsl(263_70%_58%/0.12)_0%,transparent_70%)]" />
 
                 {/* Badge top-right */}
-                <span className="relative z-10 absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full">
+                <span className="absolute top-3 right-3 z-20 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full">
                   هدية {bonus.num}
                 </span>
 
