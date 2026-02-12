@@ -24,48 +24,65 @@ const CourseCard = ({ course, index }: {course: typeof courses[0];index: number;
 
   return (
     <AnimatedSection delay={0.05 * index}>
-      <div className="bg-card rounded-2xl shadow-purple hover:shadow-purple-lg transition-all duration-300 overflow-hidden border-r-4 border-primary">
-        <div className="p-6 md:p-8">
+      <motion.div
+        whileHover={{ y: -3, boxShadow: "0 16px 40px hsl(263 70% 58% / 0.15)" }}
+        transition={{ duration: 0.25 }}
+        className="relative bg-card rounded-2xl overflow-hidden border border-border/40 group cursor-pointer"
+        onClick={() => setExpanded(!expanded)}
+      >
+        {/* Top accent line */}
+        <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-l from-primary via-primary/60 to-transparent" />
+
+        {/* Hover glow */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(ellipse_at_50%_0%,hsl(263_70%_58%/0.06)_0%,transparent_60%)]" />
+
+        <div className="relative z-10 p-6 md:p-7">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-              <span className="text-primary-foreground font-bold text-lg">{course.num}</span>
+            {/* Number badge */}
+            <div className="relative flex-shrink-0">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                <span className="font-bold text-lg text-primary group-hover:text-primary-foreground transition-colors duration-300">{course.num}</span>
+              </div>
             </div>
-            <div className="flex-1">
-              <h3 className="text-xl font-bold text-foreground mb-2">{course.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{course.preview}</p>
+
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-lg font-bold text-foreground">{course.title}</h3>
+                <motion.div
+                  animate={{ rotate: expanded ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-8 h-8 rounded-full bg-accent flex items-center justify-center flex-shrink-0"
+                >
+                  <ChevronDown className="w-4 h-4 text-primary" />
+                </motion.div>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed mt-1.5">{course.preview}</p>
 
               <AnimatePresence>
-                {expanded &&
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="overflow-hidden">
-
-                    <p className="text-muted-foreground mt-3 leading-relaxed">{course.full}</p>
-                    <div className="mt-4 p-4 bg-accent rounded-xl">
-                      <p className="text-accent-foreground font-semibold">
-                        <span className="text-primary">التحوّل:</span> {course.transform}
+                {expanded && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-muted-foreground text-sm mt-3 leading-relaxed">{course.full}</p>
+                    <div className="mt-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
+                      <p className="text-foreground text-sm font-medium">
+                        <span className="inline-block bg-primary text-primary-foreground text-xs font-bold rounded-md px-2 py-0.5 ml-2">التحوّل</span>
+                        {course.transform}
                       </p>
                     </div>
                   </motion.div>
-                }
+                )}
               </AnimatePresence>
-
-              <button
-                onClick={() => setExpanded(!expanded)}
-                className="mt-4 flex items-center gap-1 text-primary font-semibold hover:opacity-80 transition-opacity">
-
-                {expanded ? "إخفاء" : "المزيد"}
-                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />
-              </button>
             </div>
           </div>
         </div>
-      </div>
-    </AnimatedSection>);
-
+      </motion.div>
+    </AnimatedSection>
+  );
 };
 
 const CoursesSection = () => {
