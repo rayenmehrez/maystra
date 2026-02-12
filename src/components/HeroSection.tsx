@@ -18,13 +18,14 @@ function getEndTime() {
 }
 const HeroSection = () => {
   const [endTime] = useState(getEndTime);
-  const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const tick = () => {
       const diff = Math.max(0, endTime - Date.now());
       setTimeLeft({
-        hours: Math.floor(diff / (1000 * 60 * 60)),
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((diff % (1000 * 60)) / 1000),
       });
@@ -116,6 +117,7 @@ const HeroSection = () => {
         {/* Countdown Timer */}
         <motion.div variants={childVariants} className="flex items-center justify-center gap-3 mb-6" dir="ltr">
           {[
+            { value: pad(timeLeft.days), label: "يوم" },
             { value: pad(timeLeft.hours), label: "ساعة" },
             { value: pad(timeLeft.minutes), label: "دقيقة" },
             { value: pad(timeLeft.seconds), label: "ثانية" },
