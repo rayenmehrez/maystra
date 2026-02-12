@@ -28,12 +28,12 @@ export const FloatingDotsLight = () => {
   const y6 = useParallax(-40);
   return (
     <>
-      <motion.div style={{ y: y1 }} className="absolute top-[8%] left-[10%] w-16 h-16 rounded-full bg-primary-foreground/30 blur-xl float-dot-1 pointer-events-none" />
-      <motion.div style={{ y: y2 }} className="absolute top-[30%] right-[5%] w-20 h-20 rounded-full bg-primary-foreground/25 blur-2xl float-dot-2 pointer-events-none" />
-      <motion.div style={{ y: y3 }} className="absolute bottom-[15%] left-[20%] w-24 h-24 rounded-full bg-primary-foreground/28 blur-2xl float-dot-1 pointer-events-none" />
-      <motion.div style={{ y: y4 }} className="absolute top-[55%] left-[5%] w-14 h-14 rounded-full bg-primary-foreground/35 blur-xl float-dot-2 pointer-events-none" />
-      <motion.div style={{ y: y5 }} className="absolute bottom-[30%] right-[15%] w-20 h-20 rounded-full bg-primary-foreground/22 blur-3xl float-dot-1 pointer-events-none" />
-      <motion.div style={{ y: y6 }} className="absolute top-[15%] right-[25%] w-12 h-12 rounded-full bg-primary-foreground/30 blur-xl float-dot-2 pointer-events-none" />
+      <motion.div style={{ y: y1 }} className="absolute top-[8%] left-[10%] w-20 h-20 rounded-full bg-primary-foreground/40 blur-xl float-dot-1 pointer-events-none" />
+      <motion.div style={{ y: y2 }} className="absolute top-[30%] right-[5%] w-24 h-24 rounded-full bg-primary-foreground/35 blur-2xl float-dot-2 pointer-events-none" />
+      <motion.div style={{ y: y3 }} className="absolute bottom-[15%] left-[20%] w-28 h-28 rounded-full bg-primary-foreground/38 blur-2xl float-dot-1 pointer-events-none" />
+      <motion.div style={{ y: y4 }} className="absolute top-[55%] left-[5%] w-18 h-18 rounded-full bg-primary-foreground/45 blur-xl float-dot-2 pointer-events-none" />
+      <motion.div style={{ y: y5 }} className="absolute bottom-[30%] right-[15%] w-24 h-24 rounded-full bg-primary-foreground/30 blur-3xl float-dot-1 pointer-events-none" />
+      <motion.div style={{ y: y6 }} className="absolute top-[15%] right-[25%] w-16 h-16 rounded-full bg-primary-foreground/40 blur-xl float-dot-2 pointer-events-none" />
     </>
   );
 };
