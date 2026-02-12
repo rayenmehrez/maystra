@@ -11,14 +11,20 @@ const pulse = (dur: number, min = 0.2) => ({
   transition: { duration: dur, repeat: Infinity, ease: "easeInOut" as const },
 });
 
-/** Dark dots for light-background sections */
+/** Purple dots for light-background sections */
 const FloatingDots = () => {
   const y1 = useParallax(-40);
   const y2 = useParallax(-25);
+  const y3 = useParallax(-55);
+  const y4 = useParallax(-35);
+  const y5 = useParallax(-60);
   return (
     <>
-      <motion.div style={{ y: y1 }} {...pulse(5, 0.1)} className="absolute top-[12%] right-[8%] w-14 h-14 rounded-full bg-primary/15 blur-xl float-dot-1 pointer-events-none" />
-      <motion.div style={{ y: y2 }} {...pulse(7, 0.08)} className="absolute bottom-[18%] left-[10%] w-16 h-16 rounded-full bg-primary/12 blur-2xl float-dot-2 pointer-events-none" />
+      <motion.div style={{ y: y1 }} {...pulse(5, 0.15)} className="absolute top-[12%] right-[8%] w-4 h-4 rounded-full bg-primary/30 blur-[2px] float-dot-1 pointer-events-none" />
+      <motion.div style={{ y: y2 }} {...pulse(7, 0.1)} className="absolute bottom-[18%] left-[10%] w-3 h-3 rounded-full bg-primary/25 blur-[1px] float-dot-2 pointer-events-none" />
+      <motion.div style={{ y: y3 }} {...pulse(4.5, 0.2)} className="absolute top-[40%] left-[45%] w-2.5 h-2.5 rounded-full bg-primary/35 blur-[1px] float-dot-1 pointer-events-none" />
+      <motion.div style={{ y: y4 }} {...pulse(6, 0.15)} className="absolute top-[25%] right-[30%] w-3.5 h-3.5 rounded-full bg-primary/20 blur-[2px] float-dot-2 pointer-events-none" />
+      <motion.div style={{ y: y5 }} {...pulse(5.5, 0.12)} className="absolute bottom-[30%] right-[20%] w-2 h-2 rounded-full bg-primary/30 blur-[1px] float-dot-1 pointer-events-none" />
     </>
   );
 };
