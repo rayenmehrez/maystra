@@ -76,9 +76,16 @@ const HeroSection = () => {
         <motion.h1 variants={childVariants} className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight relative">
           منهج مايسترا
         </motion.h1>
-        <motion.p variants={childVariants} className="text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-90 relative">
-          رحلة التحول الداخلي من جذورك… إلى قيادة حياتك بوعي وسلام داخلي
-        </motion.p>
+
+        {/* Tagline banner */}
+        <motion.div variants={childVariants} className="relative mb-10 max-w-3xl mx-auto">
+          <div className="relative px-6 py-4 rounded-2xl border border-primary-foreground/20 backdrop-blur-md overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/10 animate-[shimmer_6s_ease-in-out_infinite]" />
+            <p className="relative text-base md:text-lg font-medium leading-relaxed text-primary-foreground/90">
+              منهج متكامل يدعمك على ادارة حياتك و قيادة عالمك الداخلي و الخارجي بكل احترافية و سلاسة و استمتاع
+            </p>
+          </div>
+        </motion.div>
 
         {/* VSL Video Placeholder */}
         <motion.div variants={childVariants} className="max-w-3xl mx-auto mb-12 relative">
