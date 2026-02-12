@@ -29,26 +29,29 @@ const WhatYouGetSection = () => {
           {items.map((item, i) => (
             <AnimatedSection key={i} delay={0.05 * i}>
               <motion.div
-                whileHover={{ y: -4, boxShadow: "0 12px 30px hsl(263 70% 58% / 0.18)" }}
-                transition={{ duration: 0.3 }}
-                className="relative flex items-start gap-4 p-6 rounded-2xl bg-accent/40 border border-border/30 overflow-hidden group cursor-default"
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ duration: 0.25, type: "spring", stiffness: 300 }}
+                className="relative flex items-start gap-4 p-6 rounded-2xl bg-card border border-border/40 overflow-hidden group cursor-default shadow-purple hover:shadow-purple-lg transition-shadow duration-300"
               >
-                {/* Hover glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(ellipse_at_50%_0%,hsl(263_70%_58%/0.08)_0%,transparent_70%)]" />
+                {/* Animated gradient border top */}
+                <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-l from-primary via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Background glow on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(ellipse_at_30%_20%,hsl(263_70%_58%/0.08)_0%,transparent_70%)]" />
 
                 {/* Icon */}
-                <div className="relative z-10 w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="w-5 h-5 text-primary" />
+                <div className="relative z-10 w-14 h-14 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:border-primary group-hover:scale-110 transition-all duration-300">
+                  <item.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                 </div>
 
                 {/* Text */}
-                <div className="relative z-10 flex-1 pt-1">
-                  <p className="text-foreground font-semibold text-lg leading-relaxed">{item.text}</p>
+                <div className="relative z-10 flex-1 pt-2">
+                  <p className="text-foreground font-bold text-lg leading-relaxed">{item.text}</p>
                 </div>
 
                 {/* Check mark */}
-                <div className="relative z-10 w-7 h-7 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1.5">
-                  <Check className="w-3.5 h-3.5 text-primary-foreground" />
+                <div className="relative z-10 w-8 h-8 rounded-full bg-accent border border-primary/20 flex items-center justify-center flex-shrink-0 mt-2 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                  <Check className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                 </div>
               </motion.div>
             </AnimatedSection>
