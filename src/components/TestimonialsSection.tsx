@@ -3,6 +3,8 @@ import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import { Quote } from "lucide-react";
 import AudioFeedback from "./AudioFeedback";
+import feedbackAudio1 from "@/assets/feedback-audio.opus";
+import feedbackAudio2 from "@/assets/feedback-audio-2.opus";
 
 const testimonials = [
   {
@@ -89,7 +91,10 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Audio Feedback */}
-        <AudioFeedback />
+        <div className="space-y-6 mt-14">
+          <AudioFeedback audioSrc={feedbackAudio1} />
+          <AudioFeedback audioSrc={feedbackAudio2} />
+        </div>
       </div>
     </section>
   );
