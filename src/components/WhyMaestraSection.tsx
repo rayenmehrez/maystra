@@ -19,7 +19,7 @@ const cards = [{
 
 const WhyMaestraSection = () => {
   return <section className="relative bg-lavender overflow-hidden py-[55px]">
-      <FloatingDots />
+      <FloatingDots variant={0} />
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 text-foreground">لماذا منهج المايسترا؟</h2>

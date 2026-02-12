@@ -42,7 +42,7 @@ const testimonials = [
 const TestimonialsSection = () => {
   return (
     <section className="relative py-20 md:py-28 bg-lavender overflow-hidden">
-      <FloatingDots />
+      <FloatingDots variant={8} />
 
       <div className="container mx-auto px-4 md:px-8">
         <AnimatedSection>

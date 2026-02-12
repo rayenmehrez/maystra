@@ -17,7 +17,7 @@ const bonuses = [
 const BonusesSection = () => {
   return (
     <section className="relative py-24 bg-lavender overflow-hidden">
-      <FloatingDots />
+      <FloatingDots variant={7} />
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection>
           <div className="flex items-center justify-center gap-3 mb-4">

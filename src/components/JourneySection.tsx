@@ -34,7 +34,7 @@ const JourneySection = () => {
     margin: "-100px"
   });
   return <section ref={sectionRef} className="relative py-24 md:py-32 bg-lavender overflow-hidden">
-      <FloatingDots />
+      <FloatingDots variant={2} />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2 initial={{

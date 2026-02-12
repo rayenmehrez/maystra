@@ -17,7 +17,7 @@ const items = [
 const WhatYouGetSection = () => {
   return (
     <section className="relative bg-card overflow-hidden py-[40px] mt-10">
-      <FloatingDots />
+      <FloatingDots variant={5} />
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-foreground">
