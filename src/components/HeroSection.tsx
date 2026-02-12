@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FloatingDotsLight } from "./FloatingDots";
+import logo from "@/assets/logo.png";
 
 const STORAGE_KEY = "maestra-countdown-end";
 
@@ -72,6 +73,11 @@ const HeroSection = () => {
             }}
           />
         </div>
+
+        {/* Logo */}
+        <motion.div variants={childVariants} className="mb-8 flex justify-center">
+          <img src={logo} alt="Coach Abeer Logo" className="h-20 md:h-28 w-auto drop-shadow-lg" />
+        </motion.div>
 
         <motion.h1 variants={childVariants} className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight relative">
           منهج مايسترا
