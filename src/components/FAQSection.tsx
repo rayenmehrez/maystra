@@ -28,7 +28,7 @@ const faqs = [{
 }];
 const FAQSection = () => {
   return <section className="relative py-20 md:py-28 bg-lavender overflow-hidden">
-      <FloatingDots />
+      <FloatingDots variant={0} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <AnimatedSection>
           <h2 className="text-3xl md:text-5xl font-extrabold text-center text-foreground mb-4">
