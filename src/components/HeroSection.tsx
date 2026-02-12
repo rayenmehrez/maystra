@@ -63,10 +63,20 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-[hsl(263_70%_45%/0.15)] to-background z-20 backdrop-blur-sm" />
       <FloatingDotsLight />
       <motion.div className="container mx-auto px-6 py-20 text-center text-primary-foreground relative z-10" variants={containerVariants} initial="hidden" animate="visible">
-        <motion.h1 variants={childVariants} className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+        {/* Shimmer glow behind text */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
+          <div
+            className="w-[600px] h-[300px] rounded-full opacity-30 blur-3xl animate-[shimmer_6s_ease-in-out_infinite]"
+            style={{
+              background: "radial-gradient(ellipse at center, hsl(270 80% 75% / 0.5), hsl(263 70% 58% / 0.25), transparent 70%)",
+            }}
+          />
+        </div>
+
+        <motion.h1 variants={childVariants} className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight relative">
           منهج مايسترا
         </motion.h1>
-        <motion.p variants={childVariants} className="text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-90">
+        <motion.p variants={childVariants} className="text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-90 relative">
           رحلة التحول الداخلي من جذورك… إلى قيادة حياتك بوعي وسلام داخلي
         </motion.p>
 
