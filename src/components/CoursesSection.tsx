@@ -92,15 +92,15 @@ const CoursesSection = () => {
       <FloatingDots variant={1} />
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection>
-          <div className="mb-14">
-            <img src={coursePackage} alt="محتوى برنامج المايسترا" className="w-full max-w-4xl mx-auto rounded-2xl shadow-purple-lg" />
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-foreground">
             تفاصيل الدورات الـ 12
           </h2>
+        </AnimatedSection>
+
+        <AnimatedSection>
+          <div className="mb-14">
+            <img src={coursePackage} alt="محتوى برنامج المايسترا" className="w-full max-w-4xl mx-auto rounded-2xl shadow-purple-lg" />
+          </div>
         </AnimatedSection>
 
         <div className="max-w-3xl mx-auto space-y-5">
