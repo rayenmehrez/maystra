@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import { ChevronDown } from "lucide-react";
+import coursePackage from "@/assets/course-package.jpg";
 
 const courses = [
 { num: 1, title: "الرجل الأول في حياتك", preview: "تبدئين رحلتك من أول علاقة أثرت فيكِ — أبوكِ.", full: "ستكتشفين كيف شكّل وجوده أو غيابه إيمانك بنفسك وعلاقاتك. ستتعلمين كيف تفككين هذا الأثر وتعيدين بناء صورتك الداخلية.", transform: "تحرر من أثر الأب على ثقتك بنفسك وقراراتك." },
@@ -90,6 +91,12 @@ const CoursesSection = () => {
     <section className="relative py-24 bg-lavender-mid overflow-hidden">
       <FloatingDots variant={1} />
       <div className="container mx-auto px-6 relative z-10">
+        <AnimatedSection>
+          <div className="mb-14">
+            <img src={coursePackage} alt="محتوى برنامج المايسترا" className="w-full max-w-4xl mx-auto rounded-2xl shadow-purple-lg" />
+          </div>
+        </AnimatedSection>
+
         <AnimatedSection>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-foreground">
             تفاصيل الدورات الـ 12
