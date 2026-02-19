@@ -21,7 +21,7 @@ const InnerChildSection = () => {
               transition={{ duration: 2 }}
               viewport={{ once: true }}
             >
-              دعينا نتعرّف عليكِ أنتِ.
+              رسالة لطفلتك الداخلية
             </motion.h2>
           </AnimatedSection>
 
