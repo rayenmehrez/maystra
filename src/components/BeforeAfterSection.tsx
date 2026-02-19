@@ -24,11 +24,15 @@ const BeforeAfterSection = () => {
       } : {}} transition={{
         duration: 0.6
       }} className="text-center mb-16">
+          <p className="text-primary font-medium mb-2">✦</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            قبل وبعد المايسترا
+            حين تقودك أنماطك… وحين تقودين حياتك
           </h2>
-          <p className="text-muted-foreground text-lg max-w-lg mx-auto">
-            التحول الذي ستعيشينه من الداخل إلى الخارج
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-2">
+            ليس الفرق في شخصيتك
+          </p>
+          <p className="text-muted-foreground text-base max-w-xl mx-auto">
+            بل في من يمسك المقود: تجاربك القديمة… أم وعيك الحالي
           </p>
         </motion.div>
 
