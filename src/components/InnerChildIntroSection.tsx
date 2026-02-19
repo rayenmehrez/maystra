@@ -96,13 +96,27 @@ const InnerChildIntroSection = () => {
 
         {/* Scroll indicator */}
         <AnimatedSection delay={0.85}>
-          <motion.div
-            className="mt-14 flex flex-col items-center gap-2"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <span className="text-sm text-primary/40">⬇️</span>
-          </motion.div>
+          <div className="mt-14 flex flex-col items-center gap-3">
+            <motion.div
+              className="w-10 h-16 rounded-full border-2 border-primary/25 flex items-start justify-center pt-2"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="w-2 h-2 rounded-full bg-primary/50"
+                animate={{ y: [0, 28, 0], opacity: [1, 0.3, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </motion.div>
+            <motion.span
+              className="text-xs text-primary/30 tracking-widest"
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              تابعي
+            </motion.span>
+          </div>
         </AnimatedSection>
       </div>
     </section>
