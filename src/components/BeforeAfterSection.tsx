@@ -109,7 +109,7 @@ const BeforeAfterSection = () => {
           duration: 0.8,
           delay: 0.9
         }} className="md:hidden h-[3px] rounded-full mx-auto w-3/4 origin-right" style={{
-          background: "linear-gradient(to left, hsl(263 70% 58%), hsl(270 60% 80%))"
+          background: "linear-gradient(to left, hsl(272 34% 47%), hsl(280 35% 75%))"
         }} />
 
           {/* AFTER column */}
@@ -123,7 +123,7 @@ const BeforeAfterSection = () => {
           duration: 0.6,
           delay: 0.5
         }} className="rounded-2xl p-6 md:p-8 bg-card shadow-purple-lg relative" style={{
-          boxShadow: "0 8px 40px hsl(263 70% 58% / 0.12), 0 0 80px hsl(263 70% 58% / 0.06)"
+          boxShadow: "0 8px 40px hsl(272 34% 47% / 0.12), 0 0 80px hsl(272 34% 47% / 0.06)"
         }}>
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">

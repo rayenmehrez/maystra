@@ -78,7 +78,7 @@ const LetterOverlay = ({ onClose }: LetterOverlayProps) => {
             style={{
               left: `${10 + Math.random() * 80}%`,
               top: `${10 + Math.random() * 80}%`,
-              backgroundColor: i % 3 === 0 ? "hsl(45 80% 60% / 0.4)" : "hsl(263 70% 70% / 0.4)",
+              backgroundColor: i % 3 === 0 ? "hsl(45 80% 60% / 0.4)" : "hsl(272 34% 60% / 0.4)",
             }}
             animate={{
               y: [0, -20 - Math.random() * 30, 0],

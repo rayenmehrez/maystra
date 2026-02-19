@@ -62,7 +62,7 @@ const HeroSection = () => {
   };
   return <section className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden">
       {/* Bottom fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-[hsl(263_70%_45%/0.15)] to-background z-20 backdrop-blur-sm" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-[hsl(272_34%_47%/0.15)] to-background z-20 backdrop-blur-sm" />
       <FloatingDotsLight />
       <motion.div className="container mx-auto px-6 py-20 text-center text-primary-foreground relative z-10" variants={containerVariants} initial="hidden" animate="visible">
         {/* Shimmer glow behind text */}
@@ -70,7 +70,7 @@ const HeroSection = () => {
           <div
             className="w-[600px] h-[300px] rounded-full opacity-30 blur-3xl animate-[shimmer_6s_ease-in-out_infinite]"
             style={{
-              background: "radial-gradient(ellipse at center, hsl(270 80% 75% / 0.5), hsl(263 70% 58% / 0.25), transparent 70%)",
+              background: "radial-gradient(ellipse at center, hsl(280 50% 70% / 0.5), hsl(272 34% 47% / 0.25), transparent 70%)",
             }}
           />
         </div>
@@ -99,7 +99,7 @@ const HeroSection = () => {
           {/* Rotating short light line */}
           <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
            <div className="absolute inset-0 animate-[spin_4s_linear_infinite]" style={{
-            background: "conic-gradient(from 0deg, transparent 0%, transparent 85%, hsl(280 80% 70%) 91%, hsl(263 90% 85%) 94%, hsl(280 80% 70%) 97%, transparent 100%)"
+            background: "conic-gradient(from 0deg, transparent 0%, transparent 85%, hsl(280 50% 65%) 91%, hsl(272 50% 80%) 94%, hsl(280 50% 65%) 97%, transparent 100%)"
           }} />
           </div>
           {/* Inner bg to mask the gradient behind content */}
@@ -148,9 +148,9 @@ const HeroSection = () => {
             animate={{
               scale: [1, 1.06, 1],
               boxShadow: [
-                "0 8px 30px hsl(263 70% 58% / 0.18)",
-                "0 12px 40px hsl(263 70% 58% / 0.4)",
-                "0 8px 30px hsl(263 70% 58% / 0.18)",
+                "0 8px 30px hsl(272 34% 47% / 0.18)",
+                "0 12px 40px hsl(272 34% 47% / 0.4)",
+                "0 8px 30px hsl(272 34% 47% / 0.18)",
               ],
             }}
             transition={{

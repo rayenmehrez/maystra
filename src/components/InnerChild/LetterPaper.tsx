@@ -35,14 +35,14 @@ const LetterPaper = forwardRef<HTMLDivElement, LetterPaperProps>(
           {/* Butterfly motif */}
           <div className="flex justify-center mb-4">
             <svg width="40" height="30" viewBox="0 0 40 30" fill="none" className="opacity-50">
-              <path d="M20 15 Q10 0 2 10 Q10 18 20 15" stroke="hsl(263 70% 58%)" strokeWidth="1.2" fill="hsl(263 70% 58% / 0.1)" />
-              <path d="M20 15 Q30 0 38 10 Q30 18 20 15" stroke="hsl(263 70% 58%)" strokeWidth="1.2" fill="hsl(263 70% 58% / 0.1)" />
-              <path d="M20 15 L20 28" stroke="hsl(263 70% 58%)" strokeWidth="1" />
+              <path d="M20 15 Q10 0 2 10 Q10 18 20 15" stroke="hsl(272 34% 47%)" strokeWidth="1.2" fill="hsl(272 34% 47% / 0.1)" />
+              <path d="M20 15 Q30 0 38 10 Q30 18 20 15" stroke="hsl(272 34% 47%)" strokeWidth="1.2" fill="hsl(272 34% 47% / 0.1)" />
+              <path d="M20 15 L20 28" stroke="hsl(272 34% 47%)" strokeWidth="1" />
             </svg>
           </div>
 
           {/* Letter opening */}
-          <p className="text-xl md:text-2xl font-bold mb-6" style={{ color: "hsl(263 70% 45%)", fontStyle: "italic" }}>
+          <p className="text-xl md:text-2xl font-bold mb-6" style={{ color: "hsl(272 34% 40%)", fontStyle: "italic" }}>
             عزيزتي الصغيرة…
           </p>
 
@@ -67,7 +67,7 @@ const LetterPaper = forwardRef<HTMLDivElement, LetterPaperProps>(
                       rows={3}
                       maxLength={300}
                       className="w-full bg-transparent border-none outline-none resize-none text-base md:text-lg leading-relaxed focus:ring-2 focus:ring-primary/30 rounded-lg p-2 transition-shadow"
-                      style={{ color: "hsl(263 70% 30%)" }}
+                      style={{ color: "hsl(272 34% 25%)" }}
                       dir="rtl"
                       autoFocus
                     />
@@ -75,7 +75,7 @@ const LetterPaper = forwardRef<HTMLDivElement, LetterPaperProps>(
                     text && (
                       <p
                         className="text-base md:text-lg leading-relaxed"
-                        style={{ color: "hsl(263 70% 30%)", opacity: isComplete ? 1 : 0.6 }}
+                        style={{ color: "hsl(272 34% 25%)", opacity: isComplete ? 1 : 0.6 }}
                       >
                         {text}
                       </p>
@@ -91,7 +91,7 @@ const LetterPaper = forwardRef<HTMLDivElement, LetterPaperProps>(
             {isComplete && (
               <motion.p
                 className="text-lg md:text-xl font-bold mt-8"
-                style={{ color: "hsl(263 70% 45%)", fontStyle: "italic" }}
+                style={{ color: "hsl(272 34% 40%)", fontStyle: "italic" }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
@@ -110,7 +110,7 @@ const LetterPaper = forwardRef<HTMLDivElement, LetterPaperProps>(
                 animate={{ scale: 1, opacity: 1, rotate: 0 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
               >
-                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: "hsl(263 70% 40%)" }}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: "hsl(272 34% 38%)" }}>
                   <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                     <path d="M14 4 Q8 1 4 8 Q8 14 14 10 Q20 14 24 8 Q20 1 14 4Z" fill="hsl(0 0% 100% / 0.8)" />
                     <path d="M14 10 L14 24" stroke="hsl(0 0% 100% / 0.6)" strokeWidth="1.2" />
