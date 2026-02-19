@@ -164,12 +164,12 @@ const BeforeAfterSection = () => {
         </div>
 
         {/* Transformation line */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 1.2 }} className="max-w-3xl mx-auto mt-14 text-center">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 1.2 }} className="max-w-3xl mx-auto mt-14 text-center rounded-2xl p-8 md:p-10 border border-primary/10 shadow-lg" style={{ backgroundColor: "#f3ebf8" }}>
           <p className="text-sm font-medium text-primary mb-2">سطر التحول</p>
-          <p className="text-lg md:text-xl font-bold text-foreground mb-3">
+          <p className="text-lg md:text-xl font-bold text-primary mb-3">
             المايسترا لا تعطيك أدوات لتصبحي شخصاً آخر
           </p>
-          <p className="text-muted-foreground leading-relaxed text-base">
+          <p className="text-primary/70 leading-relaxed text-base">
             بل تعيدك إلى حالة تكونين فيها واضحة لنفسك.
             وعندما تصبحين واضحة… تهدأ النفس وتنتظم العلاقات، وتستشعرين جمال اللحظات، ويتحسن المال تبعاً لذلك، وتجربتك في الحياة بالكامل كنتيجة طبيعية لتحولك الداخلي العميق.
           </p>
