@@ -40,12 +40,12 @@ const FinalCTASection = () => {
       <FloatingDotsLight />
       <div className="container mx-auto px-6 text-center relative z-10">
         <AnimatedSection delay={0.1}>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-primary-foreground mb-6">
-            ابدأي رحلتك الآن
-          </h2>
-          <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            لا تنتظري أكثر — حياتك الجديدة تبدأ من هنا
+          <p className="text-lg md:text-xl text-primary-foreground/70 mb-2">
+            ليس السؤال هل تحتاجين المايسترا
           </p>
+          <h2 className="text-2xl md:text-4xl font-extrabold text-primary-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            بل كم من الوقت تريدين الاستمرار بإدارة حياتك من الضجيج الداخلي
+          </h2>
 
           <div className="flex items-center justify-center gap-3 mb-8" dir="ltr">
             {[
