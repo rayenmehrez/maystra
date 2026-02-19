@@ -9,7 +9,7 @@ const InnerChildSection = () => {
 
   return (
     <>
-      <section className="relative py-24 md:py-32 overflow-hidden gradient-hero">
+      <section id="inner-child-section" className="relative py-24 md:py-32 overflow-hidden gradient-hero">
         <FloatingDots variant={4} />
         <div className="container mx-auto px-6 relative z-10 text-center text-primary-foreground">
           <AnimatedSection>
