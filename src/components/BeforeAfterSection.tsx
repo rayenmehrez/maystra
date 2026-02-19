@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import FloatingDots from "./FloatingDots";
 import { X, Check, CloudOff, Sparkles } from "lucide-react";
 const beforeItems = ["تفهمين الجميع بسرعة لكن يصعب عليك سماع نفسك بوضوح", "تفكرين كثيراً حتى في أوقات الراحة", "ترتاحين مؤقتاً… ثم يعود القلق بلا سبب واضح", "تشعرين أنك حاضرة جسداً لكن ذهنك في مكان آخر", "تقسين على نفسك أكثر مما يفعل أي شخص آخر", "تتعبين من العلاقات رغم محبتك للناس", "تعطين طاقة أكثر مما تستعيدين", "تترددين في القرارات المالية أو تقللين من قيمة نفسك", "تتكرر نفس أنماط العلاقات رغم إدراكك لها", "يصعب عليك الاستمتاع الكامل بلحظة جميلة دون تفكير لاحق"];
-const afterItems = ["ثقة عميقة بنفسك وبقراراتك", "وعي كامل بأنماطك وقدرة على كسر الدائرة", "أولوية حقيقية لنفسك بدون شعور بالذنب", "شجاعة هادئة تحركك نحو ما تريدين", "حدود صحية واضحة يحترمها الجميع", "صوت داخلي داعم وواعٍ يرشدك", "رؤية واضحة لحياتك ومستقبلك", "طاقة متوازنة وسلام داخلي حقيقي"];
+const afterItems = ["تهدأ الضوضاء الداخلية فيصبح قرارك أبسط", "تسمعين نفسك قبل أن تسمعي توقعات الآخرين", "يتحول حضورك من تفكير مستمر إلى إدراك هادئ", "تستمتعين باللحظة دون حاجة لتحليلها", "تتوقف العلاقات المرهقة مبكراً دون شعور بالذنب", "يصبح تقديرك المالي طبيعياً لا يحتاج شجاعة كل مرة", "تقل حاجتك للإثبات ويزيد تأثيرك تلقائياً", "طاقتك أكثر ثباتاً لأنك لم تعودي تقاومين طبيعتك", "تظهر أنوثتك كراحة وثقة… لا كمجهود أو دور", "تشعرين أن حياتك تُعاش… لا تُدار فقط"];
 const BeforeAfterSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, {
@@ -121,14 +121,17 @@ const BeforeAfterSection = () => {
         }} className="rounded-2xl p-6 md:p-8 bg-card shadow-purple-lg relative" style={{
           boxShadow: "0 8px 40px hsl(263 70% 58% / 0.12), 0 0 80px hsl(263 70% 58% / 0.06)"
         }}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground">
-                بعد المايسترا
+                لا تصبح حياتك مثالية
               </h3>
             </div>
+            <p className="text-sm text-muted-foreground mb-6 mr-13">
+              بل تصبح واضحة… فتخف مقاومتك لها
+            </p>
 
             <div className="flex flex-col gap-3">
               {afterItems.map((item, i) => <motion.div key={i} initial={{
@@ -149,6 +152,10 @@ const BeforeAfterSection = () => {
                   </span>
                 </motion.div>)}
             </div>
+
+            <p className="text-sm mt-5 text-center font-medium text-primary">
+              الفرق ليس أنك تغيرتِ — الفرق أنك توقفتِ عن محاربة نفسك
+            </p>
           </motion.div>
         </div>
       </div>
