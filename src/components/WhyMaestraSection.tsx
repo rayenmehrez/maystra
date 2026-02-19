@@ -38,7 +38,7 @@ const WhyMaestraSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {cards.map((card, i) => <AnimatedSection key={i} delay={0.2 + i * 0.1}>
               <motion.div
-                whileHover={{ y: -8, boxShadow: "0 20px 50px hsl(263 70% 58% / 0.22)" }}
+                whileHover={{ y: -8, boxShadow: "0 20px 50px hsl(272 34% 47% / 0.22)" }}
                 transition={{ duration: 0.3 }}
                 className="relative bg-card rounded-2xl p-8 text-center shadow-purple-lg border border-border/40 overflow-hidden h-full group"
               >

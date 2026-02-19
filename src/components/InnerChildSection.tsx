@@ -65,7 +65,7 @@ const InnerChildSection = () => {
             <motion.button
               onClick={() => setIsOpen(true)}
               className="inline-block bg-primary-foreground/20 backdrop-blur-sm text-primary-foreground font-bold text-lg px-10 py-4 rounded-full border border-primary-foreground/30 hover:scale-105 transition-transform duration-300"
-              animate={{ boxShadow: ["0 0 20px hsl(263 70% 58% / 0.3)", "0 0 40px hsl(263 70% 58% / 0.6)", "0 0 20px hsl(263 70% 58% / 0.3)"] }}
+              animate={{ boxShadow: ["0 0 20px hsl(272 34% 47% / 0.3)", "0 0 40px hsl(272 34% 47% / 0.6)", "0 0 20px hsl(272 34% 47% / 0.3)"] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               ابدئي اللحظة
