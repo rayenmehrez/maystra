@@ -10,6 +10,7 @@ import PricingSection from "@/components/PricingSection";
 import CoachSection from "@/components/CoachSection";
 import Footer from "@/components/Footer";
 import InnerChildSection from "@/components/InnerChildSection";
+import LetUsKnowYouSection from "@/components/LetUsKnowYouSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
 
@@ -21,6 +22,7 @@ const Index = () => {
       <CoursesSection />
       <JourneySection />
       <BeforeAfterSection />
+      <LetUsKnowYouSection />
       <InnerChildSection />
       <WhatYouGetSection />
       <CoachSection />
