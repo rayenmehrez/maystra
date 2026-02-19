@@ -10,7 +10,7 @@ const items = [
   { icon: Video, text: "تسجيلات مدى الحياة" },
   { icon: Layout, text: "منهج متسلسل بوعي وترتيب دقيق" },
   { icon: ArrowDownUp, text: "انتقال تدريجي من جرح… إلى وعي… إلى قيادة جديدة" },
-  { icon: UserCheck, text: "متابعة شخصية مع المدربة عبير" },
+  { icon: UserCheck, text: "متابعة شخصية مع المدربة عبير المعتوق" },
   { icon: Gift, text: "مواد إضافية تعزز رحلتك التحولية" },
 ];
 

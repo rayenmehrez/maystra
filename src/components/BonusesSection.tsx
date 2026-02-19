@@ -5,7 +5,7 @@ import { Gem, BookAudio, UsersRound, Mic, Send, Flame, NotebookPen, GraduationCa
 
 const bonuses = [
   { num: 1, icon: BookAudio, title: "كتاب PDF + Audio", desc: "نسختين من كتابي الجديد (كيف تقتل نجاحك)" },
-  { num: 2, icon: UsersRound, title: "3 جلسات متابعة جماعية مع عبير", desc: "90 دقيقة/شهر" },
+  { num: 2, icon: UsersRound, title: "3 جلسات متابعة جماعية مع عبير المعتوق", desc: "90 دقيقة/شهر" },
   { num: 3, icon: Mic, title: "ورشة 90 دقيقة", desc: "عندما تتوقف عن المعاناة… وتبدأ القيادة" },
   { num: 4, icon: Send, title: "قناة تليغرام لمدة 3 أشهر", desc: "تواصل ودعم مستمر" },
   { num: 5, icon: Flame, title: "Maestra Micro Practices", desc: "12 ممارسة يومية" },
