@@ -136,8 +136,7 @@ const LetterActions = ({ letterRef, texts, onClose }: LetterActionsProps) => {
         transition={{ delay: 0.2, duration: 0.6 }}
       >
         <p className="text-foreground text-sm md:text-base leading-relaxed">
-          هذه الطفلة الصغيرة بداخلك تستحق أن تُشفى. منهج المايسترا يبدأ من هنا — من
-          هذه اللحظة بالذات. أنا عبير، وأنا جاهزة أمشي معك هذه الرحلة.
+          كثير من رحلات المايسترا تبدأ من هذه اللحظة تحديداً…
         </p>
       </motion.div>
 
