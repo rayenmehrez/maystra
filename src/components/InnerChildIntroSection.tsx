@@ -5,7 +5,7 @@ import maestraIllustration from "@/assets/maestra-illustration.png";
 
 const InnerChildIntroSection = () => {
   return (
-    <section className="relative py-24 md:py-36 overflow-hidden" style={{ backgroundColor: "#f3ebf8" }}>
+    <section className="relative py-24 overflow-hidden md:py-[80px]" style={{ backgroundColor: "#f3ebf8" }}>
       <FloatingDots variant={6} />
 
       {/* Extra blurry ambient circles */}
@@ -16,15 +16,15 @@ const InnerChildIntroSection = () => {
       <div className="container mx-auto px-6 relative z-10 text-center" dir="rtl">
         {/* Intro subtitle */}
         <AnimatedSection>
-          <motion.img
-            src={maestraIllustration}
-            alt="Maestra illustration"
-            className="mx-auto mb-8 h-48 md:h-64 w-auto drop-shadow-xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true }}
-          />
+          
+
+
+
+
+
+
+
+
           <p className="text-base md:text-lg text-primary/60 mb-3 tracking-wide">
             ✨ قبل أن تتعرّفي على المنهج…
           </p>
@@ -33,8 +33,8 @@ const InnerChildIntroSection = () => {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
+            viewport={{ once: true }}>
+
             دعينا نتعرّف عليكِ أنتِ 🪞
           </motion.h2>
         </AnimatedSection>
@@ -57,8 +57,8 @@ const InnerChildIntroSection = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+              viewport={{ once: true }}>
+
               فقط هدية 🎁
             </motion.p>
           </div>
@@ -71,8 +71,8 @@ const InnerChildIntroSection = () => {
             <motion.span
               className="text-primary/30 text-xl"
               animate={{ rotate: [0, 180, 360] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            >
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}>
+
               ✦
             </motion.span>
             <span className="block w-16 h-px bg-primary/15" />
@@ -111,26 +111,26 @@ const InnerChildIntroSection = () => {
               className="w-10 h-16 rounded-full border-2 border-primary/25 flex items-start justify-center pt-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-            >
+              viewport={{ once: true }}>
+
               <motion.div
                 className="w-2 h-2 rounded-full bg-primary/50"
                 animate={{ y: [0, 28, 0], opacity: [1, 0.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              />
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} />
+
             </motion.div>
             <motion.span
               className="text-xs text-primary/30 tracking-widest"
               animate={{ opacity: [0.3, 0.7, 0.3] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+
               تابعي
             </motion.span>
           </div>
         </AnimatedSection>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default InnerChildIntroSection;
