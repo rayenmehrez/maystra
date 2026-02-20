@@ -64,6 +64,8 @@ const HeroSection = () => {
       {/* Bottom fade into next section */}
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-[hsl(272_34%_47%/0.15)] to-background z-20 backdrop-blur-sm" />
       <FloatingDotsLight />
+      <FloatingDotsLight />
+      <FloatingDotsLight />
       <motion.div className="container mx-auto px-6 py-20 text-center text-primary-foreground relative z-10" variants={containerVariants} initial="hidden" animate="visible">
         {/* Shimmer glow behind text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
