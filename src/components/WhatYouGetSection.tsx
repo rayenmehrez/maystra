@@ -4,19 +4,19 @@ import FloatingDots from "./FloatingDots";
 import { Check, BookOpen, Users, Video, Layout, ArrowDownUp, Sprout, UserCheck, Gift } from "lucide-react";
 
 const items = [
-  { icon: BookOpen, text: "12 دورة عميقة وفعالة" },
-  { icon: Sprout, text: "تمارين بسيطة لكنها فعّالة" },
-  { icon: Users, text: "مجتمع دعم صحّي وملهم" },
-  { icon: Video, text: "تسجيلات مدى الحياة" },
-  { icon: Layout, text: "منهج متسلسل بوعي وترتيب دقيق" },
-  { icon: ArrowDownUp, text: "انتقال تدريجي من جرح… إلى وعي… إلى قيادة جديدة" },
-  { icon: UserCheck, text: "متابعة شخصية مع المدربة عبير المعتوق" },
-  { icon: Gift, text: "مواد إضافية تعزز رحلتك التحولية" },
-];
+{ icon: BookOpen, text: "12 دورة عميقة وفعالة" },
+{ icon: Sprout, text: "تمارين بسيطة لكنها فعّالة" },
+{ icon: Users, text: "مجتمع دعم صحّي وملهم" },
+{ icon: Video, text: "تسجيلات مدى الحياة" },
+{ icon: Layout, text: "منهج متسلسل بوعي وترتيب دقيق" },
+{ icon: ArrowDownUp, text: "انتقال تدريجي من جرح… إلى وعي… إلى قيادة جديدة" },
+{ icon: UserCheck, text: "متابعة شخصية مع المدربة عبير المعتوق" },
+{ icon: Gift, text: "مواد إضافية تعزز رحلتك التحولية" }];
+
 
 const WhatYouGetSection = () => {
   return (
-    <section className="relative bg-card overflow-hidden py-[40px] mt-10">
+    <section className="relative bg-card overflow-hidden mt-10 py-[80px]">
       <FloatingDots variant={5} />
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection>
@@ -26,13 +26,13 @@ const WhatYouGetSection = () => {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-          {items.map((item, i) => (
-            <AnimatedSection key={i} delay={0.05 * i}>
+          {items.map((item, i) =>
+          <AnimatedSection key={i} delay={0.05 * i}>
               <motion.div
-                whileHover={{ y: -6, scale: 1.02 }}
-                transition={{ duration: 0.25, type: "spring", stiffness: 300 }}
-                className="relative flex items-start gap-4 p-6 rounded-2xl bg-card border border-border/40 overflow-hidden group cursor-default shadow-purple hover:shadow-purple-lg transition-shadow duration-300"
-              >
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ duration: 0.25, type: "spring", stiffness: 300 }}
+              className="relative flex items-start gap-4 p-6 rounded-2xl bg-card border border-border/40 overflow-hidden group cursor-default shadow-purple hover:shadow-purple-lg transition-shadow duration-300">
+
                 {/* Animated gradient border top */}
                 <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-l from-primary via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -55,10 +55,10 @@ const WhatYouGetSection = () => {
                 </div>
               </motion.div>
             </AnimatedSection>
-          ))}
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 export default WhatYouGetSection;
