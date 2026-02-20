@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
+import maestraIllustration from "@/assets/maestra-illustration.png";
 
 const InnerChildIntroSection = () => {
   return (
@@ -15,6 +16,15 @@ const InnerChildIntroSection = () => {
       <div className="container mx-auto px-6 relative z-10 text-center" dir="rtl">
         {/* Intro subtitle */}
         <AnimatedSection>
+          <motion.img
+            src={maestraIllustration}
+            alt="Maestra illustration"
+            className="mx-auto mb-8 h-48 md:h-64 w-auto drop-shadow-xl"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
+          />
           <p className="text-base md:text-lg text-primary/60 mb-3 tracking-wide">
             ✨ قبل أن تتعرّفي على المنهج…
           </p>
