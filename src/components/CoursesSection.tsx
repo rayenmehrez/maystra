@@ -90,6 +90,8 @@ const CoursesSection = () => {
   return (
     <section className="relative py-24 bg-lavender-mid overflow-hidden">
       <FloatingDots variant={1} />
+      <FloatingDots variant={4} />
+      <FloatingDots variant={8} />
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-foreground">
