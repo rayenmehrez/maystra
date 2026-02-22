@@ -33,17 +33,17 @@ const InnerChildIntroSection = () => {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
-            viewport={{ once: true }}>
+            viewport={{ once: true }}>دعينا نتعرّف عليكِ أنتِ 
 
-            دعينا نتعرّف عليكِ أنتِ 🪞
+
           </motion.h2>
         </AnimatedSection>
 
         {/* First block */}
         <AnimatedSection delay={0.2}>
           <div className="max-w-2xl mx-auto text-base md:text-lg text-primary/75 leading-[2.2] mb-10 space-y-4">
-            <p>أغلب النساء يدخلن صفحات التطوير وهنّ بعقلٍ يبحث عن حلول… 🧠</p>
-            <p>بينما التغيير الحقيقي يبدأ من مكان أعمق بكثير. 🌱</p>
+            <p>أغلب النساء يدخلن صفحات التطوير وهنّ بعقلٍ يبحث عن حلول… </p>
+            <p>بينما التغيير الحقيقي يبدأ من مكان أعمق بكثير. </p>
           </div>
         </AnimatedSection>
 
@@ -57,9 +57,9 @@ const InnerChildIntroSection = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}>
+              viewport={{ once: true }}>فقط هدية 
 
-              فقط هدية 🎁
+
             </motion.p>
           </div>
         </AnimatedSection>
@@ -82,25 +82,25 @@ const InnerChildIntroSection = () => {
         {/* Quiet minute block */}
         <AnimatedSection delay={0.5}>
           <div className="max-w-2xl mx-auto text-base md:text-lg text-primary/75 leading-[2.2] mb-10 space-y-4">
-            <p>دقيقة هادئة بينك وبين نسختك الأولى — 🕊️</p>
+            <p>دقيقة هادئة بينك وبين نسختك الأولى — </p>
             <p>الطفلة التي عاشت كل شيء قبلك،</p>
-            <p>وما زالت تنتظر أن تُرى. 👧🏻</p>
+            <p>وما زالت تنتظر أن تُرى. </p>
           </div>
         </AnimatedSection>
 
         {/* Letter block */}
         <AnimatedSection delay={0.6}>
           <div className="max-w-2xl mx-auto text-base md:text-lg text-primary/75 leading-[2.2] mb-6 space-y-4">
-            <p>اكتبي لها ما لم يُقل… ✍🏼</p>
+            <p>اكتبي لها ما لم يُقل… </p>
             <p>أو حتى كلمة واحدة فقط.</p>
           </div>
         </AnimatedSection>
 
         <AnimatedSection delay={0.7}>
           <div className="max-w-2xl mx-auto text-base md:text-lg text-primary/75 leading-[2.2] space-y-3">
-            <p className="text-sm text-primary/50">يمكنك الاحتفاظ بالرسالة أو مشاركتها، 💌</p>
+            <p className="text-sm text-primary/50">يمكنك الاحتفاظ بالرسالة أو مشاركتها، </p>
             <p>لكنها في الحقيقة بداية علاقة جديدة مع نفسك</p>
-            <p className="font-semibold text-primary text-lg">قبل أي رحلة أخرى. 🌸</p>
+            <p className="font-semibold text-primary text-lg">قبل أي رحلة أخرى. </p>
           </div>
         </AnimatedSection>
 
