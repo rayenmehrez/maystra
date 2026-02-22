@@ -25,9 +25,9 @@ const HeroSection = () => {
       const diff = Math.max(0, endTime - Date.now());
       setTimeLeft({
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((diff % (1000 * 60)) / 1000),
+        hours: Math.floor(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)),
+        minutes: Math.floor(diff % (1000 * 60 * 60) / (1000 * 60)),
+        seconds: Math.floor(diff % (1000 * 60) / 1000)
       });
     };
     tick();
@@ -70,11 +70,11 @@ const HeroSection = () => {
         {/* Shimmer glow behind text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
           <div
-            className="w-[600px] h-[300px] rounded-full opacity-30 blur-3xl animate-[shimmer_6s_ease-in-out_infinite]"
-            style={{
-              background: "radial-gradient(ellipse at center, hsl(280 50% 70% / 0.5), hsl(272 34% 47% / 0.25), transparent 70%)",
-            }}
-          />
+          className="w-[600px] h-[300px] rounded-full opacity-30 blur-3xl animate-[shimmer_6s_ease-in-out_infinite]"
+          style={{
+            background: "radial-gradient(ellipse at center, hsl(280 50% 70% / 0.5), hsl(272 34% 47% / 0.25), transparent 70%)"
+          }} />
+
         </div>
 
         {/* Logo */}
@@ -82,9 +82,9 @@ const HeroSection = () => {
           <img src={logo} alt="Coach Abeer Logo" className="h-20 md:h-28 w-auto drop-shadow-lg" />
         </motion.div>
 
-        <motion.h1 variants={childVariants} className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight relative">
-          منهج مايسترا
-        </motion.h1>
+        <motion.h1 variants={childVariants} className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight relative">منهج المايسترا
+
+      </motion.h1>
 
         {/* Tagline banner */}
         <motion.div variants={childVariants} className="relative mb-10 max-w-3xl mx-auto">
@@ -119,50 +119,50 @@ const HeroSection = () => {
         {/* Countdown Timer */}
         <motion.div variants={childVariants} className="flex items-center justify-center gap-3 mb-6" dir="ltr">
           {[
-            { value: pad(timeLeft.days), label: "يوم" },
-            { value: pad(timeLeft.hours), label: "ساعة" },
-            { value: pad(timeLeft.minutes), label: "دقيقة" },
-            { value: pad(timeLeft.seconds), label: "ثانية" },
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center">
+        { value: pad(timeLeft.days), label: "يوم" },
+        { value: pad(timeLeft.hours), label: "ساعة" },
+        { value: pad(timeLeft.minutes), label: "دقيقة" },
+        { value: pad(timeLeft.seconds), label: "ثانية" }].
+        map((item, i) =>
+        <div key={i} className="flex flex-col items-center">
               <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-primary-foreground/15 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center">
                 <motion.span
-                  key={item.value}
-                  className="text-xl md:text-2xl font-extrabold text-primary-foreground"
-                  initial={{ rotateX: -90, opacity: 0 }}
-                  animate={{ rotateX: 0, opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
+              key={item.value}
+              className="text-xl md:text-2xl font-extrabold text-primary-foreground"
+              initial={{ rotateX: -90, opacity: 0 }}
+              animate={{ rotateX: 0, opacity: 1 }}
+              transition={{ duration: 0.3 }}>
+
                   {item.value}
                 </motion.span>
               </div>
               <span className="text-xs mt-1.5 opacity-60">{item.label}</span>
             </div>
-          ))}
+        )}
         </motion.div>
 
         <motion.div variants={childVariants}>
           <motion.a
-            href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
-            animate={{
-              scale: [1, 1.06, 1],
-              boxShadow: [
-                "0 8px 30px hsl(272 34% 47% / 0.18)",
-                "0 12px 40px hsl(272 34% 47% / 0.4)",
-                "0 8px 30px hsl(272 34% 47% / 0.18)",
-              ],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.97 }}
-          >
+          href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
+          animate={{
+            scale: [1, 1.06, 1],
+            boxShadow: [
+            "0 8px 30px hsl(272 34% 47% / 0.18)",
+            "0 12px 40px hsl(272 34% 47% / 0.4)",
+            "0 8px 30px hsl(272 34% 47% / 0.18)"]
+
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.97 }}>
+
             انضمي الآن وابدأي رحلتك التحولية
           </motion.a>
         </motion.div>
