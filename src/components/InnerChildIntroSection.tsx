@@ -25,8 +25,8 @@ const InnerChildIntroSection = () => {
 
 
 
-          <p className="text-base md:text-lg text-primary/60 mb-3 tracking-wide">
-            ✨ قبل أن تتعرّفي على المنهج…
+          <p className="text-base md:text-lg text-primary/60 mb-3 tracking-wide"> قبل أن تتعرّفي على المنهج…
+
           </p>
           <motion.h2
             className="text-3xl md:text-5xl font-extrabold text-primary mb-6"
