@@ -24,6 +24,7 @@ const HeroSection = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.7);
   const [showControls, setShowControls] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const tick = () => {
@@ -117,14 +118,25 @@ const HeroSection = () => {
           onMouseEnter={() => setShowControls(true)}
           onMouseLeave={() => setShowControls(false)}>
 
+            {/* Loading skeleton */}
+            {!videoLoaded && (
+              <div className="absolute inset-0 z-[5] flex items-center justify-center bg-muted animate-pulse rounded-2xl">
+                <svg className="w-12 h-12 text-muted-foreground/40 animate-spin" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                </svg>
+              </div>
+            )}
+
             <video
             ref={videoRef}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
             src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/abeerv2.mp4"
             autoPlay
             playsInline
             onEnded={() => setIsPlaying(false)}
             onCanPlay={() => {
+              setVideoLoaded(true);
               if (videoRef.current) {
                 videoRef.current.volume = volume;
                 videoRef.current.muted = false;
