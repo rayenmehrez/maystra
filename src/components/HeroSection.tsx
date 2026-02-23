@@ -21,7 +21,7 @@ const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.7);
   const [showControls, setShowControls] = useState(false);
 
@@ -122,9 +122,14 @@ const HeroSection = () => {
               className="w-full h-full object-cover"
               src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/abeerv2.mp4"
               autoPlay
-              muted
               playsInline
               onEnded={() => setIsPlaying(false)}
+              onCanPlay={() => {
+                if (videoRef.current) {
+                  videoRef.current.volume = volume;
+                  videoRef.current.muted = false;
+                }
+              }}
             />
 
             {/* Click overlay for play/pause */}
