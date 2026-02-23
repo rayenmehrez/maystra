@@ -187,7 +187,8 @@ const HeroSection = () => {
 
             {/* Bottom controls bar */}
             <div
-            className={`absolute bottom-0 left-0 right-0 z-30 flex flex-col gap-1 px-3 py-2 bg-gradient-to-t from-foreground/70 to-transparent transition-opacity duration-300 ${showControls || !isPlaying ? "opacity-100" : "opacity-0"}`}>
+            className={`absolute bottom-0 left-0 right-0 z-30 flex flex-col gap-1 px-3 py-2 bg-gradient-to-t from-foreground/70 to-transparent transition-opacity duration-300 ${showControls || !isPlaying ? "opacity-100" : "opacity-0"}`}
+            dir="ltr">
 
               {/* Timeline scrubber */}
               <div
