@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FloatingDotsLight } from "./FloatingDots";
 import logo from "@/assets/logo.png";
@@ -19,6 +19,8 @@ function getEndTime() {
 const HeroSection = () => {
   const [endTime] = useState(getEndTime);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
     const tick = () => {
@@ -107,11 +109,37 @@ const HeroSection = () => {
           {/* Inner bg to mask the gradient behind content */}
           <div className="absolute inset-[2px] rounded-[14px] gradient-hero" />
 
-          <div className="relative aspect-video rounded-2xl bg-foreground/10 backdrop-blur-sm flex items-center justify-center overflow-hidden">
-            <button className="w-20 h-20 rounded-full bg-primary-foreground/20 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-transform duration-300 border border-primary-foreground/30">
-              <svg className="w-8 h-8 text-primary-foreground mr-[-2px]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+          <div className="relative aspect-video rounded-2xl overflow-hidden">
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/abeerv2.mp4"
+              autoPlay
+              muted
+              playsInline
+              onEnded={() => setIsPlaying(false)}
+            />
+            <button
+              onClick={() => {
+                if (videoRef.current) {
+                  if (isPlaying) {
+                    videoRef.current.pause();
+                    setIsPlaying(false);
+                  } else {
+                    videoRef.current.play();
+                    setIsPlaying(true);
+                  }
+                }
+              }}
+              className="absolute inset-0 flex items-center justify-center bg-foreground/0 hover:bg-foreground/10 transition-colors duration-300"
+            >
+              {!isPlaying && (
+                <div className="w-20 h-20 rounded-full bg-primary-foreground/20 backdrop-blur-md flex items-center justify-center border border-primary-foreground/30">
+                  <svg className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              )}
             </button>
           </div>
         </motion.div>
