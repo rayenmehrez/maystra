@@ -7,7 +7,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="تواصل عبر واتساب"
-      className="fixed bottom-5 left-5 md:bottom-[30px] md:left-[30px] z-[1000] w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center cursor-pointer"
+      className="fixed bottom-5 right-5 md:bottom-[30px] md:right-[30px] z-[1000] w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center cursor-pointer"
       style={{
         backgroundColor: "#25D366",
         boxShadow: "0 4px 12px rgba(37, 211, 102, 0.4)",
