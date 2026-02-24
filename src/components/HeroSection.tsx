@@ -128,8 +128,8 @@ const HeroSection = () => {
 
             {/* Loading skeleton */}
             {!videoLoaded && (
-              <div className="absolute inset-0 z-[5] flex items-center justify-center bg-muted animate-pulse rounded-2xl">
-                <svg className="w-12 h-12 text-muted-foreground/40 animate-spin" fill="none" viewBox="0 0 24 24">
+              <div className="absolute inset-0 z-[5] flex items-center justify-center bg-primary/30 animate-pulse rounded-2xl">
+                <svg className="w-12 h-12 text-primary animate-spin" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                 </svg>
@@ -253,29 +253,41 @@ const HeroSection = () => {
                 </button>
 
                 {/* Volume slider */}
-                <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.05"
-                value={isMuted ? 0 : volume}
-                onChange={(e) => {
-                  e.stopPropagation();
-                  const val = parseFloat(e.target.value);
-                  setVolume(val);
-                  if (videoRef.current) {
-                    videoRef.current.volume = val;
-                    videoRef.current.muted = val === 0;
-                    setIsMuted(val === 0);
-                  }
-                }}
-                onClick={(e) => e.stopPropagation()}
-                className="w-16 h-1 accent-primary-foreground cursor-pointer" />
+                <div className="w-16 h-1.5 rounded-full bg-primary-foreground/20 cursor-pointer relative"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                    setVolume(ratio);
+                    if (videoRef.current) {
+                      videoRef.current.volume = ratio;
+                      videoRef.current.muted = ratio === 0;
+                      setIsMuted(ratio === 0);
+                    }
+                  }}>
+                  <div className="h-full rounded-full bg-primary-foreground" style={{ width: `${(isMuted ? 0 : volume) * 100}%` }} />
+                </div>
 
                 {/* Time display */}
-                <span className="text-[11px] text-primary-foreground/70 ml-auto font-mono" dir="ltr">
+                <span className="text-[11px] text-primary-foreground/70 font-mono">
                   {fmtTime(currentTime)} / {fmtTime(videoDuration)}
                 </span>
+
+                {/* Fullscreen */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const container = videoRef.current?.closest('.aspect-video');
+                    if (!container) return;
+                    if (document.fullscreenElement) {
+                      document.exitFullscreen();
+                    } else {
+                      container.requestFullscreen();
+                    }
+                  }}
+                  className="ml-auto text-primary-foreground hover:scale-110 transition-transform">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" /></svg>
+                </button>
               </div>
             </div>
           </div>
