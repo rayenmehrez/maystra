@@ -13,6 +13,7 @@ import InnerChildSection from "@/components/InnerChildSection";
 import InnerChildIntroSection from "@/components/InnerChildIntroSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -32,6 +33,7 @@ const Index = () => {
       <FAQSection />
       <FinalCTASection />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 };
