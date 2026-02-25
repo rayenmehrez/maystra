@@ -114,7 +114,7 @@ const CoursesSection = () => {
         <AnimatedSection delay={0.3}>
           <div className="text-center mt-14">
             <motion.a
-              href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+              href="https://calendly.com/carolromhein"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-primary text-primary-foreground text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
@@ -130,7 +130,7 @@ const CoursesSection = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.97 }}
             >
-              انضمي الآن وابدأي رحلتك التحولية
+              إحجزي إستشارتك المجانية الأن
             </motion.a>
           </div>
         </AnimatedSection>

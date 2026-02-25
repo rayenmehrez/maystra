@@ -159,12 +159,12 @@ const LetterActions = ({ letterRef, texts, onClose }: LetterActionsProps) => {
           شاركيها على انستغرام
         </button>
         <a
-          href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+          href="https://calendly.com/carolromhein"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-primary text-primary-foreground font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform glow-purple text-sm"
         >
-          ابدأي رحلة الشفاء الآن
+          إحجزي إستشارتك المجانية الأن
         </a>
       </motion.div>
     </motion.div>
