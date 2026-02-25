@@ -122,12 +122,12 @@ const CoachSection = () => {
 
               {/* CTA */}
               <a
-                href="https://abeeralmatooq.com/%d8%b9%d9%86-%d8%a7%d9%84%d9%83%d9%88%d8%aa%d8%b4-%d8%b9%d8%a8%d9%8a%d8%b1/"
+                href="https://calendly.com/carolromhein"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-full hover:scale-105 transition-transform duration-300 shadow-purple-lg glow-purple"
               >
-                اقرأي المزيد عن عبير
+                إحجزي إستشارتك المجانية الأن
               </a>
             </div>
           </motion.div>

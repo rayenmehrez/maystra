@@ -121,12 +121,12 @@ const PricingSection = () => {
               </p>
               <p className="text-muted-foreground/60 text-xs mb-6">بدون أي زيادة في السعر</p>
               <a
-                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7-50/"
+                href="https://calendly.com/carolromhein"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-base md:text-lg py-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
               >
-                الرجاء الضغط هنا لاختيار الدفع بالتقسيط
+                إحجزي إستشارتك المجانية الأن
               </a>
             </div>
           </motion.div>
@@ -166,12 +166,12 @@ const PricingSection = () => {
                 وفّري أكثر من 68%
               </span>
               <a
-                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+                href="https://calendly.com/carolromhein"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-lg md:text-xl py-5 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
               >
-                الرجاء الضغط هنا للتسجيل
+                إحجزي إستشارتك المجانية الأن
               </a>
             </div>
           </motion.div>
