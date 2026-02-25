@@ -71,14 +71,14 @@ const FinalCTASection = () => {
           </div>
 
           <motion.a
-            href="https://abeeralmatooq.com/%d9%85%d9%86%d9%87%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+            href="https://calendly.com/carolromhein"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.97 }}
           >
-            انضمي الآن
+            إحجزي إستشارتك المجانية الأن
           </motion.a>
         </AnimatedSection>
       </div>
