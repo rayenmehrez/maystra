@@ -57,6 +57,21 @@ const WhatYouGetSection = () => {
             </AnimatedSection>
           )}
         </div>
+
+        <AnimatedSection delay={0.5}>
+          <div className="text-center mt-12">
+            <motion.a
+              href="https://calendly.com/carolromhein"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              إحجزي إستشارتك المجانية الأن
+            </motion.a>
+          </div>
+        </AnimatedSection>
       </div>
     </section>);
 
