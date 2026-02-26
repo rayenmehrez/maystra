@@ -81,7 +81,7 @@ const AudioFeedback = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="max-w-2xl mx-auto"
+      className="max-w-2xl mx-auto" dir="ltr"
     >
       <div className={`relative bg-card rounded-2xl p-6 md:p-8 border overflow-hidden transition-all duration-500 ${isPlaying ? "shadow-[0_0_30px_hsl(263_70%_58%/0.35),0_0_60px_hsl(263_70%_58%/0.15)] border-primary/40" : "shadow-purple-lg border-primary/20"}`}>
         <div className="absolute top-0 left-0 right-0 h-1 gradient-pricing" />
@@ -133,7 +133,7 @@ const AudioFeedback = ({
 
             <div className="flex justify-between mt-1.5 text-[11px] text-muted-foreground" dir="ltr">
               <span>{fmt(progress)}</span>
-              <span>{duration ? fmt(duration) : "—:——"}</span>
+              <span>{duration && isFinite(duration) ? fmt(duration) : "—:——"}</span>
             </div>
           </div>
         </div>
