@@ -159,7 +159,7 @@ const LetterActions = ({ letterRef, texts, onClose }: LetterActionsProps) => {
           شاركيها على انستغرام
         </button>
         <a
-          href="https://calendly.com/carolromhein"
+          href="https://api.leadconnectorhq.com/widget/bookings/carol-free-consultation"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-primary text-primary-foreground font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform glow-purple text-sm"
