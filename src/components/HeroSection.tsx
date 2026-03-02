@@ -320,7 +320,7 @@ const HeroSection = () => {
 
         <motion.div variants={childVariants}>
           <motion.a
-          href="https://calendly.com/carolromhein"
+          href="https://api.leadconnectorhq.com/widget/bookings/carol-free-consultation"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
