@@ -71,9 +71,7 @@ const FinalCTASection = () => {
           </div>
 
           <motion.a
-            href="https://api.leadconnectorhq.com/widget/bookings/carol-free-consultation"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#booking"
             className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.97 }}

@@ -320,9 +320,7 @@ const HeroSection = () => {
 
         <motion.div variants={childVariants}>
           <motion.a
-          href="https://api.leadconnectorhq.com/widget/bookings/carol-free-consultation"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#booking"
           className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
           animate={{
             scale: [1, 1.06, 1],

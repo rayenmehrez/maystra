@@ -13,6 +13,7 @@ import InnerChildSection from "@/components/InnerChildSection";
 import InnerChildIntroSection from "@/components/InnerChildIntroSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
+import BookingSection from "@/components/BookingSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
@@ -31,6 +32,7 @@ const Index = () => {
       <TestimonialsSection />
       <PricingSection />
       <FAQSection />
+      <BookingSection />
       <FinalCTASection />
       <Footer />
       <WhatsAppButton />
