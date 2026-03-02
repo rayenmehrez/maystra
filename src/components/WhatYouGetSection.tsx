@@ -61,9 +61,7 @@ const WhatYouGetSection = () => {
         <AnimatedSection delay={0.5}>
           <div className="text-center mt-12">
             <motion.a
-              href="https://api.leadconnectorhq.com/widget/bookings/carol-free-consultation"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#booking"
               className="inline-block bg-primary text-primary-foreground text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.97 }}

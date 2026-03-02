@@ -122,9 +122,7 @@ const CoachSection = () => {
 
               {/* CTA */}
               <a
-                href="https://api.leadconnectorhq.com/widget/bookings/carol-free-consultation"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#booking"
                 className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-full hover:scale-105 transition-transform duration-300 shadow-purple-lg glow-purple"
               >
                 إحجزي إستشارتك المجانية الأن
