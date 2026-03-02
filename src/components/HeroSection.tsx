@@ -127,14 +127,14 @@ const HeroSection = () => {
           onMouseLeave={() => setShowControls(false)}>
 
             {/* Loading skeleton */}
-            {!videoLoaded && (
-              <div className="absolute inset-0 z-[5] flex items-center justify-center bg-primary/30 animate-pulse rounded-2xl">
+            {!videoLoaded &&
+          <div className="absolute inset-0 z-[5] flex items-center justify-center bg-primary/30 animate-pulse rounded-2xl">
                 <svg className="w-12 h-12 text-primary animate-spin" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                 </svg>
               </div>
-            )}
+          }
 
             <video
             ref={videoRef}
@@ -192,20 +192,20 @@ const HeroSection = () => {
 
               {/* Timeline scrubber */}
               <div
-                ref={progressRef}
-                className="w-full h-1.5 rounded-full bg-primary-foreground/20 cursor-pointer group/timeline"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (!progressRef.current || !videoRef.current || !videoDuration) return;
-                  const rect = progressRef.current.getBoundingClientRect();
-                  const ratio = (e.clientX - rect.left) / rect.width;
-                  videoRef.current.currentTime = ratio * videoDuration;
-                }}
-              >
+              ref={progressRef}
+              className="w-full h-1.5 rounded-full bg-primary-foreground/20 cursor-pointer group/timeline"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (!progressRef.current || !videoRef.current || !videoDuration) return;
+                const rect = progressRef.current.getBoundingClientRect();
+                const ratio = (e.clientX - rect.left) / rect.width;
+                videoRef.current.currentTime = ratio * videoDuration;
+              }}>
+              
                 <div
-                  className="h-full rounded-full bg-primary-foreground relative transition-all"
-                  style={{ width: `${videoDuration ? (currentTime / videoDuration) * 100 : 0}%` }}
-                >
+                className="h-full rounded-full bg-primary-foreground relative transition-all"
+                style={{ width: `${videoDuration ? currentTime / videoDuration * 100 : 0}%` }}>
+                
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary-foreground opacity-0 group-hover/timeline:opacity-100 transition-opacity" />
                 </div>
               </div>
@@ -254,17 +254,17 @@ const HeroSection = () => {
 
                 {/* Volume slider */}
                 <div className="w-16 h-1.5 rounded-full bg-primary-foreground/20 cursor-pointer relative"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-                    setVolume(ratio);
-                    if (videoRef.current) {
-                      videoRef.current.volume = ratio;
-                      videoRef.current.muted = ratio === 0;
-                      setIsMuted(ratio === 0);
-                    }
-                  }}>
+              onClick={(e) => {
+                e.stopPropagation();
+                const rect = e.currentTarget.getBoundingClientRect();
+                const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                setVolume(ratio);
+                if (videoRef.current) {
+                  videoRef.current.volume = ratio;
+                  videoRef.current.muted = ratio === 0;
+                  setIsMuted(ratio === 0);
+                }
+              }}>
                   <div className="h-full rounded-full bg-primary-foreground" style={{ width: `${(isMuted ? 0 : volume) * 100}%` }} />
                 </div>
 
@@ -275,17 +275,17 @@ const HeroSection = () => {
 
                 {/* Fullscreen */}
                 <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    const container = videoRef.current?.closest('.aspect-video');
-                    if (!container) return;
-                    if (document.fullscreenElement) {
-                      document.exitFullscreen();
-                    } else {
-                      container.requestFullscreen();
-                    }
-                  }}
-                  className="ml-auto text-primary-foreground hover:scale-110 transition-transform">
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const container = videoRef.current?.closest('.aspect-video');
+                  if (!container) return;
+                  if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                  } else {
+                    container.requestFullscreen();
+                  }
+                }}
+                className="ml-auto text-primary-foreground hover:scale-110 transition-transform">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" /></svg>
                 </button>
               </div>
@@ -346,10 +346,10 @@ const HeroSection = () => {
 
         <motion.div variants={childVariants} className="mt-4 flex flex-col items-center gap-2">
           <p className="text-sm opacity-60">⏳ عرض خاص — متاح لمدة 72 ساعة فقط</p>
-          <div className="mt-2 inline-flex items-center gap-3 border-2 border-dashed border-green-400 rounded-full px-6 py-2.5 bg-green-400/10 backdrop-blur-sm">
-            <span className="text-sm line-through opacity-50 text-primary-foreground">$3,778</span>
-            <span className="text-2xl md:text-3xl font-extrabold text-green-400">$1,199</span>
-          </div>
+          
+
+
+        
         </motion.div>
       </motion.div>
     </section>;
