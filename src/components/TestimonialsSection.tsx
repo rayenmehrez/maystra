@@ -110,6 +110,7 @@ const TestimonialsSection = () => {
         <div className="space-y-6 mt-14">
           <AudioFeedback audioSrc={feedbackAudio1} />
           <AudioFeedback audioSrc={feedbackAudio2} />
+          <AudioFeedback audioSrc={feedbackAudio3} />
         </div>
       </div>
     </section>);
