@@ -5,6 +5,7 @@ import { Quote } from "lucide-react";
 import AudioFeedback from "./AudioFeedback";
 import feedbackAudio1 from "@/assets/feedback-audio.opus";
 import feedbackAudio2 from "@/assets/feedback-audio-2.opus";
+import feedbackAudio3 from "@/assets/feedback-audio-3.opus";
 
 const testimonials = [
 {
@@ -109,6 +110,7 @@ const TestimonialsSection = () => {
         <div className="space-y-6 mt-14">
           <AudioFeedback audioSrc={feedbackAudio1} />
           <AudioFeedback audioSrc={feedbackAudio2} />
+          <AudioFeedback audioSrc={feedbackAudio3} />
         </div>
       </div>
     </section>);
