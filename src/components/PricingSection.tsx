@@ -151,18 +151,13 @@ const PricingSection = () => {
               <span className="inline-block bg-primary/15 text-primary text-xs font-bold px-4 py-1.5 rounded-full mb-4">
                 الدفع الكامل
               </span>
-              <div className="flex items-baseline gap-3 mb-3">
-                <p className="text-3xl md:text-4xl font-extrabold text-primary">$1,199</p>
-                <p className="text-lg text-muted-foreground line-through">$3,778</p>
-              </div>
-              <span className="inline-block bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full mb-4">
-                وفّري أكثر من 68%
-              </span>
               <a
-                href="#booking"
+                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-lg md:text-xl py-5 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
               >
-                إحجزي إستشارتك المجانية الأن
+                ادفعي البرنامج كامل
               </a>
             </div>
           </motion.div>
