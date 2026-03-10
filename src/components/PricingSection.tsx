@@ -113,18 +113,13 @@ const PricingSection = () => {
               <span className="inline-block bg-primary/15 text-primary text-xs font-bold px-4 py-1.5 rounded-full mb-4">
                 الدفع بالتقسيط
               </span>
-              <p className="text-3xl md:text-4xl font-extrabold text-primary mb-3">
-                $599.5 <span className="text-base font-semibold text-muted-foreground">× دفعتين</span>
-              </p>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-2">
-                ادفعي 50% الآن والباقي قبل بداية البرنامج بتاريخ 11 يناير 2026
-              </p>
-              <p className="text-muted-foreground/60 text-xs mb-6">بدون أي زيادة في السعر</p>
               <a
-                href="#booking"
+                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7-50/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-base md:text-lg py-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
               >
-                إحجزي إستشارتك المجانية الأن
+                ادفعي بالتقسيط
               </a>
             </div>
           </motion.div>
@@ -156,18 +151,13 @@ const PricingSection = () => {
               <span className="inline-block bg-primary/15 text-primary text-xs font-bold px-4 py-1.5 rounded-full mb-4">
                 الدفع الكامل
               </span>
-              <div className="flex items-baseline gap-3 mb-3">
-                <p className="text-3xl md:text-4xl font-extrabold text-primary">$1,199</p>
-                <p className="text-lg text-muted-foreground line-through">$3,778</p>
-              </div>
-              <span className="inline-block bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full mb-4">
-                وفّري أكثر من 68%
-              </span>
               <a
-                href="#booking"
+                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-lg md:text-xl py-5 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
               >
-                إحجزي إستشارتك المجانية الأن
+                ادفعي البرنامج كامل
               </a>
             </div>
           </motion.div>
