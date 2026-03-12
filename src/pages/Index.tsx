@@ -35,7 +35,7 @@ const Index = () => {
       <BookingSection />
       <FinalCTASection />
       <Footer />
-      <WhatsAppButton />
+      <JawaherChat />
     </main>
   );
 };
