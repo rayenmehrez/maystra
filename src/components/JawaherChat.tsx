@@ -25,6 +25,8 @@ const SUGGESTIONS = [
   "كيف أحجز استشارتي المجانية؟",
 ];
 
+const GRADIENT = "linear-gradient(135deg, #754b9a, #905eaf)";
+
 const TypingDots = () => (
   <div className="flex gap-1 items-center px-4 py-3">
     {[0, 1, 2].map((i) => (
@@ -48,15 +50,11 @@ const JawaherChat = () => {
   const [welcomeSent, setWelcomeSent] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-open after 1.5s
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 1500);
+    const timer = setTimeout(() => setIsOpen(true), 1500);
     return () => clearTimeout(timer);
   }, []);
 
-  // Send welcome message when opened
   useEffect(() => {
     if (isOpen && !welcomeSent) {
       setWelcomeSent(true);
@@ -86,6 +84,7 @@ const JawaherChat = () => {
     setIsTyping(true);
 
     // TODO: uncomment and replace URL when n8n webhook is ready
+    // const sessionId = sessionStorage.getItem("jawaher_session") || (() => { const id = crypto.randomUUID(); sessionStorage.setItem("jawaher_session", id); return id; })();
     // const res = await fetch("YOUR_N8N_WEBHOOK_URL", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: text, sessionId }) });
 
     setTimeout(() => {
@@ -106,7 +105,7 @@ const JawaherChat = () => {
   };
 
   return (
-    <div className="fixed bottom-5 left-5 md:bottom-[30px] md:left-[30px] z-[1000] flex flex-col items-start gap-3">
+    <div className="fixed bottom-5 right-5 md:bottom-[30px] md:right-[30px] z-[1000] flex flex-col items-end gap-3">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -124,9 +123,7 @@ const JawaherChat = () => {
             {/* Header */}
             <div
               className="flex items-center gap-3 px-4 py-3"
-              style={{
-                background: "linear-gradient(135deg, #2c19bf, #5a47e0)",
-              }}
+              style={{ background: GRADIENT }}
             >
               <div className="relative">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-lg">
@@ -167,10 +164,7 @@ const JawaherChat = () => {
                     msg.sender === "bot" ? "self-end" : "self-start"
                   }`}
                   style={{
-                    background:
-                      msg.sender === "bot"
-                        ? "linear-gradient(135deg, #2c19bf, #5a47e0)"
-                        : "#2a273f",
+                    background: msg.sender === "bot" ? GRADIENT : "#2a273f",
                     color: "white",
                   }}
                 >
@@ -181,15 +175,12 @@ const JawaherChat = () => {
               {isTyping && (
                 <div
                   className="self-end max-w-[85%] rounded-2xl"
-                  style={{
-                    background: "linear-gradient(135deg, #2c19bf, #5a47e0)",
-                  }}
+                  style={{ background: GRADIENT }}
                 >
                   <TypingDots />
                 </div>
               )}
 
-              {/* Suggestions */}
               {showSuggestions && messages.length > 0 && !isTyping && (
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
@@ -202,17 +193,16 @@ const JawaherChat = () => {
                       onClick={() => sendMessage(s)}
                       className="text-right text-xs px-4 py-2 rounded-full border transition-all duration-200 hover:opacity-90"
                       style={{
-                        borderColor: "rgba(90,71,224,0.4)",
-                        background: "rgba(90,71,224,0.15)",
+                        borderColor: "rgba(144,94,175,0.4)",
+                        background: "rgba(117,75,154,0.12)",
                         color: "white",
                       }}
                       onMouseEnter={(e) =>
-                        (e.currentTarget.style.background =
-                          "linear-gradient(135deg, #2c19bf, #5a47e0)")
+                        (e.currentTarget.style.background = GRADIENT)
                       }
                       onMouseLeave={(e) =>
                         (e.currentTarget.style.background =
-                          "rgba(90,71,224,0.15)")
+                          "rgba(117,75,154,0.12)")
                       }
                     >
                       {s}
@@ -233,9 +223,7 @@ const JawaherChat = () => {
               <button
                 type="submit"
                 className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-opacity hover:opacity-80"
-                style={{
-                  background: "linear-gradient(135deg, #2c19bf, #5a47e0)",
-                }}
+                style={{ background: GRADIENT }}
               >
                 <svg
                   className="w-4 h-4 rotate-180"
@@ -253,7 +241,7 @@ const JawaherChat = () => {
                 style={{
                   background: "#2a273f",
                   color: "white",
-                  border: "1px solid rgba(90,71,224,0.3)",
+                  border: "1px solid rgba(144,94,175,0.3)",
                 }}
                 dir="rtl"
               />
@@ -267,15 +255,15 @@ const JawaherChat = () => {
         onClick={() => setIsOpen((v) => !v)}
         className="w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer relative"
         style={{
-          background: "linear-gradient(135deg, #2c19bf, #5a47e0)",
-          boxShadow: "0 4px 20px rgba(44, 25, 191, 0.4)",
+          background: GRADIENT,
+          boxShadow: "0 6px 28px rgba(117,75,154,0.55)",
         }}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
         whileHover={{
           scale: 1.1,
-          boxShadow: "0 6px 25px rgba(44, 25, 191, 0.6)",
+          boxShadow: "0 8px 32px rgba(117,75,154,0.7)",
         }}
         whileTap={{ scale: 0.95 }}
       >
