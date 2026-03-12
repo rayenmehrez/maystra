@@ -105,7 +105,30 @@ const JawaherChat = () => {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 md:bottom-[30px] md:right-[30px] z-[1000] flex flex-col items-end gap-3">
+    <>
+      {/* Floating Button */}
+      <motion.button
+        onClick={() => setIsOpen((v) => !v)}
+        className="fixed z-[1000] w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer bottom-[12px] right-[12px] sm:bottom-[28px] sm:right-[28px]"
+        style={{
+          background: GRADIENT,
+          boxShadow: "0 6px 28px rgba(117,75,154,0.55)",
+        }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
+        whileHover={{
+          scale: 1.1,
+          boxShadow: "0 8px 32px rgba(117,75,154,0.7)",
+        }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <svg className="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="white">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
+        </svg>
+      </motion.button>
+
+      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -113,16 +136,15 @@ const JawaherChat = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            className="fixed z-[1001] rounded-2xl overflow-hidden shadow-2xl flex flex-col bottom-[90px] right-[12px] w-[calc(100vw-24px)] sm:bottom-[104px] sm:right-[28px] sm:w-[360px]"
             style={{
-              width: "360px",
               maxHeight: "520px",
               background: "#1a1830",
             }}
           >
             {/* Header */}
             <div
-              className="flex items-center gap-3 px-4 py-3"
+              className="flex items-center gap-3 px-4 py-3 shrink-0"
               style={{ background: GRADIENT }}
             >
               <div className="relative">
@@ -152,7 +174,7 @@ const JawaherChat = () => {
             {/* Messages */}
             <div
               className="flex-1 overflow-y-auto p-4 flex flex-col gap-3"
-              style={{ minHeight: "280px", maxHeight: "360px" }}
+              style={{ maxHeight: "360px" }}
             >
               {messages.map((msg) => (
                 <motion.div
@@ -217,7 +239,7 @@ const JawaherChat = () => {
             {/* Input */}
             <form
               onSubmit={handleSubmit}
-              className="flex items-center gap-2 p-3"
+              className="flex items-center gap-2 p-3 shrink-0"
               style={{ background: "#0d0c1a" }}
             >
               <button
@@ -249,29 +271,7 @@ const JawaherChat = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Floating Button */}
-      <motion.button
-        onClick={() => setIsOpen((v) => !v)}
-        className="w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer relative"
-        style={{
-          background: GRADIENT,
-          boxShadow: "0 6px 28px rgba(117,75,154,0.55)",
-        }}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
-        whileHover={{
-          scale: 1.1,
-          boxShadow: "0 8px 32px rgba(117,75,154,0.7)",
-        }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <svg className="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="white">
-          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
-        </svg>
-      </motion.button>
-    </div>
+    </>
   );
 };
 
