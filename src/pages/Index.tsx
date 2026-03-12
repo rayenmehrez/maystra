@@ -14,7 +14,7 @@ import InnerChildIntroSection from "@/components/InnerChildIntroSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import BookingSection from "@/components/BookingSection";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import JawaherChat from "@/components/JawaherChat";
 
 const Index = () => {
   return (
