@@ -1,29 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// Replace src with your image path
+import jawaherAvatar from "@/assets/jawaher-avatar.png";
 
 interface Message {
   id: string;
   text: string;
   sender: "bot" | "user";
 }
-
-const REPLIES: Record<string, string> = {
-  "شو يميّز منهج المايسترا؟":
-    "المايسترا منهج تحولي من 12 دورة على 3 أشهر — مش كورس معلومات، بل رحلة عميقة تبدأ من جذور شخصيتك وتنتهي بقيادة حياتك بوعي وثقة 💜",
-  "هل المنهج مناسب لي؟":
-    "إذا تحسين بضجيج داخلي، تكرار نفس الأنماط، أو صعوبة في الاستماع لنفسك — فالمايسترا صُممت خصيصاً لك 🌸",
-  "كيف أحجز استشارتي المجانية؟":
-    "كل اللي عليك تسوينه هو تضغطين على زر 'إحجزي استشارتك المجانية الآن' في الصفحة — وراح نلتقي ونشوف مع بعض 🤍",
-};
-
-const DEFAULT_REPLY =
-  "سؤالك وصلني 🤍 للإجابة الكاملة، احجزي استشارتك المجانية مع الكوتش عبير مباشرة من الصفحة.";
-
-const SUGGESTIONS = [
-  "شو يميّز منهج المايسترا؟",
-  "هل المنهج مناسب لي؟",
-  "كيف أحجز استشارتي المجانية؟",
-];
 
 const GRADIENT = "linear-gradient(135deg, #754b9a, #905eaf)";
 
@@ -46,21 +30,37 @@ const JawaherChat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [showSuggestions, setShowSuggestions] = useState(true);
-  const [welcomeSent, setWelcomeSent] = useState(false);
+  const [welcomeSent, setWelcomeSent] = useState(() =>
+    sessionStorage.getItem("jawaher_welcome_sent") === "true"
+  );
+  const welcomeTriggered = useRef(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Load persisted messages on mount
   useEffect(() => {
-    const timer = setTimeout(() => setIsOpen(true), 1500);
-    return () => clearTimeout(timer);
+    if (welcomeSent) {
+      setMessages([
+        {
+          id: "welcome",
+          text: "أهلاً، أنا جواهر 💜 كيف أقدر أساعدك في رحلتك مع المايسترا؟",
+          sender: "bot",
+        },
+      ]);
+    }
   }, []);
 
+  // Auto message 3s after first open
   useEffect(() => {
-    if (isOpen && !welcomeSent) {
-      setWelcomeSent(true);
-      setIsTyping(true);
-      const timer = setTimeout(() => {
+    if (isOpen && !welcomeSent && !welcomeTriggered.current) {
+      welcomeTriggered.current = true;
+      const typingTimer = setTimeout(() => {
+        setIsTyping(true);
+      }, 3000);
+
+      const messageTimer = setTimeout(() => {
         setIsTyping(false);
+        setWelcomeSent(true);
+        sessionStorage.setItem("jawaher_welcome_sent", "true");
         setMessages([
           {
             id: "welcome",
@@ -68,8 +68,12 @@ const JawaherChat = () => {
             sender: "bot",
           },
         ]);
-      }, 1500);
-      return () => clearTimeout(timer);
+      }, 4200); // 3s delay + 1.2s typing
+
+      return () => {
+        clearTimeout(typingTimer);
+        clearTimeout(messageTimer);
+      };
     }
   }, [isOpen, welcomeSent]);
 
@@ -77,24 +81,31 @@ const JawaherChat = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
 
+  const getSessionId = () => {
+    let id = sessionStorage.getItem("jawaher_session");
+    if (!id) {
+      id = crypto.randomUUID();
+      sessionStorage.setItem("jawaher_session", id);
+    }
+    return id;
+  };
+
   const sendMessage = (text: string) => {
     const userMsg: Message = { id: crypto.randomUUID(), text, sender: "user" };
     setMessages((prev) => [...prev, userMsg]);
-    setShowSuggestions(false);
     setIsTyping(true);
 
-    // TODO: uncomment and replace URL when n8n webhook is ready
-    // const sessionId = sessionStorage.getItem("jawaher_session") || (() => { const id = crypto.randomUUID(); sessionStorage.setItem("jawaher_session", id); return id; })();
-    // const res = await fetch("YOUR_N8N_WEBHOOK_URL", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: text, sessionId }) });
+    const _sessionId = getSessionId();
 
-    setTimeout(() => {
-      setIsTyping(false);
-      const reply = REPLIES[text] || DEFAULT_REPLY;
-      setMessages((prev) => [
-        ...prev,
-        { id: crypto.randomUUID(), text: reply, sender: "bot" },
-      ]);
-    }, 1500);
+    // TODO: Connect to n8n webhook
+    // const response = await fetch("YOUR_N8N_WEBHOOK_URL", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ message: text, sessionId: _sessionId })
+    // });
+    // const data = await response.json();
+    // setIsTyping(false);
+    // setMessages(prev => [...prev, { id: crypto.randomUUID(), text: data.reply, sender: "bot" }]);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -114,9 +125,8 @@ const JawaherChat = () => {
           background: GRADIENT,
           boxShadow: "0 6px 28px rgba(117,75,154,0.55)",
         }}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
+        animate={{ rotate: isOpen ? 15 : 0 }}
+        transition={{ duration: 0.2 }}
         whileHover={{
           scale: 1.1,
           boxShadow: "0 8px 32px rgba(117,75,154,0.7)",
@@ -132,10 +142,10 @@ const JawaherChat = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.85, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            exit={{ opacity: 0, scale: 0.85, y: 20 }}
+            transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
             className="fixed z-[1001] rounded-2xl overflow-hidden shadow-2xl flex flex-col bottom-[90px] right-[12px] w-[calc(100vw-24px)] sm:bottom-[104px] sm:right-[28px] sm:w-[360px]"
             style={{
               maxHeight: "520px",
@@ -148,9 +158,13 @@ const JawaherChat = () => {
               style={{ background: GRADIENT }}
             >
               <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-lg">
-                  💜
-                </div>
+                {/* Replace src with your image path */}
+                <img
+                  src={jawaherAvatar}
+                  alt="جواهر"
+                  className="w-[44px] h-[44px] rounded-full object-cover"
+                  style={{ border: "2px solid rgba(255,255,255,0.3)" }}
+                />
                 <span
                   className="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white"
                   style={{
@@ -182,55 +196,45 @@ const JawaherChat = () => {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
-                    msg.sender === "bot" ? "self-end" : "self-start"
+                  className={`flex items-end gap-2 ${
+                    msg.sender === "bot" ? "flex-row-reverse" : "flex-row"
                   }`}
-                  style={{
-                    background: msg.sender === "bot" ? GRADIENT : "#2a273f",
-                    color: "white",
-                  }}
                 >
-                  {msg.text}
+                  {msg.sender === "bot" && (
+                    <img
+                      src={jawaherAvatar}
+                      alt="جواهر"
+                      className="w-7 h-7 rounded-full object-cover shrink-0"
+                      style={{ border: "1.5px solid rgba(255,255,255,0.2)" }}
+                    />
+                  )}
+                  <div
+                    className="max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed"
+                    style={{
+                      background: msg.sender === "bot" ? GRADIENT : "#2a273f",
+                      color: "white",
+                    }}
+                  >
+                    {msg.text}
+                  </div>
                 </motion.div>
               ))}
 
               {isTyping && (
-                <div
-                  className="self-end max-w-[85%] rounded-2xl"
-                  style={{ background: GRADIENT }}
-                >
-                  <TypingDots />
+                <div className="flex items-end gap-2 flex-row-reverse">
+                  <img
+                    src={jawaherAvatar}
+                    alt="جواهر"
+                    className="w-7 h-7 rounded-full object-cover shrink-0"
+                    style={{ border: "1.5px solid rgba(255,255,255,0.2)" }}
+                  />
+                  <div
+                    className="max-w-[85%] rounded-2xl"
+                    style={{ background: GRADIENT }}
+                  >
+                    <TypingDots />
+                  </div>
                 </div>
-              )}
-
-              {showSuggestions && messages.length > 0 && !isTyping && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex flex-col gap-2 mt-1"
-                >
-                  {SUGGESTIONS.map((s) => (
-                    <button
-                      key={s}
-                      onClick={() => sendMessage(s)}
-                      className="text-right text-xs px-4 py-2 rounded-full border transition-all duration-200 hover:opacity-90"
-                      style={{
-                        borderColor: "rgba(144,94,175,0.4)",
-                        background: "rgba(117,75,154,0.12)",
-                        color: "white",
-                      }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.background = GRADIENT)
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.background =
-                          "rgba(117,75,154,0.12)")
-                      }
-                    >
-                      {s}
-                    </button>
-                  ))}
-                </motion.div>
               )}
 
               <div ref={messagesEndRef} />
