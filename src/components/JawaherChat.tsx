@@ -82,30 +82,44 @@ const JawaherChat = () => {
   }, [messages, isTyping]);
 
   const getSessionId = () => {
-    let id = sessionStorage.getItem("jawaher_session");
+    let id = localStorage.getItem("sessionId");
     if (!id) {
       id = crypto.randomUUID();
-      sessionStorage.setItem("jawaher_session", id);
+      localStorage.setItem("sessionId", id);
     }
     return id;
   };
 
-  const sendMessage = (text: string) => {
+  const sendMessage = async (text: string) => {
     const userMsg: Message = { id: crypto.randomUUID(), text, sender: "user" };
     setMessages((prev) => [...prev, userMsg]);
     setIsTyping(true);
 
-    const _sessionId = getSessionId();
+    const sessionId = getSessionId();
 
-    // TODO: Connect to n8n webhook
-    // const response = await fetch("YOUR_N8N_WEBHOOK_URL", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ message: text, sessionId: _sessionId })
-    // });
-    // const data = await response.json();
-    // setIsTyping(false);
-    // setMessages(prev => [...prev, { id: crypto.randomUUID(), text: data.reply, sender: "bot" }]);
+    try {
+      const response = await fetch(
+        "https://n8n.srv1237336.hstgr.cloud/webhook/da8e977f-7598-41ff-a03c-9268b5f2643d",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text, sessionId }),
+        }
+      );
+      const data = await response.json();
+      const reply = data.output || data.text || data.message || "...";
+      setMessages((prev) => [
+        ...prev,
+        { id: crypto.randomUUID(), text: reply, sender: "bot" },
+      ]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        { id: crypto.randomUUID(), text: "حدث خطأ، حاولي مرة أخرى 💜", sender: "bot" },
+      ]);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
