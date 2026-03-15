@@ -62,11 +62,14 @@ const JawaherChat = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Hide badge & tooltip when chat opens
+  // Hide badge & tooltip when chat opens; clear comeback timer
   useEffect(() => {
     if (isOpen) {
       setShowBadge(false);
       setShowNotifTooltip(false);
+      setShowComebackPopup(false);
+      if (comebackTimer.current) clearTimeout(comebackTimer.current);
+      if (comebackAutoHide.current) clearTimeout(comebackAutoHide.current);
     }
   }, [isOpen]);
 
