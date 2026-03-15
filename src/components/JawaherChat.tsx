@@ -39,9 +39,15 @@ const JawaherChat = () => {
   const [showQuickReplies, setShowQuickReplies] = useState(false);
   const [showBadge, setShowBadge] = useState(false);
   const [showNotifTooltip, setShowNotifTooltip] = useState(false);
+  const [showComebackPopup, setShowComebackPopup] = useState(false);
   const [welcomeSent, setWelcomeSent] = useState(() =>
     sessionStorage.getItem("jawaher_welcome_sent") === "true"
   );
+  const comebackShown = useRef(
+    sessionStorage.getItem("jawaher_comeback_shown") === "true"
+  );
+  const comebackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const comebackAutoHide = useRef<ReturnType<typeof setTimeout> | null>(null);
   const welcomeTriggered = useRef(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -56,11 +62,14 @@ const JawaherChat = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Hide badge & tooltip when chat opens
+  // Hide badge & tooltip when chat opens; clear comeback timer
   useEffect(() => {
     if (isOpen) {
       setShowBadge(false);
       setShowNotifTooltip(false);
+      setShowComebackPopup(false);
+      if (comebackTimer.current) clearTimeout(comebackTimer.current);
+      if (comebackAutoHide.current) clearTimeout(comebackAutoHide.current);
     }
   }, [isOpen]);
 
@@ -160,6 +169,20 @@ const JawaherChat = () => {
     }
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+    if (!comebackShown.current) {
+      comebackShown.current = true;
+      sessionStorage.setItem("jawaher_comeback_shown", "true");
+      comebackTimer.current = setTimeout(() => {
+        setShowComebackPopup(true);
+        comebackAutoHide.current = setTimeout(() => {
+          setShowComebackPopup(false);
+        }, 8000);
+      }, 4000);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
@@ -191,6 +214,50 @@ const JawaherChat = () => {
                 className="absolute -bottom-1.5 right-5 w-3 h-3 rotate-45"
                 style={{ background: "#3b1d6e" }}
               />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Comeback Popup */}
+        <AnimatePresence>
+          {showComebackPopup && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="absolute -top-[70px] right-0 cursor-pointer"
+              style={{ direction: "rtl" }}
+              onClick={() => {
+                setShowComebackPopup(false);
+                setIsOpen(true);
+              }}
+            >
+              <div
+                className="relative whitespace-nowrap text-[13px] text-white flex items-center gap-2"
+                style={{
+                  background: "#1e1035",
+                  padding: "10px 16px",
+                  borderRadius: "16px",
+                  border: "1px solid #7c3aed",
+                  boxShadow: "0 4px 16px rgba(109,40,217,0.3)",
+                }}
+              >
+                إذا احتجتِ أي شي، أنا هنا 💜
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowComebackPopup(false);
+                  }}
+                  className="text-white/50 hover:text-white text-xs leading-none mr-1"
+                >
+                  ✕
+                </button>
+                <span
+                  className="absolute -bottom-1.5 right-5 w-3 h-3 rotate-45"
+                  style={{ background: "#1e1035", borderRight: "1px solid #7c3aed", borderBottom: "1px solid #7c3aed" }}
+                />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -276,7 +343,7 @@ const JawaherChat = () => {
                 <p className="text-white/70 text-xs">مساعدة منهج المايسترا</p>
               </div>
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className="text-white/70 hover:text-white transition-colors text-xl leading-none"
               >
                 ✕
