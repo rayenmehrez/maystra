@@ -243,9 +243,6 @@ const JawaherChat = () => {
             className="fixed z-[1001] rounded-2xl overflow-hidden shadow-2xl flex flex-col bottom-[90px] right-[12px] w-[calc(100vw-24px)] sm:bottom-[104px] sm:right-[28px] sm:w-[360px]"
             style={{
               maxHeight: "520px",
-              background: "#1a1830",
-              outline: "2px solid transparent",
-              backgroundClip: "padding-box",
               border: "2px solid transparent",
               backgroundImage: `linear-gradient(#1a1830, #1a1830), linear-gradient(270deg, #6d28d9, #9b72f5, #c4b5fd, #6d28d9)`,
               backgroundOrigin: "border-box",
