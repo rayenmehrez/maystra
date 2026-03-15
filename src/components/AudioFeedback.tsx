@@ -116,6 +116,13 @@ const AudioFeedback = ({
             {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 mr-[-2px]" />}
           </motion.button>
 
+          <button
+            onClick={cycleSpeed}
+            className="shrink-0 bg-primary/10 text-primary text-xs font-bold px-2.5 py-1.5 rounded-full hover:bg-primary/20 transition-colors"
+          >
+            {speed}x
+          </button>
+
           <div className="flex-1 min-w-0">
             <div
               className="flex items-center gap-[2px] h-10 cursor-pointer"

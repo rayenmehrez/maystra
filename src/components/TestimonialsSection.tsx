@@ -3,6 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import { Quote } from "lucide-react";
 import AudioFeedback from "./AudioFeedback";
+import VideoFeedback from "./VideoFeedback";
 import feedbackAudio1 from "@/assets/feedback-audio.opus";
 import feedbackAudio2 from "@/assets/feedback-audio-2.opus";
 import feedbackAudio3 from "@/assets/feedback-audio-3.opus";
