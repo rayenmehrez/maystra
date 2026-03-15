@@ -299,7 +299,7 @@ const JawaherChat = () => {
                 <p className="text-white/70 text-xs">مساعدة منهج المايسترا</p>
               </div>
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className="text-white/70 hover:text-white transition-colors text-xl leading-none"
               >
                 ✕
