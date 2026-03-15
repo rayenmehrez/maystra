@@ -39,9 +39,15 @@ const JawaherChat = () => {
   const [showQuickReplies, setShowQuickReplies] = useState(false);
   const [showBadge, setShowBadge] = useState(false);
   const [showNotifTooltip, setShowNotifTooltip] = useState(false);
+  const [showComebackPopup, setShowComebackPopup] = useState(false);
   const [welcomeSent, setWelcomeSent] = useState(() =>
     sessionStorage.getItem("jawaher_welcome_sent") === "true"
   );
+  const comebackShown = useRef(
+    sessionStorage.getItem("jawaher_comeback_shown") === "true"
+  );
+  const comebackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const comebackAutoHide = useRef<ReturnType<typeof setTimeout> | null>(null);
   const welcomeTriggered = useRef(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
