@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause, Volume2 } from "lucide-react";
 
+const SPEEDS = [1, 1.2, 1.3, 1.5];
+
 interface AudioFeedbackProps {
   audioSrc: string;
   title?: string;
