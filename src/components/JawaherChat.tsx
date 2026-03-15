@@ -321,6 +321,7 @@ const JawaherChat = () => {
                 )}
               </AnimatePresence>
 
+              {isTyping && (
                 <div className="flex items-end gap-2 flex-row-reverse">
                   <img
                     src={jawaherAvatar}
