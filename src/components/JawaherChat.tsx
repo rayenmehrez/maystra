@@ -283,7 +283,44 @@ const JawaherChat = () => {
                 </motion.div>
               ))}
 
-              {isTyping && (
+              {/* Quick Reply Buttons */}
+              <AnimatePresence>
+                {showQuickReplies && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="flex flex-wrap gap-2 justify-end"
+                    dir="rtl"
+                  >
+                    {QUICK_REPLIES.map((text) => (
+                      <button
+                        key={text}
+                        onClick={() => sendMessage(text)}
+                        className="transition-colors duration-200 cursor-pointer"
+                        style={{
+                          background: "transparent",
+                          border: "1.5px solid #7c3aed",
+                          color: "#7c3aed",
+                          borderRadius: "25px",
+                          padding: "10px 18px",
+                          fontSize: "13px",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "rgba(124,58,237,0.15)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "transparent";
+                        }}
+                      >
+                        {text}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
                 <div className="flex items-end gap-2 flex-row-reverse">
                   <img
                     src={jawaherAvatar}
