@@ -121,7 +121,6 @@ const TestimonialsSection = () => {
 
         {/* Audio Feedback */}
         <div className="space-y-6 mt-8">
-          <AudioFeedback audioSrc={feedbackAudio1} />
           <AudioFeedback audioSrc={feedbackAudio2} />
           <AudioFeedback audioSrc={feedbackAudio3} />
         </div>
