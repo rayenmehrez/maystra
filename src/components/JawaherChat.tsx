@@ -25,11 +25,19 @@ const TypingDots = () => (
   </div>
 );
 
+const QUICK_REPLIES = [
+  "شو هو المايسترا؟ 🌟",
+  "كيف يساعدني البرنامج؟ 💜",
+  "أبي أحجز استشارة 📅",
+  "من هي Coach Abeer؟ ✨",
+];
+
 const JawaherChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [showQuickReplies, setShowQuickReplies] = useState(false);
   const [welcomeSent, setWelcomeSent] = useState(() =>
     sessionStorage.getItem("jawaher_welcome_sent") === "true"
   );
@@ -46,6 +54,10 @@ const JawaherChat = () => {
           sender: "bot",
         },
       ]);
+      // Show quick replies only if no prior interaction this session
+      if (sessionStorage.getItem("jawaher_interacted") !== "true") {
+        setShowQuickReplies(true);
+      }
     }
   }, []);
 
@@ -68,7 +80,8 @@ const JawaherChat = () => {
             sender: "bot",
           },
         ]);
-      }, 4200); // 3s delay + 1.2s typing
+        setShowQuickReplies(true);
+      }, 4200);
 
       return () => {
         clearTimeout(typingTimer);
@@ -90,7 +103,13 @@ const JawaherChat = () => {
     return id;
   };
 
+  const hideQuickReplies = () => {
+    setShowQuickReplies(false);
+    sessionStorage.setItem("jawaher_interacted", "true");
+  };
+
   const sendMessage = async (text: string) => {
+    hideQuickReplies();
     const userMsg: Message = { id: crypto.randomUUID(), text, sender: "user" };
     setMessages((prev) => [...prev, userMsg]);
     setIsTyping(true);
@@ -263,6 +282,44 @@ const JawaherChat = () => {
                   </div>
                 </motion.div>
               ))}
+
+              {/* Quick Reply Buttons */}
+              <AnimatePresence>
+                {showQuickReplies && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="flex flex-wrap gap-2 justify-end"
+                    dir="rtl"
+                  >
+                    {QUICK_REPLIES.map((text) => (
+                      <button
+                        key={text}
+                        onClick={() => sendMessage(text)}
+                        className="transition-colors duration-200 cursor-pointer"
+                        style={{
+                          background: "transparent",
+                          border: "1.5px solid #7c3aed",
+                          color: "#7c3aed",
+                          borderRadius: "25px",
+                          padding: "10px 18px",
+                          fontSize: "13px",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "rgba(124,58,237,0.15)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "transparent";
+                        }}
+                      >
+                        {text}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {isTyping && (
                 <div className="flex items-end gap-2 flex-row-reverse">
