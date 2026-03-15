@@ -99,7 +99,7 @@ const JawaherChat = () => {
 
     try {
       const response = await fetch(
-        "https://n8n.srv1237336.hstgr.cloud/webhook-test/da8e977f-7598-41ff-a03c-9268b5f2643d",
+        "https://n8n.srv1237336.hstgr.cloud/webhook/da8e977f-7598-41ff-a03c-9268b5f2643d",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
