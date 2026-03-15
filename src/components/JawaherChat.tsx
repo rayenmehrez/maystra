@@ -169,6 +169,20 @@ const JawaherChat = () => {
     }
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+    if (!comebackShown.current) {
+      comebackShown.current = true;
+      sessionStorage.setItem("jawaher_comeback_shown", "true");
+      comebackTimer.current = setTimeout(() => {
+        setShowComebackPopup(true);
+        comebackAutoHide.current = setTimeout(() => {
+          setShowComebackPopup(false);
+        }, 8000);
+      }, 4000);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
