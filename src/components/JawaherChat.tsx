@@ -229,7 +229,37 @@ const JawaherChat = () => {
                       color: "white",
                     }}
                   >
-                    {msg.text}
+                    {(() => {
+                      if (msg.sender === "bot") {
+                        const urlMatch = msg.text.match(/https?:\/\/[^\s]+/);
+                        if (urlMatch) {
+                          const textWithoutUrl = msg.text.replace(urlMatch[0], "").trim();
+                          return (
+                            <>
+                              {textWithoutUrl && <span>{textWithoutUrl}</span>}
+                              <a
+                                href={urlMatch[0]}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block text-center no-underline"
+                                style={{
+                                  marginTop: "10px",
+                                  background: "#7c3aed",
+                                  color: "white",
+                                  borderRadius: "25px",
+                                  padding: "12px 24px",
+                                  fontSize: "14px",
+                                  width: "100%",
+                                }}
+                              >
+                                احجزي جلستك المجانية 💜
+                              </a>
+                            </>
+                          );
+                        }
+                      }
+                      return msg.text;
+                    })()}
                   </div>
                 </motion.div>
               ))}
