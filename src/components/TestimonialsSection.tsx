@@ -107,17 +107,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Video Feedback */}
-        <div className="mt-14 max-w-2xl mx-auto">
-          <div className="rounded-2xl overflow-hidden shadow-purple border border-border/50">
-            <video
-              className="w-full aspect-video"
-              src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/COACH%20ABEER%20-%20ZOOM%20(3).mp4"
-              controls
-              playsInline
-              preload="metadata"
-            />
-          </div>
-        </div>
+        <VideoFeedback src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/COACH%20ABEER%20-%20ZOOM%20(3).mp4" />
 
         {/* Audio Feedback */}
         <div className="space-y-6 mt-8">
