@@ -25,11 +25,19 @@ const TypingDots = () => (
   </div>
 );
 
+const QUICK_REPLIES = [
+  "شو هو المايسترا؟ 🌟",
+  "كيف يساعدني البرنامج؟ 💜",
+  "أبي أحجز استشارة 📅",
+  "من هي Coach Abeer؟ ✨",
+];
+
 const JawaherChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [showQuickReplies, setShowQuickReplies] = useState(false);
   const [welcomeSent, setWelcomeSent] = useState(() =>
     sessionStorage.getItem("jawaher_welcome_sent") === "true"
   );
@@ -46,6 +54,10 @@ const JawaherChat = () => {
           sender: "bot",
         },
       ]);
+      // Show quick replies only if no prior interaction this session
+      if (sessionStorage.getItem("jawaher_interacted") !== "true") {
+        setShowQuickReplies(true);
+      }
     }
   }, []);
 
@@ -68,7 +80,8 @@ const JawaherChat = () => {
             sender: "bot",
           },
         ]);
-      }, 4200); // 3s delay + 1.2s typing
+        setShowQuickReplies(true);
+      }, 4200);
 
       return () => {
         clearTimeout(typingTimer);
@@ -90,7 +103,13 @@ const JawaherChat = () => {
     return id;
   };
 
+  const hideQuickReplies = () => {
+    setShowQuickReplies(false);
+    sessionStorage.setItem("jawaher_interacted", "true");
+  };
+
   const sendMessage = async (text: string) => {
+    hideQuickReplies();
     const userMsg: Message = { id: crypto.randomUUID(), text, sender: "user" };
     setMessages((prev) => [...prev, userMsg]);
     setIsTyping(true);
