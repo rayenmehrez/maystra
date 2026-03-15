@@ -168,3 +168,15 @@
     background-color: hsl(var(--lavender-mid));
   }
 }
+
+/* Chat widget animations */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(124,58,237,0); }
+}
+
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

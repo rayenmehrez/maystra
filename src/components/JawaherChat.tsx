@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// Replace src with your image path
 import jawaherAvatar from "@/assets/jawaher-avatar.png";
 
 interface Message {
@@ -17,9 +16,9 @@ const TypingDots = () => (
       <motion.span
         key={i}
         className="w-2 h-2 rounded-full"
-        style={{ backgroundColor: "rgba(255,255,255,0.6)" }}
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.15 }}
+        style={{ backgroundColor: "#9b72f5" }}
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
       />
     ))}
   </div>
@@ -38,11 +37,32 @@ const JawaherChat = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [showQuickReplies, setShowQuickReplies] = useState(false);
+  const [showBadge, setShowBadge] = useState(false);
+  const [showNotifTooltip, setShowNotifTooltip] = useState(false);
   const [welcomeSent, setWelcomeSent] = useState(() =>
     sessionStorage.getItem("jawaher_welcome_sent") === "true"
   );
   const welcomeTriggered = useRef(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Notification badge & tooltip after 5s if chat is closed
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isOpen) {
+        setShowBadge(true);
+        setShowNotifTooltip(true);
+      }
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Hide badge & tooltip when chat opens
+  useEffect(() => {
+    if (isOpen) {
+      setShowBadge(false);
+      setShowNotifTooltip(false);
+    }
+  }, [isOpen]);
 
   // Load persisted messages on mount
   useEffect(() => {
@@ -54,7 +74,6 @@ const JawaherChat = () => {
           sender: "bot",
         },
       ]);
-      // Show quick replies only if no prior interaction this session
       if (sessionStorage.getItem("jawaher_interacted") !== "true") {
         setShowQuickReplies(true);
       }
@@ -151,25 +170,67 @@ const JawaherChat = () => {
   return (
     <>
       {/* Floating Button */}
-      <motion.button
-        onClick={() => setIsOpen((v) => !v)}
-        className="fixed z-[1000] w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer bottom-[12px] right-[12px] sm:bottom-[28px] sm:right-[28px]"
-        style={{
-          background: GRADIENT,
-          boxShadow: "0 6px 28px rgba(117,75,154,0.55)",
-        }}
-        animate={{ rotate: isOpen ? 15 : 0 }}
-        transition={{ duration: 0.2 }}
-        whileHover={{
-          scale: 1.1,
-          boxShadow: "0 8px 32px rgba(117,75,154,0.7)",
-        }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <svg className="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="white">
-          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
-        </svg>
-      </motion.button>
+      <div className="fixed z-[1000] bottom-[12px] right-[12px] sm:bottom-[28px] sm:right-[28px]">
+        {/* Notification Tooltip */}
+        <AnimatePresence>
+          {showNotifTooltip && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.3 }}
+              className="absolute -top-14 right-0 whitespace-nowrap text-xs text-white px-3 py-2 rounded-lg pointer-events-none"
+              style={{
+                background: "#3b1d6e",
+                boxShadow: "0 4px 16px rgba(109,40,217,0.3)",
+              }}
+            >
+              جواهر هنا لمساعدتك 💜
+              {/* Arrow */}
+              <span
+                className="absolute -bottom-1.5 right-5 w-3 h-3 rotate-45"
+                style={{ background: "#3b1d6e" }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <motion.button
+          onClick={() => setIsOpen((v) => !v)}
+          className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer"
+          style={{
+            background: GRADIENT,
+            boxShadow: "0 6px 28px rgba(117,75,154,0.55)",
+            animation: "glow 3s infinite",
+          }}
+          animate={{ rotate: isOpen ? 15 : 0 }}
+          transition={{ duration: 0.2 }}
+          whileHover={{
+            scale: 1.1,
+            boxShadow: "0 8px 32px rgba(117,75,154,0.7)",
+          }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <svg className="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="white">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
+          </svg>
+
+          {/* Notification Badge */}
+          <AnimatePresence>
+            {showBadge && (
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0 }}
+                className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold text-white z-20"
+                style={{ backgroundColor: "#ef4444" }}
+              >
+                1
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.button>
+      </div>
 
       {/* Chat Window */}
       <AnimatePresence>
@@ -182,7 +243,12 @@ const JawaherChat = () => {
             className="fixed z-[1001] rounded-2xl overflow-hidden shadow-2xl flex flex-col bottom-[90px] right-[12px] w-[calc(100vw-24px)] sm:bottom-[104px] sm:right-[28px] sm:w-[360px]"
             style={{
               maxHeight: "520px",
-              background: "#1a1830",
+              border: "2px solid transparent",
+              backgroundImage: `linear-gradient(#1a1830, #1a1830), linear-gradient(270deg, #6d28d9, #9b72f5, #c4b5fd, #6d28d9)`,
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box",
+              backgroundSize: "100% 100%, 300% 300%",
+              animation: "borderRotate 4s ease infinite",
             }}
           >
             {/* Header */}
@@ -191,7 +257,6 @@ const JawaherChat = () => {
               style={{ background: GRADIENT }}
             >
               <div className="relative">
-                {/* Replace src with your image path */}
                 <img
                   src={jawaherAvatar}
                   alt="جواهر"
@@ -226,9 +291,9 @@ const JawaherChat = () => {
               {messages.map((msg) => (
                 <motion.div
                   key={msg.id}
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   className={`flex items-end gap-2 ${
                     msg.sender === "bot" ? "flex-row-reverse" : "flex-row"
                   }`}
@@ -321,8 +386,14 @@ const JawaherChat = () => {
                 )}
               </AnimatePresence>
 
+              {/* Typing Indicator */}
               {isTyping && (
-                <div className="flex items-end gap-2 flex-row-reverse">
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-end gap-2 flex-row-reverse"
+                >
                   <img
                     src={jawaherAvatar}
                     alt="جواهر"
@@ -335,7 +406,7 @@ const JawaherChat = () => {
                   >
                     <TypingDots />
                   </div>
-                </div>
+                </motion.div>
               )}
 
               <div ref={messagesEndRef} />
