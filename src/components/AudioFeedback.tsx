@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause, Volume2 } from "lucide-react";
 
+const SPEEDS = [1, 1.2, 1.3, 1.5];
+
 interface AudioFeedbackProps {
   audioSrc: string;
   title?: string;
@@ -17,6 +19,14 @@ const AudioFeedback = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [speed, setSpeed] = useState(1);
+
+  const cycleSpeed = () => {
+    const idx = SPEEDS.indexOf(speed);
+    const next = SPEEDS[(idx + 1) % SPEEDS.length];
+    setSpeed(next);
+    if (audioRef.current) audioRef.current.playbackRate = next;
+  };
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -105,6 +115,13 @@ const AudioFeedback = ({
           >
             {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 mr-[-2px]" />}
           </motion.button>
+
+          <button
+            onClick={cycleSpeed}
+            className="shrink-0 bg-primary/10 text-primary text-xs font-bold px-2.5 py-1.5 rounded-full hover:bg-primary/20 transition-colors"
+          >
+            {speed}x
+          </button>
 
           <div className="flex-1 min-w-0">
             <div

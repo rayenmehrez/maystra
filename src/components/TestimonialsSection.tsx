@@ -3,6 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import { Quote } from "lucide-react";
 import AudioFeedback from "./AudioFeedback";
+import VideoFeedback from "./VideoFeedback";
 import feedbackAudio1 from "@/assets/feedback-audio.opus";
 import feedbackAudio2 from "@/assets/feedback-audio-2.opus";
 import feedbackAudio3 from "@/assets/feedback-audio-3.opus";
@@ -107,21 +108,10 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Video Feedback */}
-        <div className="mt-14 max-w-2xl mx-auto">
-          <div className="rounded-2xl overflow-hidden shadow-purple border border-border/50">
-            <video
-              className="w-full aspect-video"
-              src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/COACH%20ABEER%20-%20ZOOM%20(3).mp4"
-              controls
-              playsInline
-              preload="metadata"
-            />
-          </div>
-        </div>
+        <VideoFeedback src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/COACH%20ABEER%20-%20ZOOM%20(3).mp4" />
 
         {/* Audio Feedback */}
         <div className="space-y-6 mt-8">
-          <AudioFeedback audioSrc={feedbackAudio1} />
           <AudioFeedback audioSrc={feedbackAudio2} />
           <AudioFeedback audioSrc={feedbackAudio3} />
         </div>
