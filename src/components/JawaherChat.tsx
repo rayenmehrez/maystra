@@ -218,6 +218,50 @@ const JawaherChat = () => {
           )}
         </AnimatePresence>
 
+        {/* Comeback Popup */}
+        <AnimatePresence>
+          {showComebackPopup && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="absolute -top-[70px] right-0 cursor-pointer"
+              style={{ direction: "rtl" }}
+              onClick={() => {
+                setShowComebackPopup(false);
+                setIsOpen(true);
+              }}
+            >
+              <div
+                className="relative whitespace-nowrap text-[13px] text-white flex items-center gap-2"
+                style={{
+                  background: "#1e1035",
+                  padding: "10px 16px",
+                  borderRadius: "16px",
+                  border: "1px solid #7c3aed",
+                  boxShadow: "0 4px 16px rgba(109,40,217,0.3)",
+                }}
+              >
+                إذا احتجتِ أي شي، أنا هنا 💜
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowComebackPopup(false);
+                  }}
+                  className="text-white/50 hover:text-white text-xs leading-none mr-1"
+                >
+                  ✕
+                </button>
+                <span
+                  className="absolute -bottom-1.5 right-5 w-3 h-3 rotate-45"
+                  style={{ background: "#1e1035", borderRight: "1px solid #7c3aed", borderBottom: "1px solid #7c3aed" }}
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <motion.button
           onClick={() => setIsOpen((v) => !v)}
           className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer"
