@@ -55,6 +55,27 @@ const WhyMaestraSection = () => {
               </motion.div>
             </AnimatedSection>)}
         </div>
+
+        {/* Video */}
+        <AnimatedSection delay={0.5}>
+          <div className="max-w-2xl mx-auto mt-14 relative">
+            <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 animate-[spin_4s_linear_infinite]" style={{
+                background: "conic-gradient(from 0deg, transparent 0%, transparent 85%, hsl(280 50% 65%) 91%, hsl(272 50% 80%) 94%, hsl(280 50% 65%) 97%, transparent 100%)"
+              }} />
+            </div>
+            <div className="absolute inset-[2px] rounded-[14px] bg-lavender" />
+            <div className="relative aspect-video rounded-2xl overflow-hidden">
+              <video
+                className="w-full h-full object-cover"
+                src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/maestra.mp4"
+                controls
+                playsInline
+                preload="metadata"
+              />
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>;
 };
