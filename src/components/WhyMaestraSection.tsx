@@ -47,7 +47,7 @@ const WhyMaestraSection = () => {
             <div className="relative aspect-video rounded-2xl overflow-hidden">
               <video
                 className="w-full h-full object-cover"
-                src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/maestra.mp4"
+                src="https://pub-5a8aa8a8967f40ffaf8ab07e97694001.r2.dev/maestra.mp4"
                 autoPlay
                 loop
                 muted
