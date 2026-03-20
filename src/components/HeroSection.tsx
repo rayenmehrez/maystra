@@ -139,7 +139,7 @@ const HeroSection = () => {
             <video
             ref={videoRef}
             className={`w-full h-full object-cover transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-            src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/abeerv2.mp4"
+            src="https://pub-5a8aa8a8967f40ffaf8ab07e97694001.r2.dev/abeerv2.mp4"
             autoPlay
             playsInline
             onEnded={() => setIsPlaying(false)}
