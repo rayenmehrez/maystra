@@ -108,7 +108,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Video Feedback */}
-        <VideoFeedback src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/COACH%20ABEER%20-%20ZOOM%20(3).mp4" />
+        <VideoFeedback src="https://pub-5a8aa8a8967f40ffaf8ab07e97694001.r2.dev/COACH%20ABEER%20-%20ZOOM%20(3).mp4" />
 
         {/* Audio Feedback */}
         <div className="space-y-6 mt-8">
