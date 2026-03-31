@@ -10,94 +10,11 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.1"
+    PostgrestVersion: "14.4"
   }
   public: {
     Tables: {
-      prompts: {
-        Row: {
-          category: string
-          created_at: string
-          description: string
-          id: string
-          is_premium: boolean
-          prompt_text: string
-          title: string
-        }
-        Insert: {
-          category: string
-          created_at?: string
-          description: string
-          id?: string
-          is_premium?: boolean
-          prompt_text: string
-          title: string
-        }
-        Update: {
-          category?: string
-          created_at?: string
-          description?: string
-          id?: string
-          is_premium?: boolean
-          prompt_text?: string
-          title?: string
-        }
-        Relationships: []
-      }
-      tools: {
-        Row: {
-          category: string
-          created_at: string
-          description: string
-          id: string
-          is_featured: boolean
-          name: string
-          rating: number
-          url: string
-        }
-        Insert: {
-          category: string
-          created_at?: string
-          description: string
-          id?: string
-          is_featured?: boolean
-          name: string
-          rating?: number
-          url: string
-        }
-        Update: {
-          category?: string
-          created_at?: string
-          description?: string
-          id?: string
-          is_featured?: boolean
-          name?: string
-          rating?: number
-          url?: string
-        }
-        Relationships: []
-      }
-      waitlist: {
-        Row: {
-          course_name: string
-          created_at: string
-          email: string
-          id: string
-        }
-        Insert: {
-          course_name: string
-          created_at?: string
-          email: string
-          id?: string
-        }
-        Update: {
-          course_name?: string
-          created_at?: string
-          email?: string
-          id?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
