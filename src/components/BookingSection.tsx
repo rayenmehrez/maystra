@@ -27,7 +27,7 @@ const BookingSection = () => {
         </AnimatedSection>
         <div className="max-w-3xl mx-auto">
           <iframe
-            src="https://api.leadconnectorhq.com/widget/booking/uAsAb0TzvOURCtGwkA04"
+            src="https://api.coachhubmena.com/widget/bookings/carol-free-consultations"
             style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "600px" }}
             scrolling="no"
             id="uAsAb0TzvOURCtGwkA04_1772491692596"
