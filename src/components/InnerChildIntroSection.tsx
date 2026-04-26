@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import maestraIllustration from "@/assets/maestra-illustration.png";
+import maestraOrchestra from "@/assets/maestra-orchestra.png";
 
 const InnerChildIntroSection = () => {
   return (
@@ -16,14 +17,20 @@ const InnerChildIntroSection = () => {
       <div className="container mx-auto px-6 relative z-10 text-center" dir="rtl">
         {/* Intro subtitle */}
         <AnimatedSection>
-          
-
-
-
-
-
-
-
+          <motion.div
+            className="flex justify-center mb-8"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <img
+              src={maestraOrchestra}
+              alt="المايسترا تقود الأوركسترا"
+              className="w-full max-w-2xl rounded-2xl shadow-purple-lg"
+              loading="lazy"
+            />
+          </motion.div>
 
           <p className="text-base md:text-lg text-primary/60 mb-3 tracking-wide"> قبل أن تتعرّفي على المنهج…
 
