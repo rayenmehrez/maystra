@@ -123,7 +123,7 @@ const PricingSection = () => {
                 الدفع الكامل
               </span>
               <a
-                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+                href="https://abeeralmatooq.com/product/%D9%85%D9%86%D9%87%D8%AC-%D8%A7%D9%84%D9%85%D8%A7%D9%8A%D8%B3%D8%AA%D8%B1%D8%A7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-lg md:text-xl py-5 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
