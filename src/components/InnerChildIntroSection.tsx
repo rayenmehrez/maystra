@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import maestraIllustration from "@/assets/maestra-illustration.png";
+import maestraOrchestra from "@/assets/maestra-orchestra.png";
 
 const InnerChildIntroSection = () => {
   return (
