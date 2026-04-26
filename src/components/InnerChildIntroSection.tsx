@@ -6,7 +6,7 @@ import maestraOrchestra from "@/assets/maestra-orchestra.png";
 
 const InnerChildIntroSection = () => {
   return (
-    <section className="relative py-24 overflow-hidden md:py-[80px]" style={{ backgroundColor: "#f3ebf8" }}>
+    <section className="relative overflow-hidden md:py-[80px] py-[20px]" style={{ backgroundColor: "#f3ebf8" }}>
       <FloatingDots variant={6} />
 
       {/* Extra blurry ambient circles */}
