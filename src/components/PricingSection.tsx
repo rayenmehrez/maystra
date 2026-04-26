@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { FloatingDotsLight } from "./FloatingDots";
 import pricingFullImg from "@/assets/pricing-full.png";
-import pricingInstallmentImg from "@/assets/pricing-installment.png";
 
 const STORAGE_KEY = "maestra-countdown-end";
 
