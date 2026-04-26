@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { FloatingDotsLight } from "./FloatingDots";
 import pricingFullImg from "@/assets/pricing-full.png";
-import pricingInstallmentImg from "@/assets/pricing-installment.png";
 
 const STORAGE_KEY = "maestra-countdown-end";
 
@@ -94,44 +93,15 @@ const PricingSection = () => {
         </AnimatedSection>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-[1040px] mx-auto">
-          {/* Card 1 — Installment (Right in RTL) */}
-          <motion.div
-            className="group bg-card rounded-2xl shadow-purple-lg overflow-hidden hover:-translate-y-1 transition-transform duration-300"
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0}
-          >
-            <img
-              src={pricingInstallmentImg}
-              alt="خطة الدفع بالتقسيط"
-              className="w-full rounded-t-2xl"
-            />
-            <div className="p-6 md:p-8">
-              <span className="inline-block bg-primary/15 text-primary text-xs font-bold px-4 py-1.5 rounded-full mb-4">
-                الدفع بالتقسيط
-              </span>
-              <a
-                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7-50/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center bg-primary text-primary-foreground font-bold text-base md:text-lg py-4 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
-              >
-                ادفعي بالتقسيط
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Card 2 — Full Payment (Left in RTL) */}
+        <div className="grid grid-cols-1 gap-6 md:gap-8 max-w-[520px] mx-auto">
+          {/* Full Payment */}
           <motion.div
             className="group relative bg-card rounded-2xl shadow-purple-lg overflow-hidden border-2 border-primary/40 hover:-translate-y-1 transition-transform duration-300"
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={1}
+            custom={0}
           >
             {/* Recommended badge */}
             <motion.div
@@ -152,7 +122,7 @@ const PricingSection = () => {
                 الدفع الكامل
               </span>
               <a
-                href="https://abeeralmatooq.com/product/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%a7%d9%8a%d8%b3%d8%aa%d8%b1%d8%a7/"
+                href="https://abeeralmatooq.com/product/%D9%85%D9%86%D9%87%D8%AC-%D8%A7%D9%84%D9%85%D8%A7%D9%8A%D8%B3%D8%AA%D8%B1%D8%A7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-primary-foreground font-bold text-lg md:text-xl py-5 rounded-xl hover:scale-[1.03] transition-transform duration-300 glow-purple"
