@@ -24,7 +24,7 @@ const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [volume, setVolume] = useState(0.7);
   const [showControls, setShowControls] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -32,23 +32,18 @@ const HeroSection = () => {
   const [videoDuration, setVideoDuration] = useState(0);
   const progressRef = useRef<HTMLDivElement>(null);
 
-  // Typewriter effect for tagline
-  const taglineFull = "منهج |تحولي متكامل| يدعمك لـ تقودي حياتك و تديري عالمك الداخلي والخارجي بكل احترافية و سلاسة و استمتاع";
-  const [typedLen, setTypedLen] = useState(0);
+  // Auto-unmute the video after a short delay (autoplay starts muted for browser compatibility)
   useEffect(() => {
-    const startDelay = setTimeout(() => {
-      const id = setInterval(() => {
-        setTypedLen((n) => {
-          if (n >= taglineFull.length) {
-            clearInterval(id);
-            return n;
-          }
-          return n + 1;
-        });
-      }, 35);
-      return () => clearInterval(id);
-    }, 900);
-    return () => clearTimeout(startDelay);
+    const t = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.muted = false;
+        videoRef.current.volume = 0.7;
+        setIsMuted(false);
+        const p = videoRef.current.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+      }
+    }, 2500);
+    return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
@@ -126,28 +121,8 @@ const HeroSection = () => {
         <motion.div variants={childVariants} className="relative mb-10 max-w-3xl mx-auto">
           <div className="relative px-6 py-4 rounded-2xl border border-primary-foreground/20 backdrop-blur-md overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/10 animate-[shimmer_6s_ease-in-out_infinite]" />
-            <p className="relative text-[13px] sm:text-base md:text-lg font-medium leading-relaxed text-primary-foreground/95 min-h-[3.5em]">
-              {(() => {
-                const visible = taglineFull.slice(0, typedLen);
-                // Split by | markers to highlight middle part
-                const parts = visible.split("|");
-                return (
-                  <>
-                    {parts[0]}
-                    {parts[1] !== undefined && (
-                      <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>
-                        {parts[1]}
-                      </span>
-                    )}
-                    {parts[2] !== undefined && parts[2]}
-                    <span
-                      className="inline-block w-[2px] h-[1em] align-middle mr-0.5 bg-primary-foreground/90 animate-pulse"
-                      style={{ animationDuration: "0.8s" }}
-                      aria-hidden
-                    />
-                  </>
-                );
-              })()}
+            <p className="relative text-[13px] sm:text-base md:text-lg font-medium leading-relaxed text-primary-foreground/95">
+              منهج <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>تحولي متكامل</span> يدعمك لـ تقودي حياتك و تديري عالمك الداخلي والخارجي بكل احترافية و سلاسة و استمتاع
             </p>
           </div>
         </motion.div>
@@ -200,6 +175,7 @@ const HeroSection = () => {
             src="https://pub-5a8aa8a8967f40ffaf8ab07e97694001.r2.dev/abeerv2.mp4"
             poster={vslCover}
             autoPlay
+            muted
             playsInline
             onEnded={() => setIsPlaying(false)}
             onTimeUpdate={() => {
@@ -210,10 +186,6 @@ const HeroSection = () => {
             }}
             onCanPlay={() => {
               setVideoLoaded(true);
-              if (videoRef.current) {
-                videoRef.current.volume = volume;
-                videoRef.current.muted = false;
-              }
             }} />
 
 
