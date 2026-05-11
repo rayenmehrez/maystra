@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import FloatingDots from "./FloatingDots";
+import FloatingDots, { FloatingDotsLight } from "./FloatingDots";
+import FloatingEmbers from "./FloatingEmbers";
 import LetterOverlay from "./InnerChild/LetterOverlay";
 import innerChildBg from "@/assets/inner-child-bg.jpg";
 
@@ -26,7 +27,8 @@ const InnerChildSection = () => {
           }}
           aria-hidden
         />
-        <FloatingDots variant={4} />
+        <FloatingDotsLight />
+        <FloatingEmbers />
         <div className="container mx-auto px-6 relative z-10 text-center text-primary-foreground">
           <AnimatedSection>
             <motion.h2
