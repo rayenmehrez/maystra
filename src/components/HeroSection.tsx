@@ -121,28 +121,8 @@ const HeroSection = () => {
         <motion.div variants={childVariants} className="relative mb-10 max-w-3xl mx-auto">
           <div className="relative px-6 py-4 rounded-2xl border border-primary-foreground/20 backdrop-blur-md overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/10 animate-[shimmer_6s_ease-in-out_infinite]" />
-            <p className="relative text-[13px] sm:text-base md:text-lg font-medium leading-relaxed text-primary-foreground/95 min-h-[3.5em]">
-              {(() => {
-                const visible = taglineFull.slice(0, typedLen);
-                // Split by | markers to highlight middle part
-                const parts = visible.split("|");
-                return (
-                  <>
-                    {parts[0]}
-                    {parts[1] !== undefined && (
-                      <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>
-                        {parts[1]}
-                      </span>
-                    )}
-                    {parts[2] !== undefined && parts[2]}
-                    <span
-                      className="inline-block w-[2px] h-[1em] align-middle mr-0.5 bg-primary-foreground/90 animate-pulse"
-                      style={{ animationDuration: "0.8s" }}
-                      aria-hidden
-                    />
-                  </>
-                );
-              })()}
+            <p className="relative text-[13px] sm:text-base md:text-lg font-medium leading-relaxed text-primary-foreground/95">
+              منهج <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>تحولي متكامل</span> يدعمك لـ تقودي حياتك و تديري عالمك الداخلي والخارجي بكل احترافية و سلاسة و استمتاع
             </p>
           </div>
         </motion.div>
