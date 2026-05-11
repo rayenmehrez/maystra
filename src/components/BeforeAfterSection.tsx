@@ -36,129 +36,193 @@ const BeforeAfterSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto items-start">
           {/* BEFORE column */}
-          <motion.div initial={{
-          opacity: 0,
-          x: 40
-        }} animate={inView ? {
-          opacity: 1,
-          x: 0
-        } : {}} transition={{
-          duration: 0.6,
-          delay: 0.2
-        }} className="rounded-2xl p-6 md:p-8" style={{
-          background: "hsl(270 15% 95%)"
-        }}>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{
-              background: "hsl(270 10% 85%)"
-            }}>
-                <CloudOff className="w-5 h-5" style={{
-                color: "hsl(270 15% 55%)"
-              }} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold" style={{
-                color: "hsl(270 15% 40%)"
-              }}>
-                  تعيشين بوعي… لكن داخلك مزدحم
-                </h3>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative rounded-3xl p-7 md:p-9 overflow-hidden backdrop-blur-sm border"
+            style={{
+              background:
+                "linear-gradient(160deg, hsl(270 15% 97%) 0%, hsl(270 12% 93%) 100%)",
+              borderColor: "hsl(270 12% 86%)",
+              boxShadow: "0 10px 30px -15px hsl(270 20% 40% / 0.18)",
+            }}
+          >
+            {/* corner badge */}
+            <div
+              className="absolute top-5 left-5 text-[10px] tracking-[0.25em] font-semibold px-3 py-1.5 rounded-full"
+              style={{
+                background: "hsl(270 10% 88%)",
+                color: "hsl(270 15% 45%)",
+              }}
+            >
+              BEFORE
             </div>
 
-            <div className="flex flex-col gap-3">
-              {beforeItems.map((item, i) => <motion.div key={i} initial={{
-              opacity: 0,
-              y: 12
-            }} animate={inView ? {
-              opacity: 1,
-              y: 0
-            } : {}} transition={{
-              duration: 0.35,
-              delay: 0.4 + i * 0.07
-            }} className="flex items-start gap-3 rounded-xl px-4 py-3 transition-colors duration-200" style={{
-              background: "hsl(270 10% 91%)"
-            }}>
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{
-                background: "hsl(0 40% 90%)"
-              }}>
-                    <X className="w-3.5 h-3.5" style={{
-                  color: "hsl(0 45% 55%)"
-                }} />
+            <div className="flex items-center gap-3 mb-2 mt-6">
+              <div
+                className="w-11 h-11 rounded-2xl flex items-center justify-center"
+                style={{ background: "hsl(270 12% 88%)" }}
+              >
+                <CloudOff className="w-5 h-5" style={{ color: "hsl(270 18% 50%)" }} />
+              </div>
+              <h3
+                className="text-xl md:text-2xl font-bold leading-tight"
+                style={{ color: "hsl(270 18% 38%)" }}
+              >
+                تعيشين بوعي… لكن داخلك مزدحم
+              </h3>
+            </div>
+            <p
+              className="text-[13px] mb-6 mr-14"
+              style={{ color: "hsl(270 10% 55%)" }}
+            >
+              الوعي وحده لا يكفي… حين يبقى الداخل صاخباً
+            </p>
+
+            <div className="flex flex-col gap-2.5">
+              {beforeItems.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.35, delay: 0.4 + i * 0.05 }}
+                  className="flex items-start gap-3 rounded-xl px-4 py-3 border"
+                  style={{
+                    background: "hsl(0 0% 100% / 0.55)",
+                    borderColor: "hsl(270 10% 90%)",
+                  }}
+                >
+                  <div
+                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={{ background: "hsl(0 50% 94%)" }}
+                  >
+                    <X className="w-3.5 h-3.5" style={{ color: "hsl(0 50% 55%)" }} />
                   </div>
-                  <span className="text-sm leading-relaxed" style={{
-                color: "hsl(270 15% 40%)"
-              }}>
+                  <span
+                    className="text-sm leading-relaxed"
+                    style={{ color: "hsl(270 15% 42%)" }}
+                  >
                     {item}
                   </span>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
 
-            <p className="text-sm mt-5 text-center font-medium" style={{ color: "hsl(270 15% 50%)" }}>
+            <p
+              className="text-sm mt-6 text-center font-medium italic"
+              style={{ color: "hsl(270 15% 50%)" }}
+            >
               تعرفين نفسك… لكن لا تشعرين بالانسجام معها
             </p>
           </motion.div>
 
           {/* Divider — mobile only */}
-          <motion.div initial={{
-          scaleX: 0
-        }} animate={inView ? {
-          scaleX: 1
-        } : {}} transition={{
-          duration: 0.8,
-          delay: 0.9
-        }} className="md:hidden h-[3px] rounded-full mx-auto w-3/4 origin-right" style={{
-          background: "linear-gradient(to left, hsl(272 34% 47%), hsl(280 35% 75%))"
-        }} />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="md:hidden h-[3px] rounded-full mx-auto w-3/4 origin-right"
+            style={{
+              background:
+                "linear-gradient(to left, hsl(272 34% 47%), hsl(280 35% 75%))",
+            }}
+          />
 
           {/* AFTER column */}
-          <motion.div initial={{
-          opacity: 0,
-          x: -40
-        }} animate={inView ? {
-          opacity: 1,
-          x: 0
-        } : {}} transition={{
-          duration: 0.6,
-          delay: 0.5
-        }} className="rounded-2xl p-6 md:p-8 bg-card shadow-purple-lg relative" style={{
-          boxShadow: "0 8px 40px hsl(272 34% 47% / 0.12), 0 0 80px hsl(272 34% 47% / 0.06)"
-        }}>
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary" />
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="relative rounded-3xl p-7 md:p-9 overflow-hidden border border-primary/20"
+            style={{
+              background:
+                "linear-gradient(160deg, hsl(272 34% 47%) 0%, hsl(280 40% 35%) 100%)",
+              boxShadow:
+                "0 20px 60px -20px hsl(272 34% 47% / 0.55), 0 0 100px hsl(280 40% 50% / 0.18)",
+            }}
+          >
+            {/* decorative glows */}
+            <div
+              className="absolute -top-24 -left-24 w-64 h-64 rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, hsl(45 90% 70% / 0.25) 0%, transparent 70%)",
+              }}
+            />
+            <div
+              className="absolute -bottom-32 -right-20 w-72 h-72 rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, hsl(280 60% 70% / 0.3) 0%, transparent 70%)",
+              }}
+            />
+
+            {/* corner badge */}
+            <div
+              className="absolute top-5 left-5 text-[10px] tracking-[0.25em] font-semibold px-3 py-1.5 rounded-full backdrop-blur-md"
+              style={{
+                background: "hsl(45 90% 70% / 0.2)",
+                color: "hsl(45 95% 80%)",
+                border: "1px solid hsl(45 90% 70% / 0.4)",
+              }}
+            >
+              AFTER
+            </div>
+
+            <div className="relative flex items-center gap-3 mb-2 mt-6">
+              <div
+                className="w-11 h-11 rounded-2xl flex items-center justify-center backdrop-blur-md"
+                style={{
+                  background:
+                    "linear-gradient(135deg, hsl(45 90% 70% / 0.3), hsl(45 90% 60% / 0.15))",
+                  border: "1px solid hsl(45 90% 70% / 0.4)",
+                }}
+              >
+                <Sparkles className="w-5 h-5" style={{ color: "hsl(45 95% 80%)" }} />
               </div>
-              <h3 className="text-xl font-bold text-foreground">
+              <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
                 لا تصبح حياتك مثالية
               </h3>
             </div>
-            <p className="text-sm text-muted-foreground mb-6 mr-13">
-              بل تصبح واضحة… فتخف مقاومتك لها
+            <p className="relative text-[13px] mb-6 mr-14 text-white/75">
+              بل تصبح واضحة… فتخف مقاومتك لها وتعود إليكِ أنتِ
             </p>
 
-            <div className="flex flex-col gap-3">
-              {afterItems.map((item, i) => <motion.div key={i} initial={{
-              opacity: 0,
-              y: 12
-            }} animate={inView ? {
-              opacity: 1,
-              y: 0
-            } : {}} transition={{
-              duration: 0.35,
-              delay: 0.7 + i * 0.07
-            }} className="flex items-start gap-3 rounded-xl px-4 py-3 hover:bg-accent/50 transition-colors duration-200">
-                  <div className="w-6 h-6 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-3.5 h-3.5 text-primary" />
+            <div className="relative flex flex-col gap-2.5">
+              {afterItems.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.35, delay: 0.7 + i * 0.05 }}
+                  className="flex items-start gap-3 rounded-xl px-4 py-3 backdrop-blur-sm border border-white/10 hover:border-white/25 transition-colors duration-200"
+                  style={{ background: "hsl(0 0% 100% / 0.08)" }}
+                >
+                  <div
+                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, hsl(45 90% 70%), hsl(45 85% 55%))",
+                      boxShadow: "0 0 12px hsl(45 90% 60% / 0.5)",
+                    }}
+                  >
+                    <Check className="w-3.5 h-3.5" style={{ color: "hsl(272 40% 25%)" }} strokeWidth={3} />
                   </div>
-                  <span className="text-sm text-foreground leading-relaxed">
+                  <span className="text-sm text-white/95 leading-relaxed">
                     {item}
                   </span>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
 
-            <p className="text-sm mt-5 text-center font-medium text-primary">
-              الفرق ليس أنك تغيرتِ — الفرق أنك توقفتِ عن محاربة نفسك
+            <p
+              className="relative text-sm mt-6 text-center font-semibold"
+              style={{ color: "hsl(45 95% 82%)" }}
+            >
+              الفرق ليس أنكِ تغيّرتِ — الفرق أنكِ توقفتِ عن محاربة نفسك
             </p>
           </motion.div>
         </div>
