@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { FloatingDotsLight } from "./FloatingDots";
 import logo from "@/assets/logo.png";
 import vslCover from "@/assets/vsl-cover.jpg";
+import LiveAvailabilityStrip from "./hero/LiveAvailabilityStrip";
+import UrgencyBadge from "./hero/UrgencyBadge";
 
 const STORAGE_KEY = "maestra-countdown-end";
 
@@ -295,6 +297,13 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
+        {/* Live availability strip under VSL */}
+        <LiveAvailabilityStrip
+          hours={timeLeft.days * 24 + timeLeft.hours}
+          minutes={timeLeft.minutes}
+          seconds={timeLeft.seconds}
+        />
+
         {/* Countdown Timer */}
         <motion.div variants={childVariants} className="flex items-center justify-center gap-3 mb-6" dir="ltr">
           {[
@@ -320,7 +329,8 @@ const HeroSection = () => {
         )}
         </motion.div>
 
-        <motion.div variants={childVariants}>
+        <motion.div variants={childVariants} className="flex flex-col items-center">
+          <UrgencyBadge />
           <motion.a
           href="#booking"
           className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
