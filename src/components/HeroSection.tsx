@@ -32,23 +32,18 @@ const HeroSection = () => {
   const [videoDuration, setVideoDuration] = useState(0);
   const progressRef = useRef<HTMLDivElement>(null);
 
-  // Typewriter effect for tagline
-  const taglineFull = "منهج |تحولي متكامل| يدعمك لـ تقودي حياتك و تديري عالمك الداخلي والخارجي بكل احترافية و سلاسة و استمتاع";
-  const [typedLen, setTypedLen] = useState(0);
+  // Auto-unmute the video after a short delay (autoplay starts muted for browser compatibility)
   useEffect(() => {
-    const startDelay = setTimeout(() => {
-      const id = setInterval(() => {
-        setTypedLen((n) => {
-          if (n >= taglineFull.length) {
-            clearInterval(id);
-            return n;
-          }
-          return n + 1;
-        });
-      }, 35);
-      return () => clearInterval(id);
-    }, 900);
-    return () => clearTimeout(startDelay);
+    const t = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.muted = false;
+        videoRef.current.volume = 0.7;
+        setIsMuted(false);
+        const p = videoRef.current.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+      }
+    }, 2500);
+    return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
