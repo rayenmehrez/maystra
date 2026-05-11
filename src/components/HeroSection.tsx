@@ -113,13 +113,27 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* VSL Video Placeholder */}
-        <motion.div variants={childVariants} className="max-w-3xl mx-auto mb-12 relative">
-          {/* Rotating short light line */}
+        {/* VSL Video */}
+        <motion.div variants={childVariants} className="max-w-4xl mx-auto mb-10 md:mb-12 relative px-2 sm:px-0">
+          {/* Outer soft gold/purple glow */}
+          <div
+            className="absolute -inset-3 rounded-[28px] opacity-70 blur-2xl pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, hsl(45 95% 65% / 0.35) 0%, hsl(280 60% 60% / 0.3) 45%, transparent 75%)",
+            }}
+            aria-hidden
+          />
+
+          {/* Rotating gradient ring */}
           <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
-           <div className="absolute inset-0 animate-[spin_4s_linear_infinite]" style={{
-            background: "conic-gradient(from 0deg, transparent 0%, transparent 85%, hsl(280 50% 65%) 91%, hsl(272 50% 80%) 94%, hsl(280 50% 65%) 97%, transparent 100%)"
-          }} />
+            <div
+              className="absolute inset-0 animate-[spin_6s_linear_infinite]"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, transparent 0%, transparent 70%, hsl(45 95% 70%) 80%, hsl(280 60% 75%) 87%, hsl(45 95% 75%) 94%, transparent 100%)",
+              }}
+            />
           </div>
           {/* Inner bg to mask the gradient behind content */}
           <div className="absolute inset-[2px] rounded-[14px] gradient-hero" />
@@ -181,8 +195,17 @@ const HeroSection = () => {
             {/* Big play icon when paused */}
             {!isPlaying &&
           <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-                <div className="w-20 h-20 rounded-full bg-primary-foreground/20 backdrop-blur-md flex items-center justify-center border border-primary-foreground/30">
-                  <svg className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <div
+                  className="relative w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center backdrop-blur-md animate-pulse"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 30% 30%, hsl(45 95% 70% / 0.35), hsl(272 50% 30% / 0.5))",
+                    border: "2px solid hsl(45 95% 75% / 0.8)",
+                    boxShadow:
+                      "0 0 40px hsl(45 95% 60% / 0.55), inset 0 0 20px hsl(45 95% 70% / 0.25)",
+                  }}
+                >
+                  <svg className="w-9 h-9 md:w-10 md:h-10 text-white ml-1 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -191,13 +214,17 @@ const HeroSection = () => {
 
             {/* Bottom controls bar */}
             <div
-            className={`absolute bottom-0 left-0 right-0 z-30 flex flex-col gap-1 px-3 py-2 bg-gradient-to-t from-foreground/70 to-transparent transition-opacity duration-300 ${showControls || !isPlaying ? "opacity-100" : "opacity-0"}`}
+            className={`absolute bottom-0 left-0 right-0 z-30 flex flex-col gap-1.5 px-3 sm:px-4 py-2.5 sm:py-3 transition-opacity duration-300 ${showControls || !isPlaying ? "opacity-100" : "opacity-0"}`}
+            style={{
+              background:
+                "linear-gradient(to top, hsl(272 60% 8% / 0.92) 0%, hsl(272 50% 15% / 0.7) 50%, transparent 100%)",
+            }}
             dir="ltr">
 
               {/* Timeline scrubber */}
               <div
               ref={progressRef}
-              className="w-full h-1.5 rounded-full bg-primary-foreground/20 cursor-pointer group/timeline"
+              className="w-full h-1.5 rounded-full bg-white/15 cursor-pointer group/timeline hover:h-2 transition-all"
               onClick={(e) => {
                 e.stopPropagation();
                 if (!progressRef.current || !videoRef.current || !videoDuration) return;
@@ -205,12 +232,21 @@ const HeroSection = () => {
                 const ratio = (e.clientX - rect.left) / rect.width;
                 videoRef.current.currentTime = ratio * videoDuration;
               }}>
-              
                 <div
-                className="h-full rounded-full bg-primary-foreground relative transition-all"
-                style={{ width: `${videoDuration ? currentTime / videoDuration * 100 : 0}%` }}>
-                
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary-foreground opacity-0 group-hover/timeline:opacity-100 transition-opacity" />
+                className="h-full rounded-full relative transition-all"
+                style={{
+                  width: `${videoDuration ? currentTime / videoDuration * 100 : 0}%`,
+                  background:
+                    "linear-gradient(to right, hsl(45 95% 70%), hsl(45 95% 80%))",
+                  boxShadow: "0 0 8px hsl(45 95% 60% / 0.6)",
+                }}>
+                  <div
+                    className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full opacity-0 group-hover/timeline:opacity-100 transition-opacity"
+                    style={{
+                      background: "hsl(45 95% 80%)",
+                      boxShadow: "0 0 10px hsl(45 95% 60% / 0.9)",
+                    }}
+                  />
                 </div>
               </div>
 
@@ -256,8 +292,8 @@ const HeroSection = () => {
                 }
                 </button>
 
-                {/* Volume slider */}
-                <div className="w-16 h-1.5 rounded-full bg-primary-foreground/20 cursor-pointer relative"
+                {/* Volume slider — desktop only */}
+                <div className="hidden sm:block w-16 h-1.5 rounded-full bg-white/15 cursor-pointer relative"
               onClick={(e) => {
                 e.stopPropagation();
                 const rect = e.currentTarget.getBoundingClientRect();
@@ -269,11 +305,17 @@ const HeroSection = () => {
                   setIsMuted(ratio === 0);
                 }
               }}>
-                  <div className="h-full rounded-full bg-primary-foreground" style={{ width: `${(isMuted ? 0 : volume) * 100}%` }} />
+                  <div
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${(isMuted ? 0 : volume) * 100}%`,
+                      background: "linear-gradient(to right, hsl(45 95% 70%), hsl(45 95% 80%))",
+                    }}
+                  />
                 </div>
 
                 {/* Time display */}
-                <span className="text-[11px] text-primary-foreground/70 font-mono">
+                <span className="text-[11px] text-white/85 font-mono tabular-nums">
                   {fmtTime(currentTime)} / {fmtTime(videoDuration)}
                 </span>
 
