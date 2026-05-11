@@ -23,7 +23,7 @@ const HeroSection = () => {
   const [endTime] = useState(getEndTime);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [volume, setVolume] = useState(0.7);
   const [showControls, setShowControls] = useState(false);
@@ -32,18 +32,27 @@ const HeroSection = () => {
   const [videoDuration, setVideoDuration] = useState(0);
   const progressRef = useRef<HTMLDivElement>(null);
 
-  // Auto-unmute the video after a short delay (autoplay starts muted for browser compatibility)
+  // After 5s, start playing (muted to ensure autoplay works), then unmute shortly after
   useEffect(() => {
-    const t = setTimeout(() => {
+    const playTimer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+        const p = videoRef.current.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+        setIsPlaying(true);
+      }
+    }, 5000);
+    const unmuteTimer = setTimeout(() => {
       if (videoRef.current) {
         videoRef.current.muted = false;
         videoRef.current.volume = 0.7;
         setIsMuted(false);
-        const p = videoRef.current.play();
-        if (p && typeof p.catch === "function") p.catch(() => {});
       }
-    }, 2500);
-    return () => clearTimeout(t);
+    }, 5800);
+    return () => {
+      clearTimeout(playTimer);
+      clearTimeout(unmuteTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -174,7 +183,6 @@ const HeroSection = () => {
             className={`w-full h-full object-cover transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
             src="https://pub-5a8aa8a8967f40ffaf8ab07e97694001.r2.dev/abeerv2.mp4"
             poster={vslCover}
-            autoPlay
             muted
             playsInline
             onEnded={() => setIsPlaying(false)}
@@ -336,13 +344,31 @@ const HeroSection = () => {
                 <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  const container = videoRef.current?.closest('.aspect-video');
-                  if (!container) return;
-                  if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                  } else {
-                    container.requestFullscreen();
+                  const video = videoRef.current as (HTMLVideoElement & {
+                    webkitEnterFullscreen?: () => void;
+                    webkitRequestFullscreen?: () => Promise<void> | void;
+                  }) | null;
+                  const container = video?.closest('.aspect-video') as (HTMLElement & {
+                    webkitRequestFullscreen?: () => Promise<void> | void;
+                  }) | null;
+                  const doc = document as Document & {
+                    webkitFullscreenElement?: Element;
+                    webkitExitFullscreen?: () => Promise<void> | void;
+                  };
+                  const isFs = !!(document.fullscreenElement || doc.webkitFullscreenElement);
+                  if (isFs) {
+                    if (document.exitFullscreen) document.exitFullscreen();
+                    else if (doc.webkitExitFullscreen) doc.webkitExitFullscreen();
+                    return;
                   }
+                  // iOS Safari: only the <video> element supports fullscreen via webkitEnterFullscreen
+                  if (video?.webkitEnterFullscreen) {
+                    video.webkitEnterFullscreen();
+                    return;
+                  }
+                  if (container?.requestFullscreen) container.requestFullscreen();
+                  else if (container?.webkitRequestFullscreen) container.webkitRequestFullscreen();
+                  else if (video?.webkitRequestFullscreen) video.webkitRequestFullscreen();
                 }}
                 className="ml-auto text-primary-foreground hover:scale-110 transition-transform">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" /></svg>
