@@ -163,14 +163,15 @@ const BeforeAfterSection = () => {
 
             {/* corner badge */}
             <div
-              className="absolute top-5 left-5 text-[10px] tracking-[0.25em] font-semibold px-3 py-1.5 rounded-full backdrop-blur-md"
+              dir="rtl"
+              className="absolute top-5 right-5 text-[11px] tracking-[0.15em] font-bold px-3 py-1.5 rounded-full backdrop-blur-md"
               style={{
                 background: "hsl(45 90% 70% / 0.2)",
                 color: "hsl(45 95% 80%)",
                 border: "1px solid hsl(45 90% 70% / 0.4)",
               }}
             >
-              AFTER
+              بعد
             </div>
 
             <div className="relative flex items-center gap-3 mb-2 mt-6">
