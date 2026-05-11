@@ -23,7 +23,7 @@ const HeroSection = () => {
   const [endTime] = useState(getEndTime);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [volume, setVolume] = useState(0.7);
   const [showControls, setShowControls] = useState(false);
@@ -32,18 +32,27 @@ const HeroSection = () => {
   const [videoDuration, setVideoDuration] = useState(0);
   const progressRef = useRef<HTMLDivElement>(null);
 
-  // Auto-unmute the video after a short delay (autoplay starts muted for browser compatibility)
+  // After 5s, start playing (muted to ensure autoplay works), then unmute shortly after
   useEffect(() => {
-    const t = setTimeout(() => {
+    const playTimer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+        const p = videoRef.current.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+        setIsPlaying(true);
+      }
+    }, 5000);
+    const unmuteTimer = setTimeout(() => {
       if (videoRef.current) {
         videoRef.current.muted = false;
         videoRef.current.volume = 0.7;
         setIsMuted(false);
-        const p = videoRef.current.play();
-        if (p && typeof p.catch === "function") p.catch(() => {});
       }
-    }, 2500);
-    return () => clearTimeout(t);
+    }, 5800);
+    return () => {
+      clearTimeout(playTimer);
+      clearTimeout(unmuteTimer);
+    };
   }, []);
 
   useEffect(() => {
