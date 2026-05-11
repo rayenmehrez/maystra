@@ -1,32 +1,60 @@
 ## Goal
 
-Replace the plain first frame of the hero VSL with a polished, branded cover image that acts like a movie poster — coach عبير on one side, the title **"منهج المايسترا"** elegantly typeset beside her, soft purple gradient styling consistent with the brand.
+Add an elegant, brand-aligned urgency layer to the hero section to capture visitors right after the VSL and push them toward the CTA — without breaking the premium feel.
 
-## Approach
+## What gets added
 
-1. **Store the kie.ai API key** as a Lovable secret named `KIE_AI_API_KEY` (using `add_secret`). The key is used once from a sandbox script — not from the running app — so it never ships to the browser.
+Two complementary elements (no aggressive red/FOMO, all gold + purple + Madani type):
 
-2. **Generate the cover image** via kie.ai's GPT-image edit endpoint:
-   - Input: the uploaded reference frame (`user-uploads://image-4.png`)
-   - Prompt (summary): keep the coach in her current pose/setting, add an elegant Arabic title "منهج المايسترا" set beside her in a refined Madani-style serif/display face, soft purple gradient overlay (#784fa0 → translucent), subtle gold accent line, small subtitle "مع المدربة عبير المعتوق", cinematic depth, premium VSL poster look, 16:9, no UI/play button baked in.
-   - Output saved to `src/assets/vsl-cover.jpg`.
+### 1) Under the VSL video — "live availability" teaser strip
 
-3. **QA the output**: view the generated image, confirm typography is legible, no clipped text, brand colors respected, coach remains the focal point. If issues are found, refine the prompt and re-run (up to 2 retries).
+A slim, refined card directly beneath the video, before the countdown, with three micro-signals in one row (stacks vertically on mobile):
 
-4. **Wire it into the hero video** in `src/components/HeroSection.tsx`:
-   - Import `vslCover` from `@/assets/vsl-cover.jpg`.
-   - Add `poster={vslCover}` to the `<video>` element so the cover shows before play / while loading.
-   - Keep the existing loading skeleton and play overlay behavior.
+- 🔴 Soft pulsing dot + **"الاستشارة مجانية الآن"**
+- 🪑 **"المقاعد محدودة لهذا الأسبوع"** with a live counter: **"تبقى X مقاعد فقط"** (X starts at 7, decrements by 1 every ~9–14 minutes, floor 2, persisted in `localStorage` so it doesn't reset on refresh)
+- ⏳ **"العرض ينتهي خلال"** mini-mirror of the existing 72h countdown (compact)
+
+Visual: glass card with `border-primary-foreground/20`, soft gold accent line on the right edge (RTL), Madani Arabic numerals for the counter, subtle scale-in on view.
+
+### 2) Above the CTA button — urgency badge
+
+A single, premium pill-shaped badge centered above the CTA:
+
+```
+⚠ الأماكن محدودة — تبقى فقط [7] مقاعد لهذا الأسبوع
+```
+
+- Soft animated gold-to-purple gradient border, gentle pulsing glow (matching existing CTA pulse rhythm so they feel connected).
+- The number `[7]` reads the **same shared seat counter** as the strip above so they stay consistent.
+- A tiny "🟢 متاح الآن" leading dot to imply liveness.
 
 ## Technical Details
 
-- **Endpoint**: `https://api.kie.ai/api/v1/gpt4o-image/generate` (image edit mode with input image URL or base64), per kie.ai's GPT-image docs. Script runs with `code--exec` using `requests`; reads `KIE_AI_API_KEY` from env.
-- **File touched**: only `src/components/HeroSection.tsx` (one import + one `poster` attribute). New asset: `src/assets/vsl-cover.jpg`.
-- **No runtime dependency on kie.ai** — the generated image is bundled like any other asset.
+- **New shared hook**: `src/hooks/useLimitedSeats.ts` — single source of truth.
+  - Reads/writes `maestra-seats-remaining` and `maestra-seats-last-tick` in `localStorage`.
+  - On mount: if no value, seed with random 5–7. On interval (60s check), if elapsed > 9–14 min and current > 2, decrement by 1.
+  - Returns `seatsLeft`.
+- **New component**: `src/components/hero/LiveAvailabilityStrip.tsx` — the under-video strip. Receives `endTime` prop from `HeroSection` to render the compact mirror countdown.
+- **New component**: `src/components/hero/UrgencyBadge.tsx` — the pill above the CTA.
+- **Edits to `src/components/HeroSection.tsx`**:
+  - Lift `endTime` and `timeLeft` calculation (already exists) and pass to the new strip.
+  - Insert `<LiveAvailabilityStrip />` after the VSL video block (right before the big countdown).
+  - Insert `<UrgencyBadge />` right above the existing `motion.a` CTA, inside the same `variants={childVariants}` wrapper so it animates in with the CTA.
+- **Styling**: only semantic tokens from `index.css` / `tailwind.config.ts` (`primary-foreground`, brand gold via existing gradient utilities). No raw hex in components. Madani font already global.
+- **Animations**: framer-motion (already in the file). Reuse existing `animate-[shimmer_6s_...]` pattern; add a subtle `whileInView` scale-in for the strip.
+- **No backend, no analytics changes, no copy changes elsewhere.**
+
+## Copy (final Arabic)
+
+- Strip line 1: `استشارة مجانية متاحة الآن`
+- Strip line 2: `تبقى {n} مقاعد لهذا الأسبوع`
+- Strip line 3: `ينتهي العرض خلال {hh}:{mm}:{ss}`
+- Badge: `الأماكن محدودة — تبقى فقط {n} مقاعد`
 
 ## Out of scope
 
-- Changing the video itself or its controls.
-- Building a regenerate-in-app feature.
+- Real backend seat tracking (deferred — current simulation is industry-standard for VSL pages).
+- Adding the same urgency to other sections.
+- Changing the existing 72h countdown or main CTA copy.
 
-Once you approve, I'll request the secret and run the generation.
+Approve and I'll build it.
