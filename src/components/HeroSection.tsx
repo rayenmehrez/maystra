@@ -195,8 +195,17 @@ const HeroSection = () => {
             {/* Big play icon when paused */}
             {!isPlaying &&
           <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-                <div className="w-20 h-20 rounded-full bg-primary-foreground/20 backdrop-blur-md flex items-center justify-center border border-primary-foreground/30">
-                  <svg className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <div
+                  className="relative w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center backdrop-blur-md animate-pulse"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 30% 30%, hsl(45 95% 70% / 0.35), hsl(272 50% 30% / 0.5))",
+                    border: "2px solid hsl(45 95% 75% / 0.8)",
+                    boxShadow:
+                      "0 0 40px hsl(45 95% 60% / 0.55), inset 0 0 20px hsl(45 95% 70% / 0.25)",
+                  }}
+                >
+                  <svg className="w-9 h-9 md:w-10 md:h-10 text-white ml-1 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -205,7 +214,11 @@ const HeroSection = () => {
 
             {/* Bottom controls bar */}
             <div
-            className={`absolute bottom-0 left-0 right-0 z-30 flex flex-col gap-1 px-3 py-2 bg-gradient-to-t from-foreground/70 to-transparent transition-opacity duration-300 ${showControls || !isPlaying ? "opacity-100" : "opacity-0"}`}
+            className={`absolute bottom-0 left-0 right-0 z-30 flex flex-col gap-1.5 px-3 sm:px-4 py-2.5 sm:py-3 transition-opacity duration-300 ${showControls || !isPlaying ? "opacity-100" : "opacity-0"}`}
+            style={{
+              background:
+                "linear-gradient(to top, hsl(272 60% 8% / 0.92) 0%, hsl(272 50% 15% / 0.7) 50%, transparent 100%)",
+            }}
             dir="ltr">
 
               {/* Timeline scrubber */}
