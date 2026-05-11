@@ -24,7 +24,7 @@ const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [volume, setVolume] = useState(0.7);
   const [showControls, setShowControls] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
