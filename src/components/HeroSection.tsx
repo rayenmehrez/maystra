@@ -108,12 +108,7 @@ const HeroSection = () => {
           <div className="relative px-6 py-4 rounded-2xl border border-primary-foreground/20 backdrop-blur-md overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/10 animate-[shimmer_6s_ease-in-out_infinite]" />
             <p className="relative text-[13px] sm:text-base md:text-lg font-medium leading-relaxed text-primary-foreground/95">
-              منهج <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>تحولي متكامل</span> يدعمك لـ
-              <span className="font-bold text-white">تقودي حياتك</span> و
-              <span className="font-bold text-white">تديري عالمك الداخلي والخارجي</span> بكل
-              <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>احترافية</span> و
-              <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>سلاسة</span> و
-              <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>استمتاع</span>
+              منهج <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>تحولي متكامل</span> يدعمك لـ تقودي حياتك و تديري عالمك الداخلي والخارجي بكل احترافية و سلاسة و استمتاع
             </p>
           </div>
         </motion.div>
