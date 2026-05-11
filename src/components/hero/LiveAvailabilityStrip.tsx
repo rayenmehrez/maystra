@@ -15,13 +15,6 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
 
   const rows = [
     {
-      icon: <Radio className="w-[18px] h-[18px]" strokeWidth={2.2} />,
-      eyebrow: "LIVE",
-      label: "استشارة مجانية متاحة الآن",
-      accent: "emerald" as const,
-      pulse: true,
-    },
-    {
       icon: <Users className="w-[18px] h-[18px]" strokeWidth={2.2} />,
       eyebrow: "المقاعد المتبقية",
       label: (
