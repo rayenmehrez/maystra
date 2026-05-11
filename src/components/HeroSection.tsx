@@ -32,6 +32,25 @@ const HeroSection = () => {
   const [videoDuration, setVideoDuration] = useState(0);
   const progressRef = useRef<HTMLDivElement>(null);
 
+  // Typewriter effect for tagline
+  const taglineFull = "منهج |تحولي متكامل| يدعمك لـ تقودي حياتك و تديري عالمك الداخلي والخارجي بكل احترافية و سلاسة و استمتاع";
+  const [typedLen, setTypedLen] = useState(0);
+  useEffect(() => {
+    const startDelay = setTimeout(() => {
+      const id = setInterval(() => {
+        setTypedLen((n) => {
+          if (n >= taglineFull.length) {
+            clearInterval(id);
+            return n;
+          }
+          return n + 1;
+        });
+      }, 35);
+      return () => clearInterval(id);
+    }, 900);
+    return () => clearTimeout(startDelay);
+  }, []);
+
   useEffect(() => {
     const tick = () => {
       const diff = Math.max(0, endTime - Date.now());
@@ -107,14 +126,34 @@ const HeroSection = () => {
         <motion.div variants={childVariants} className="relative mb-10 max-w-3xl mx-auto">
           <div className="relative px-6 py-4 rounded-2xl border border-primary-foreground/20 backdrop-blur-md overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/10 animate-[shimmer_6s_ease-in-out_infinite]" />
-            <p className="relative text-[13px] sm:text-base md:text-lg font-medium leading-relaxed text-primary-foreground/95">
-              منهج <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>تحولي متكامل</span> يدعمك لـ تقودي حياتك و تديري عالمك الداخلي والخارجي بكل احترافية و سلاسة و استمتاع
+            <p className="relative text-[13px] sm:text-base md:text-lg font-medium leading-relaxed text-primary-foreground/95 min-h-[3.5em]">
+              {(() => {
+                const visible = taglineFull.slice(0, typedLen);
+                // Split by | markers to highlight middle part
+                const parts = visible.split("|");
+                return (
+                  <>
+                    {parts[0]}
+                    {parts[1] !== undefined && (
+                      <span className="font-bold" style={{ color: "hsl(45 95% 78%)" }}>
+                        {parts[1]}
+                      </span>
+                    )}
+                    {parts[2] !== undefined && parts[2]}
+                    <span
+                      className="inline-block w-[2px] h-[1em] align-middle mr-0.5 bg-primary-foreground/90 animate-pulse"
+                      style={{ animationDuration: "0.8s" }}
+                      aria-hidden
+                    />
+                  </>
+                );
+              })()}
             </p>
           </div>
         </motion.div>
 
         {/* VSL Video */}
-        <motion.div variants={childVariants} className="max-w-4xl mx-auto mb-10 md:mb-12 relative px-2 sm:px-0">
+        <motion.div variants={childVariants} className="max-w-4xl mx-auto mb-10 md:mb-12 relative">
           {/* Outer soft gold/purple glow */}
           <div
             className="absolute -inset-3 rounded-[28px] opacity-70 blur-2xl pointer-events-none"
