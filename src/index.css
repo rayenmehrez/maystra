@@ -180,3 +180,16 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+@keyframes border-pulse {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 6px hsl(280 70% 55% / 0.5));
+    opacity: 0.95;
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 18px hsl(280 75% 60% / 0.9));
+    opacity: 1;
+  }
+}
