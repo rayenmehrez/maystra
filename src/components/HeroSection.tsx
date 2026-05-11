@@ -186,10 +186,6 @@ const HeroSection = () => {
             }}
             onCanPlay={() => {
               setVideoLoaded(true);
-              if (videoRef.current) {
-                videoRef.current.volume = volume;
-                videoRef.current.muted = false;
-              }
             }} />
 
 
