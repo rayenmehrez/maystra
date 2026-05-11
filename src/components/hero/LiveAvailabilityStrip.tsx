@@ -56,34 +56,22 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="max-w-sm mx-auto -mt-1 mb-10 px-6 text-right"
+      className="max-w-sm mx-auto -mt-1 mb-10 px-6 text-center md:text-right"
     >
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 items-center md:items-stretch">
         {rows.map((row, i) => (
-          <div key={i}>
-            <div className="flex items-center gap-3">
+          <div key={i} className="w-full">
+            <div className="flex items-center gap-3 justify-center md:justify-start">
               {/* Icon medallion (open, no card) */}
               <span
                 className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
                 style={{
                   background:
-                    row.accent === "emerald"
-                      ? "radial-gradient(circle at 30% 30%, hsl(150 75% 55% / 0.55), hsl(150 70% 35% / 0.1))"
-                      : "radial-gradient(circle at 30% 30%, hsl(45 95% 65% / 0.55), hsl(45 90% 45% / 0.1))",
-                  boxShadow: `0 0 18px ${
-                    row.accent === "emerald"
-                      ? "hsl(150 75% 55% / 0.45)"
-                      : "hsl(45 95% 60% / 0.5)"
-                  }`,
+                    "radial-gradient(circle at 30% 30%, hsl(45 95% 65% / 0.55), hsl(45 90% 45% / 0.1))",
+                  boxShadow: "0 0 18px hsl(45 95% 60% / 0.5)",
                   color: accentColor(row.accent),
                 }}
               >
-                {row.pulse && (
-                  <span
-                    className="absolute inset-0 rounded-full animate-ping"
-                    style={{ background: "hsl(150 75% 55% / 0.35)" }}
-                  />
-                )}
                 <span className="relative">{row.icon}</span>
               </span>
 
