@@ -114,7 +114,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* VSL Video */}
-        <motion.div variants={childVariants} className="max-w-4xl mx-auto mb-10 md:mb-12 relative px-2 sm:px-0">
+        <motion.div variants={childVariants} className="max-w-4xl mx-auto mb-10 md:mb-12 relative">
           {/* Outer soft gold/purple glow */}
           <div
             className="absolute -inset-3 rounded-[28px] opacity-70 blur-2xl pointer-events-none"
