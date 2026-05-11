@@ -32,6 +32,25 @@ const HeroSection = () => {
   const [videoDuration, setVideoDuration] = useState(0);
   const progressRef = useRef<HTMLDivElement>(null);
 
+  // Typewriter effect for tagline
+  const taglineFull = "منهج |تحولي متكامل| يدعمك لـ تقودي حياتك و تديري عالمك الداخلي والخارجي بكل احترافية و سلاسة و استمتاع";
+  const [typedLen, setTypedLen] = useState(0);
+  useEffect(() => {
+    const startDelay = setTimeout(() => {
+      const id = setInterval(() => {
+        setTypedLen((n) => {
+          if (n >= taglineFull.length) {
+            clearInterval(id);
+            return n;
+          }
+          return n + 1;
+        });
+      }, 35);
+      return () => clearInterval(id);
+    }, 900);
+    return () => clearTimeout(startDelay);
+  }, []);
+
   useEffect(() => {
     const tick = () => {
       const diff = Math.max(0, endTime - Date.now());
