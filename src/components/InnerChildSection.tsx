@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import LetterOverlay from "./InnerChild/LetterOverlay";
+import innerChildBg from "@/assets/inner-child-bg.jpg";
 
 const InnerChildSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,21 @@ const InnerChildSection = () => {
   return (
     <>
       <section id="inner-child-section" className="relative py-24 md:py-32 overflow-hidden gradient-hero">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url(${innerChildBg})` }}
+          aria-hidden
+        />
+        {/* Dark purple gradient overlay for readability */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, hsl(272 50% 18% / 0.85) 0%, hsl(272 45% 25% / 0.65) 50%, hsl(272 50% 18% / 0.9) 100%)",
+          }}
+          aria-hidden
+        />
         <FloatingDots variant={4} />
         <div className="container mx-auto px-6 relative z-10 text-center text-primary-foreground">
           <AnimatedSection>
