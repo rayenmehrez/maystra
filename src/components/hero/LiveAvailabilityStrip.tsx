@@ -44,18 +44,18 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
       className="w-full flex justify-center -mt-1 mb-8 px-4"
     >
       <div
-        className="relative w-full max-w-md rounded-2xl px-5 py-4 overflow-hidden text-white"
+        className="relative w-full max-w-xs rounded-xl px-4 py-3 overflow-hidden text-white"
         style={{
           background:
             "linear-gradient(160deg, hsl(272 55% 22%) 0%, hsl(272 60% 14%) 60%, hsl(280 55% 18%) 100%)",
           border: "1px solid hsl(45 95% 70% / 0.3)",
           boxShadow:
-            "0 14px 40px hsl(272 60% 8% / 0.55), inset 0 1px 0 hsl(0 0% 100% / 0.08)",
+            "0 10px 30px hsl(272 60% 8% / 0.5), inset 0 1px 0 hsl(0 0% 100% / 0.08)",
         }}
       >
         {/* subtle gold glow */}
         <span
-          className="absolute -top-12 -right-12 w-40 h-40 rounded-full pointer-events-none"
+          className="absolute -top-10 -right-10 w-32 h-32 rounded-full pointer-events-none"
           style={{
             background:
               "radial-gradient(circle, hsl(45 95% 65% / 0.18) 0%, transparent 70%)",
@@ -64,20 +64,20 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
         />
 
         {/* Seats row */}
-        <div className="relative flex items-center justify-center gap-2 pb-3">
+        <div className="relative flex items-center justify-center gap-2 pb-2">
           <span
-            className="w-2 h-2 rounded-full"
+            className="w-1.5 h-1.5 rounded-full"
             style={{
               background: "hsl(150 75% 55%)",
-              boxShadow: "0 0 10px hsl(150 75% 55% / 0.9)",
+              boxShadow: "0 0 8px hsl(150 75% 55% / 0.9)",
               animation: "pulse 2s infinite",
             }}
             aria-hidden
           />
-          <span className="text-[13px] sm:text-sm font-semibold">
+          <span className="text-[12px] font-semibold">
             تبقى{" "}
             <span
-              className="font-extrabold mx-0.5 text-base"
+              className="font-extrabold mx-0.5 text-[14px]"
               style={{ color: "hsl(45 95% 78%)" }}
             >
               {seats}
@@ -88,7 +88,7 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
 
         {/* Divider */}
         <div
-          className="relative h-px mb-3"
+          className="relative h-px mb-2"
           style={{
             background:
               "linear-gradient(to left, transparent, hsl(45 95% 75% / 0.4), transparent)",
@@ -96,24 +96,24 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
         />
 
         {/* Countdown */}
-        <div className="relative flex flex-col items-center gap-2">
+        <div className="relative flex flex-col items-center gap-1.5">
           <span
-            className="text-[10px] tracking-[0.25em] uppercase font-semibold"
+            className="text-[9px] tracking-[0.25em] uppercase font-semibold"
             style={{ color: "hsl(45 90% 80% / 0.85)" }}
           >
             ينتهي العرض خلال
           </span>
-          <div dir="ltr" className="flex items-end gap-1.5">
+          <div dir="ltr" className="flex items-end gap-1">
             <TimeBlock value={pad(hours)} label="HRS" />
             <span
-              className="font-mono font-bold text-lg pb-5"
+              className="font-mono font-bold text-sm pb-4"
               style={{ color: "hsl(45 95% 75%)" }}
             >
               :
             </span>
             <TimeBlock value={pad(minutes)} label="MIN" />
             <span
-              className="font-mono font-bold text-lg pb-5"
+              className="font-mono font-bold text-sm pb-4"
               style={{ color: "hsl(45 95% 75%)" }}
             >
               :
@@ -121,6 +121,7 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
             <TimeBlock value={pad(seconds)} label="SEC" />
           </div>
         </div>
+      </div>
       </div>
     </motion.div>
   );
