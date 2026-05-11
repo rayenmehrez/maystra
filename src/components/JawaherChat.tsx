@@ -264,23 +264,51 @@ const JawaherChat = () => {
 
         <motion.button
           onClick={() => setIsOpen((v) => !v)}
-          className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer"
+          className="relative w-[66px] h-[66px] rounded-full flex items-center justify-center cursor-pointer"
           style={{
             background: GRADIENT,
-            boxShadow: "0 6px 28px rgba(117,75,154,0.55)",
+            boxShadow:
+              "0 8px 32px rgba(117,75,154,0.55), 0 0 0 2px rgba(255,255,255,0.18)",
             animation: "glow 3s infinite",
           }}
-          animate={{ rotate: isOpen ? 15 : 0 }}
           transition={{ duration: 0.2 }}
           whileHover={{
-            scale: 1.1,
-            boxShadow: "0 8px 32px rgba(117,75,154,0.7)",
+            scale: 1.08,
+            boxShadow:
+              "0 10px 36px rgba(117,75,154,0.75), 0 0 0 2px rgba(255,255,255,0.3)",
           }}
           whileTap={{ scale: 0.95 }}
+          aria-label="فتح محادثة جواهر"
         >
-          <svg className="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="white">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
-          </svg>
+          {/* animated gold/purple ring */}
+          <span
+            className="absolute inset-[-4px] rounded-full pointer-events-none"
+            style={{
+              background:
+                "conic-gradient(from 0deg, hsl(45 95% 70% / 0.95), transparent 28%, hsl(280 60% 78% / 0.85) 58%, transparent 82%, hsl(45 95% 70% / 0.95))",
+              animation: "spin 6s linear infinite",
+              WebkitMask: "radial-gradient(circle, transparent 60%, black 62%)",
+              mask: "radial-gradient(circle, transparent 60%, black 62%)",
+            }}
+            aria-hidden
+          />
+
+          {/* avatar image */}
+          <img
+            src={jawaherAvatar}
+            alt="جواهر"
+            className="relative w-[58px] h-[58px] rounded-full object-cover z-10 ring-2 ring-white/90"
+          />
+
+          {/* online dot */}
+          <span
+            className="absolute bottom-[3px] right-[3px] w-3.5 h-3.5 rounded-full z-20"
+            style={{
+              background: "#22c55e",
+              boxShadow: "0 0 0 2px white, 0 0 10px rgba(34,197,94,0.7)",
+            }}
+            aria-hidden
+          />
 
           {/* Notification Badge */}
           <AnimatePresence>
@@ -289,8 +317,11 @@ const JawaherChat = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
-                className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold text-white z-20"
-                style={{ backgroundColor: "#ef4444" }}
+                className="absolute -top-1 -right-1 min-w-5 h-5 px-1 rounded-full flex items-center justify-center text-[11px] font-bold text-white z-30"
+                style={{
+                  backgroundColor: "#ef4444",
+                  boxShadow: "0 2px 8px rgba(239,68,68,0.5)",
+                }}
               >
                 1
               </motion.span>
