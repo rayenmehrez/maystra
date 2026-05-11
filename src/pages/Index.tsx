@@ -30,7 +30,7 @@ const Index = () => {
       <CoachSection />
       <BonusesSection />
       <TestimonialsSection />
-      <PricingSection />
+      
       <FAQSection />
       <BookingSection />
       <FinalCTASection />
