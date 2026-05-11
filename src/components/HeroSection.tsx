@@ -83,7 +83,7 @@ const HeroSection = () => {
       <FloatingDotsLight />
       <FloatingDotsLight />
       <FloatingDotsLight />
-      <motion.div className="container mx-auto px-6 py-20 text-center text-primary-foreground relative z-10" variants={containerVariants} initial="hidden" animate="visible">
+      <motion.div className="container mx-auto px-6 pt-5 pb-20 text-center text-primary-foreground relative z-10" variants={containerVariants} initial="hidden" animate="visible">
         {/* Shimmer glow behind text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
           <div
