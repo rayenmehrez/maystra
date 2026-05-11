@@ -175,6 +175,7 @@ const HeroSection = () => {
             src="https://pub-5a8aa8a8967f40ffaf8ab07e97694001.r2.dev/abeerv2.mp4"
             poster={vslCover}
             autoPlay
+            muted
             playsInline
             onEnded={() => setIsPlaying(false)}
             onTimeUpdate={() => {
