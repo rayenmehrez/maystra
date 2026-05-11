@@ -15,10 +15,12 @@ import FAQSection from "@/components/FAQSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import BookingSection from "@/components/BookingSection";
 import JawaherChat from "@/components/JawaherChat";
+import UrgencyNudgeBar from "@/components/UrgencyNudgeBar";
 
 const Index = () => {
   return (
     <main>
+      <UrgencyNudgeBar />
       <HeroSection />
       <WhyMaestraSection />
       <CoursesSection />
