@@ -76,7 +76,7 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
               </span>
 
               {/* Text */}
-              <div className="flex-1 flex flex-col leading-tight">
+              <div className="flex flex-col leading-tight text-right">
                 <span
                   className="text-[10px] uppercase tracking-[0.22em] font-semibold mb-0.5"
                   style={{ color: accentColor(row.accent) }}
