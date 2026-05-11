@@ -292,8 +292,8 @@ const HeroSection = () => {
                 }
                 </button>
 
-                {/* Volume slider */}
-                <div className="w-16 h-1.5 rounded-full bg-primary-foreground/20 cursor-pointer relative"
+                {/* Volume slider — desktop only */}
+                <div className="hidden sm:block w-16 h-1.5 rounded-full bg-white/15 cursor-pointer relative"
               onClick={(e) => {
                 e.stopPropagation();
                 const rect = e.currentTarget.getBoundingClientRect();
@@ -305,11 +305,17 @@ const HeroSection = () => {
                   setIsMuted(ratio === 0);
                 }
               }}>
-                  <div className="h-full rounded-full bg-primary-foreground" style={{ width: `${(isMuted ? 0 : volume) * 100}%` }} />
+                  <div
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${(isMuted ? 0 : volume) * 100}%`,
+                      background: "linear-gradient(to right, hsl(45 95% 70%), hsl(45 95% 80%))",
+                    }}
+                  />
                 </div>
 
                 {/* Time display */}
-                <span className="text-[11px] text-primary-foreground/70 font-mono">
+                <span className="text-[11px] text-white/85 font-mono tabular-nums">
                   {fmtTime(currentTime)} / {fmtTime(videoDuration)}
                 </span>
 
