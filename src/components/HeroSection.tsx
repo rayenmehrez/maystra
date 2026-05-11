@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FloatingDotsLight } from "./FloatingDots";
 import logo from "@/assets/logo.png";
+import vslCover from "@/assets/vsl-cover.jpg";
 
 const STORAGE_KEY = "maestra-countdown-end";
 
@@ -140,6 +141,7 @@ const HeroSection = () => {
             ref={videoRef}
             className={`w-full h-full object-cover transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
             src="https://pub-5a8aa8a8967f40ffaf8ab07e97694001.r2.dev/abeerv2.mp4"
+            poster={vslCover}
             autoPlay
             playsInline
             onEnded={() => setIsPlaying(false)}
