@@ -12,20 +12,20 @@ const pad = (n: number) => n.toString().padStart(2, "0");
 const TimeBlock = ({ value, label }: { value: string; label: string }) => (
   <div className="flex flex-col items-center">
     <div
-      className="min-w-[44px] px-2 py-1.5 rounded-lg font-mono tabular-nums font-bold text-white text-lg leading-none"
+      className="min-w-[34px] px-1.5 py-1 rounded-md font-mono tabular-nums font-bold text-white text-[14px] leading-none"
       style={{
         background:
           "linear-gradient(180deg, hsl(0 0% 100% / 0.14), hsl(0 0% 100% / 0.04))",
         border: "1px solid hsl(45 95% 75% / 0.35)",
         boxShadow:
-          "inset 0 1px 0 hsl(0 0% 100% / 0.15), 0 2px 10px hsl(272 50% 10% / 0.5)",
-        textShadow: "0 0 10px hsl(45 95% 65% / 0.5)",
+          "inset 0 1px 0 hsl(0 0% 100% / 0.15), 0 2px 8px hsl(272 50% 10% / 0.5)",
+        textShadow: "0 0 8px hsl(45 95% 65% / 0.45)",
       }}
     >
       {value}
     </div>
     <span
-      className="text-[9px] mt-1 tracking-[0.15em] uppercase"
+      className="text-[8px] mt-0.5 tracking-[0.15em] uppercase"
       style={{ color: "hsl(45 90% 80% / 0.85)" }}
     >
       {label}
