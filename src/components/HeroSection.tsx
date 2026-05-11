@@ -224,7 +224,7 @@ const HeroSection = () => {
               {/* Timeline scrubber */}
               <div
               ref={progressRef}
-              className="w-full h-1.5 rounded-full bg-primary-foreground/20 cursor-pointer group/timeline"
+              className="w-full h-1.5 rounded-full bg-white/15 cursor-pointer group/timeline hover:h-2 transition-all"
               onClick={(e) => {
                 e.stopPropagation();
                 if (!progressRef.current || !videoRef.current || !videoDuration) return;
@@ -232,12 +232,21 @@ const HeroSection = () => {
                 const ratio = (e.clientX - rect.left) / rect.width;
                 videoRef.current.currentTime = ratio * videoDuration;
               }}>
-              
                 <div
-                className="h-full rounded-full bg-primary-foreground relative transition-all"
-                style={{ width: `${videoDuration ? currentTime / videoDuration * 100 : 0}%` }}>
-                
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary-foreground opacity-0 group-hover/timeline:opacity-100 transition-opacity" />
+                className="h-full rounded-full relative transition-all"
+                style={{
+                  width: `${videoDuration ? currentTime / videoDuration * 100 : 0}%`,
+                  background:
+                    "linear-gradient(to right, hsl(45 95% 70%), hsl(45 95% 80%))",
+                  boxShadow: "0 0 8px hsl(45 95% 60% / 0.6)",
+                }}>
+                  <div
+                    className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full opacity-0 group-hover/timeline:opacity-100 transition-opacity"
+                    style={{
+                      background: "hsl(45 95% 80%)",
+                      boxShadow: "0 0 10px hsl(45 95% 60% / 0.9)",
+                    }}
+                  />
                 </div>
               </div>
 
