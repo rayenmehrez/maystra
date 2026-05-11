@@ -198,16 +198,16 @@ const HeroSection = () => {
             {!isPlaying &&
           <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
                 <div
-                  className="relative w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center backdrop-blur-md animate-pulse"
+                  className="relative w-14 h-14 md:w-24 md:h-24 rounded-full flex items-center justify-center backdrop-blur-md"
                   style={{
                     background:
-                      "radial-gradient(circle at 30% 30%, hsl(45 95% 70% / 0.35), hsl(272 50% 30% / 0.5))",
-                    border: "2px solid hsl(45 95% 75% / 0.8)",
+                      "radial-gradient(circle at 30% 30%, hsl(280 70% 60% / 0.5), hsl(272 50% 25% / 0.65))",
+                    border: "2px solid hsl(280 75% 75% / 0.9)",
                     boxShadow:
-                      "0 0 40px hsl(45 95% 60% / 0.55), inset 0 0 20px hsl(45 95% 70% / 0.25)",
+                      "0 0 30px hsl(280 70% 55% / 0.55), inset 0 0 18px hsl(280 70% 70% / 0.3)",
                   }}
                 >
-                  <svg className="w-9 h-9 md:w-10 md:h-10 text-white ml-1 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 md:w-10 md:h-10 text-white ml-0.5 md:ml-1 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
