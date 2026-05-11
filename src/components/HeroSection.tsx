@@ -113,13 +113,27 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* VSL Video Placeholder */}
-        <motion.div variants={childVariants} className="max-w-3xl mx-auto mb-12 relative">
-          {/* Rotating short light line */}
+        {/* VSL Video */}
+        <motion.div variants={childVariants} className="max-w-4xl mx-auto mb-10 md:mb-12 relative px-2 sm:px-0">
+          {/* Outer soft gold/purple glow */}
+          <div
+            className="absolute -inset-3 rounded-[28px] opacity-70 blur-2xl pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, hsl(45 95% 65% / 0.35) 0%, hsl(280 60% 60% / 0.3) 45%, transparent 75%)",
+            }}
+            aria-hidden
+          />
+
+          {/* Rotating gradient ring */}
           <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
-           <div className="absolute inset-0 animate-[spin_4s_linear_infinite]" style={{
-            background: "conic-gradient(from 0deg, transparent 0%, transparent 85%, hsl(280 50% 65%) 91%, hsl(272 50% 80%) 94%, hsl(280 50% 65%) 97%, transparent 100%)"
-          }} />
+            <div
+              className="absolute inset-0 animate-[spin_6s_linear_infinite]"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, transparent 0%, transparent 70%, hsl(45 95% 70%) 80%, hsl(280 60% 75%) 87%, hsl(45 95% 75%) 94%, transparent 100%)",
+              }}
+            />
           </div>
           {/* Inner bg to mask the gradient behind content */}
           <div className="absolute inset-[2px] rounded-[14px] gradient-hero" />
