@@ -125,18 +125,20 @@ const HeroSection = () => {
             aria-hidden
           />
 
-          {/* Rotating gradient ring */}
-          <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
-            <div
-              className="absolute inset-0 animate-[spin_6s_linear_infinite]"
-              style={{
-                background:
-                  "conic-gradient(from 0deg, transparent 0%, transparent 70%, hsl(45 95% 70%) 80%, hsl(280 60% 75%) 87%, hsl(45 95% 75%) 94%, transparent 100%)",
-              }}
-            />
-          </div>
-          {/* Inner bg to mask the gradient behind content */}
-          <div className="absolute inset-[2px] rounded-[14px] gradient-hero" />
+          {/* Pulsing purple gradient border */}
+          <div
+            className="absolute -inset-[2px] rounded-2xl p-[2px] animate-[border-pulse_2.4s_ease-in-out_infinite] pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(135deg, hsl(280 70% 55%), hsl(272 60% 40%), hsl(290 75% 65%), hsl(272 60% 40%), hsl(280 70% 55%))",
+              backgroundSize: "300% 300%",
+              WebkitMask:
+                "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+              WebkitMaskComposite: "xor",
+              maskComposite: "exclude",
+            }}
+            aria-hidden
+          />
 
           <div
           className="relative aspect-video rounded-2xl overflow-hidden group"
