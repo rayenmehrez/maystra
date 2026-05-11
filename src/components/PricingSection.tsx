@@ -60,37 +60,6 @@ const PricingSection = () => {
       <FloatingDotsLight />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Header */}
-        <AnimatedSection>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-center text-primary-foreground mb-4">
-            اختاري خطة الدفع المناسبة لك
-          </h2>
-          <p className="text-center text-primary-foreground/80 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-            لا تفوتي الفرصة — عرض خاص متاح لمدة 72 ساعة فقط
-          </p>
-        </AnimatedSection>
-
-        {/* Countdown */}
-        <AnimatedSection delay={0.1}>
-          <div className="flex items-center justify-center gap-3 md:gap-4 mb-14" dir="ltr">
-            {timerBoxes.map((item, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-primary-foreground shadow-purple flex items-center justify-center">
-                  <motion.span
-                    key={item.value}
-                    className="text-2xl md:text-3xl font-extrabold text-primary"
-                    initial={{ rotateX: -90, opacity: 0 }}
-                    animate={{ rotateX: 0, opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {item.value}
-                  </motion.span>
-                </div>
-                <span className="text-xs md:text-sm mt-2 text-primary-foreground/70">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
 
         {/* Cards */}
         <div className="grid grid-cols-1 gap-6 md:gap-8 max-w-[520px] mx-auto">

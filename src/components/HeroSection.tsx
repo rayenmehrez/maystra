@@ -304,33 +304,9 @@ const HeroSection = () => {
           seconds={timeLeft.seconds}
         />
 
-        {/* Countdown Timer */}
-        <motion.div variants={childVariants} className="flex items-center justify-center gap-3 mb-6" dir="ltr">
-          {[
-        { value: pad(timeLeft.days), label: "يوم" },
-        { value: pad(timeLeft.hours), label: "ساعة" },
-        { value: pad(timeLeft.minutes), label: "دقيقة" },
-        { value: pad(timeLeft.seconds), label: "ثانية" }].
-        map((item, i) =>
-        <div key={i} className="flex flex-col items-center">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-primary-foreground/15 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center">
-                <motion.span
-              key={item.value}
-              className="text-xl md:text-2xl font-extrabold text-primary-foreground"
-              initial={{ rotateX: -90, opacity: 0 }}
-              animate={{ rotateX: 0, opacity: 1 }}
-              transition={{ duration: 0.3 }}>
 
-                  {item.value}
-                </motion.span>
-              </div>
-              <span className="text-xs mt-1.5 opacity-60">{item.label}</span>
-            </div>
-        )}
-        </motion.div>
 
         <motion.div variants={childVariants} className="flex flex-col items-center">
-          <UrgencyBadge />
           <motion.a
           href="#booking"
           className="inline-block bg-primary-foreground text-primary text-lg md:text-xl px-10 py-4 rounded-full shadow-purple-lg font-semibold"
