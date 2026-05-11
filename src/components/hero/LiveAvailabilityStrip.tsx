@@ -122,7 +122,6 @@ const LiveAvailabilityStrip = ({ hours, minutes, seconds }: Props) => {
           </div>
         </div>
       </div>
-      </div>
     </motion.div>
   );
 };
