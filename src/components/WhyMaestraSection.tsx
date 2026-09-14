@@ -1,6 +1,7 @@
 import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
-import ttdaLogo from "@/assets/ttda-logo.png.asset.json";
+import { Award, Compass, Layers, ShieldCheck, Sparkles } from "lucide-react";
+import ttdaLogo from "@/assets/ttda-logo.png";
 
 const WhyMaestraSection = () => {
   return (
