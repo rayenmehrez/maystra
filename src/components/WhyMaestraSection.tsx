@@ -48,7 +48,7 @@ const WhyMaestraSection = () => {
               </p>
               <div className="bg-white/90 rounded-2xl p-4 shadow-purple-lg">
                 <img
-                  src={ttdaLogo.url}
+                  src={ttdaLogo}
                   alt="TTDA London Logo"
                   className="h-16 md:h-20 w-auto object-contain"
                 />
