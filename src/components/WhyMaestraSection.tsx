@@ -40,6 +40,33 @@ const WhyMaestraSection = () => {
             </p>
           </AnimatedSection>
 
+          {/* Short intro video - autoplay loop, no controls */}
+          <AnimatedSection delay={0.18}>
+            <div className="max-w-2xl mx-auto relative">
+              <div className="absolute -inset-[2px] rounded-2xl overflow-hidden">
+                <div
+                  className="absolute inset-0 animate-[spin_4s_linear_infinite]"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, transparent 0%, transparent 85%, hsl(280 50% 65%) 91%, hsl(272 50% 80%) 94%, hsl(280 50% 65%) 97%, transparent 100%)",
+                  }}
+                />
+              </div>
+              <div className="absolute inset-[2px] rounded-[14px] bg-lavender" />
+              <div className="relative aspect-video rounded-2xl overflow-hidden">
+                <video
+                  className="w-full h-full object-cover"
+                  src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/maestra.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
+            </div>
+          </AnimatedSection>
+
           <AnimatedSection delay={0.2}>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               هو منهج متكامل صُمم ليأخذك في رحلة واضحة ومتدرجة، من فهم الجذور والأنماط التي تقودك، إلى بناء هوية أكثر وعيًا، وحدود وحضور وعلاقات أكثر اتساقًا، وصولًا إلى قيادة نفسك وحياتك من مكان مختلف.
