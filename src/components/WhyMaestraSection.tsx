@@ -16,9 +16,15 @@ const WhyMaestraSection = () => {
 
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <AnimatedSection delay={0.1}>
-            <p className="text-xl md:text-2xl font-bold text-foreground leading-relaxed">
-              المايسترا أكثر من برنامج للتطوير الذاتي…
-            </p>
+            <div className="flex items-center justify-center gap-3">
+              <Sparkles
+                className="w-6 h-6 md:w-7 md:h-7 shrink-0"
+                style={{ color: "hsl(45 95% 60%)" }}
+              />
+              <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">
+                المايسترا أكثر من برنامج للتطوير الذاتي…
+              </p>
+            </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
@@ -26,8 +32,9 @@ const WhyMaestraSection = () => {
               منهج متكامل ومعتمد للقيادة الذاتية والسيادة الشخصية.
             </p>
             <p
-              className="text-base md:text-lg font-medium mt-2"
-              style={{ color: "hsl(45 95% 60%)" }}
+              className="text-base md:text-lg font-semibold mt-3 tracking-wide"
+              dir="ltr"
+              style={{ color: "hsl(45 95% 55%)" }}
             >
               The Maestra Method™️ in Self-Leadership & Personal Mastery
             </p>
@@ -58,12 +65,19 @@ const WhyMaestraSection = () => {
 
           <AnimatedSection delay={0.3}>
             <div className="bg-card/60 border border-border/40 rounded-2xl p-6 md:p-8 shadow-purple-lg">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
-                ماذا يعني ذلك لكِ؟
-              </h3>
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <ShieldCheck
+                  className="w-6 h-6 shrink-0"
+                  style={{ color: "hsl(45 95% 60%)" }}
+                />
+                <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                  ماذا يعني ذلك لكِ؟
+                </h3>
+              </div>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 يعني أنكِ لا تنضمين إلى مجموعة عشوائية من الفيديوهات أو الجلسات التحفيزية.
-                <br />
+              </p>
+              <p className="text-base md:text-lg text-foreground font-semibold leading-relaxed mt-3">
                 أنتِ تدخلين منهجًا له هيكل واضح، ومراحل مترابطة، ومحتوى تدريبي تمت مراجعته خارجيًا ضمن عملية الاعتماد.
               </p>
             </div>
@@ -74,12 +88,20 @@ const WhyMaestraSection = () => {
               فالرحلة التي تدخلينها اليوم تجمع بين:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              <div className="bg-primary/10 border border-primary/20 rounded-xl p-5">
+              <div className="bg-primary/10 border border-primary/20 rounded-xl p-5 flex items-center gap-3 text-right">
+                <Compass
+                  className="w-7 h-7 shrink-0"
+                  style={{ color: "hsl(45 95% 60%)" }}
+                />
                 <p className="text-foreground font-semibold leading-relaxed">
                   عمق التحول الشخصي الذي بُنيت عليه مايسترا منذ البداية
                 </p>
               </div>
-              <div className="bg-primary/10 border border-primary/20 rounded-xl p-5">
+              <div className="bg-primary/10 border border-primary/20 rounded-xl p-5 flex items-center gap-3 text-right">
+                <Layers
+                  className="w-7 h-7 shrink-0"
+                  style={{ color: "hsl(45 95% 60%)" }}
+                />
                 <p className="text-foreground font-semibold leading-relaxed">
                   هيكل تدريبي منظم يحمل اعتمادًا خارجيًا
                 </p>
@@ -121,15 +143,21 @@ const WhyMaestraSection = () => {
 
           <AnimatedSection delay={0.5}>
             <div className="bg-gradient-to-r from-primary/20 to-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8">
-              <p className="text-lg md:text-xl font-bold text-foreground mb-2">
-                وعند إتمام البرنامج
-              </p>
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Award
+                  className="w-7 h-7 shrink-0"
+                  style={{ color: "hsl(45 95% 60%)" }}
+                />
+                <p className="text-lg md:text-xl font-bold text-foreground">
+                  وعند إتمام البرنامج
+                </p>
+              </div>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 تحصلين على شهادة{" "}
                 <span className="font-bold" style={{ color: "hsl(45 95% 60%)" }}>
                   TTDA Global
-                </span>
-                .
+                </span>{" "}
+                المعتمدة دوليًا.
               </p>
             </div>
           </AnimatedSection>
