@@ -2,6 +2,7 @@ import AnimatedSection from "./AnimatedSection";
 import FloatingDots from "./FloatingDots";
 import { Award, Compass, Layers, ShieldCheck, Sparkles } from "lucide-react";
 import ttdaLogo from "@/assets/ttda-logo.png";
+import maestraVideo from "@/assets/maestra.mp4.asset.json";
 
 const WhyMaestraSection = () => {
   return (
@@ -56,7 +57,7 @@ const WhyMaestraSection = () => {
               <div className="relative aspect-video rounded-2xl overflow-hidden">
                 <video
                   className="w-full h-full object-cover"
-                  src="https://imfwxvqugmawiqwlahce.supabase.co/storage/v1/object/public/abeer%20video/maestra.mp4"
+                  src={maestraVideo.url}
                   autoPlay
                   loop
                   muted
