@@ -77,7 +77,7 @@ const WhyMaestraSection = () => {
           <AnimatedSection delay={0.25}>
             <div className="flex flex-col items-center gap-4 py-4">
               <p className="text-base md:text-lg text-foreground font-semibold leading-relaxed">
-                و هو منهج تدريبيًا معتمدًا من{" "}
+                و هو منهج تدريبي معتمد من{" "}
                 <span style={{ color: "hsl(45 95% 60%)" }}>TTDA Global</span> –
                 الأكاديمية البريطانية للتعليم والتدريب
               </p>
